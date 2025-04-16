@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.menuTemplate')
 
 @section('title')
   Daftar Makanan
