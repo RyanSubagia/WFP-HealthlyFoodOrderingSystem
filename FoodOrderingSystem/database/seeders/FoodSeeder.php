@@ -35,6 +35,17 @@ class FoodSeeder extends Seeder
                 'description' => 'Nikmati hidangan sehat dan lezat dengan Nasi Hitam yang kaya serat.',
                 'price' => 35000,
                 'category_id' => 2,
+            ],
+            [
+                'name' => 'Sushi',
+                'nutrition_fact' => 'Kalori: 400-550 kkal
+                            Protein: 30-40 gram
+                            Lemak: 15-25 gram
+                            Karbohidrat: 50-70 gram
+                            Serat: 5-8 gram',
+                'description' => 'Nikmati hidangan sehat dan lezat yang praktis.',
+                'price' => 35000,
+                'category_id' => 2,
             ]
         ]);
     }

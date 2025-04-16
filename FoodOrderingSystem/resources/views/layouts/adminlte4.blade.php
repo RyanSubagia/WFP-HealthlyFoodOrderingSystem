@@ -303,7 +303,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ route('listmakanan.index')}}" class="nav-link @yield('makanan')">
+                    <a href="{{ route('p.index')}}" class="nav-link @yield('makanan')">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Daftar Makanan</p>
                     </a>

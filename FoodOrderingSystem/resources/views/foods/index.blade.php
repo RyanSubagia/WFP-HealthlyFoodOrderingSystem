@@ -10,7 +10,7 @@
 </head>
 <body>
    <div class="container">  --}}
-@extends('layouts.adminlte4')
+@extends('layouts.template')
   
 @section('title')
   Daftar Makanan
