@@ -75,6 +75,22 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
+                            <img src="{{ asset('img/yansu.png') }}" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="team-info text-center">
+                            <h5 class="member-name fw-bold">Ryan S.</h5>
+                            <p class="member-position text-muted small">160422024</p>
+                            <div class="social-icons">
+                                <a href="https://www.instagram.com/yan_su28/" class="text-decoration-none"><i class="bi bi-instagram"></i> yan_su28</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Member 2 -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                    <div class="team-card bg-white rounded shadow-sm p-3">
+                        <div class="team-image mb-3">
                             <img src="{{ asset('img/nadya.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
@@ -87,39 +103,7 @@
                     </div>
                 </div>
                 
-                <!-- Member 2 -->
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                    <div class="team-card bg-white rounded shadow-sm p-3">
-                        <div class="team-image mb-3">
-                            <img src="{{ asset('img/arvin.png') }}" alt="Team Member" class="img-fluid rounded-circle">
-                        </div>
-                        <div class="team-info text-center">
-                            <h5 class="member-name fw-bold">Arvin T.</h5>
-                            <p class="member-position text-muted small">160822003</p>
-                            <div class="social-icons">
-                                <a href="https://www.instagram.com/arvfin/" class="text-decoration-none"><i class="bi bi-instagram"></i> arvfin</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
                 <!-- Member 3 -->
-                <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                    <div class="team-card bg-white rounded shadow-sm p-3">
-                        <div class="team-image mb-3">
-                            <img src="{{ asset('img/michelle.png') }}" alt="Team Member" class="img-fluid rounded-circle">
-                        </div>
-                        <div class="team-info text-center">
-                            <h5 class="member-name fw-bold">Michelle A.</h5>
-                            <p class="member-position text-muted small">160822008</p>
-                            <div class="social-icons">
-                                <a href="https://www.instagram.com/_michelleee_.7/" class="text-decoration-none"><i class="bi bi-instagram"></i> _michelleee_.7</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member 4 -->
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
@@ -135,17 +119,33 @@
                     </div>
                 </div>
                 
+                <!-- Member 4 -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                    <div class="team-card bg-white rounded shadow-sm p-3">
+                        <div class="team-image mb-3">
+                            <img src="{{ asset('img/arvin.png') }}" alt="Team Member" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="team-info text-center">
+                            <h5 class="member-name fw-bold">Arvin T.</h5>
+                            <p class="member-position text-muted small">160822003</p>
+                            <div class="social-icons">
+                                <a href="https://www.instagram.com/arvfin/" class="text-decoration-none"><i class="bi bi-instagram"></i> arvfin</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Member 5 -->
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/yansu.png') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/michelle.png') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
-                            <h5 class="member-name fw-bold">Ryan S.</h5>
-                            <p class="member-position text-muted small">160422024</p>
+                            <h5 class="member-name fw-bold">Michelle A.</h5>
+                            <p class="member-position text-muted small">160822008</p>
                             <div class="social-icons">
-                                <a href="https://www.instagram.com/yan_su28/" class="text-decoration-none"><i class="bi bi-instagram"></i> yan_su28</a>
+                                <a href="https://www.instagram.com/_michelleee_.7/" class="text-decoration-none"><i class="bi bi-instagram"></i> _michelleee_.7</a>
                             </div>
                         </div>
                     </div>
