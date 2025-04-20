@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('customized', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->float('tambahan_biaya', 8, 2);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('customized');
     }
 };

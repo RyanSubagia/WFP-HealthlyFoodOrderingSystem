@@ -132,7 +132,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="team-card">
                         <div class="team-image">
-                            <img src="{{ asset('img/dzaki.png') }}" alt="Team Member" class="img-fluid" >
+                            <img src="{{ asset('img/dzaki.jpg') }}" alt="Team Member" class="img-fluid" >
                         </div>
                         <div class="team-info">
                             <br>
