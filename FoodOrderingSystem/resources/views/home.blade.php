@@ -1,12 +1,12 @@
 @extends('layouts/main')
 
 @section('container')
-  <section class="hero-section">
+  <section class="hero-section pt-5 mt-5">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 pt-1">
           <div class="hero-content">
-            <h1 class="hero-title extra-bold">
+            <h1 class="hero-title fw-bold">
               Enjoy Delicious <br>
               Healthy Sushi <br>
               Near You  
@@ -15,10 +15,10 @@
               To provide fresh ingredients, expertly prepared dishes, and nutritious options to fuel your day.
             </p>
             <div class="hero-buttons mt-4">
-              <a href="#" class="btn btn-primary btn-dine-in me-3">
+              <a href="#" class="btn me-3 dine-in-btn">
                 <i class="bi bi-cup-hot me-2"></i>Dine-In
               </a>
-              <a href="#" class="btn btn-outline-secondary btn-takeaway">
+              <a href="#" class="btn takeaway-btn">
                 <i class="bi bi-bag me-2"></i>Takeaway
               </a>
             </div>
@@ -35,13 +35,11 @@
 
   <section class="features-section py-5">
     <div class="container">
-      <div class="row">
+      <div class="row g-4"> <!-- Added g-4 for proper gutters -->
         <div class="col-md-4">
-          <div class="feature-card text-center p-4">
-            <div class="feature-icon-wrapper">
-              <div class="feature-icon">
-                <i class="bi bi-stopwatch-fill"></i>
-              </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">
+              <i class="bi bi-stopwatch-fill"></i>
             </div>
             <h3 class="feature-title">Fast Delivery</h3>
             <p class="feature-text">Get your meals delivered quickly and efficiently. We prioritize speed without compromising on quality, ensuring your food arrives fresh and hot.</p>
@@ -49,11 +47,9 @@
         </div>
         
         <div class="col-md-4">
-          <div class="feature-card text-center p-4">
-            <div class="feature-icon-wrapper">
-              <div class="feature-icon">
-                <i class="bi bi-stars"></i>
-              </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">
+              <i class="bi bi-stars"></i>
             </div>
             <h3 class="feature-title">Clean and Safe</h3>
             <p class="feature-text">Your health is our priority. We follow strict hygiene and safety standards to ensure your meals are prepared and delivered with the utmost care.</p>
@@ -61,11 +57,9 @@
         </div>
         
         <div class="col-md-4">
-          <div class="feature-card text-center p-4">
-            <div class="feature-icon-wrapper">
-              <div class="feature-icon">
-                <i class="bi bi-flower2"></i>
-              </div>
+          <div class="feature-card text-center">
+            <div class="feature-icon">
+              <i class="bi bi-flower2"></i>
             </div>
             <h3 class="feature-title">Fresh Ingredients</h3>
             <p class="feature-text">We use only the freshest ingredients in all our dishes. Our commitment to quality means every bite is packed with flavor and nutrition.</p>
@@ -101,10 +95,9 @@
                  one delicious dish at a time. With a dedication to quality ingredients and culinary innovation, 
                  we invite you to join us on this flavorful adventure. Welcome to YumGo, 
                  where every bite tells a story of passion, flavor, and the joy of shared meals.
-
               </p>
               
-              <a href="/about" class="btn btn-primary mt-3">Learn more about us</a>
+              <a href="/about" class="btn btn-primary mt-3" style="background-color: #F58232;" >Learn more about us</a>
             </div>
           </div>
         </div>
