@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreign('transaksi_id')->references('id')->on('transaksi');
             $table->foreign('foods_id')->references('id')->on('foods');
-            $table->int('qty');
+            $table->integer('qty');
             $table->timestamps();
         });
     }
