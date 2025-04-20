@@ -145,7 +145,7 @@
                             <h5 class="member-name fw-bold">Ryan S.</h5>
                             <p class="member-position text-muted small">160422024</p>
                             <div class="social-icons">
-                                <a href="https://www.instagram.com/yna_su28/" class="text-decoration-none"><i class="bi bi-instagram"></i> yan_su28</a>
+                                <a href="https://www.instagram.com/yan_su28/" class="text-decoration-none"><i class="bi bi-instagram"></i> yan_su28</a>
                             </div>
                         </div>
                     </div>
