@@ -15,11 +15,11 @@ return new class extends Migration
             $table->unsignedBigInteger('transaksi_id');
             $table->unsignedBigInteger('foods_id');
 
-            $table->id();
-            $table->foreign('transaksi_id')->references('id')->on('transaksi');
-            $table->foreign('foods_id')->references('id')->on('foods');
-            $table->int('qty');
+            $table->foreign('transaksi_id')->references('id')->on('transaksi')->onDelete('cascade');
+            $table->foreign('foods_id')->references('id')->on('foods')->onDelete('cascade');
+            $table->integer('qty');
             $table->timestamps();
+            $table->primary(['transaksi_id', 'foods_id']);
         });
     }
 

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('payments_id');
             $table->unsignedBigInteger('users_id');
 
+            $table->float('total');
+            $table->dateTime('tgl_Pemesanan');
             $table->string('no_meja');
             $table->enum('metode_Pemesanan', ['Dine-In', 'Take-Away']);
             $table->foreign('payments_id')->references('id')->on('payments');

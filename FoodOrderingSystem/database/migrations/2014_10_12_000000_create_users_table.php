@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->float('poin_royalty');
+            $table->enum('role', ['admin', 'customer']);
+
         });
     }
 

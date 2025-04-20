@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('daftar_customized_product', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('daftar_Pesanan_transactions_id');
             $table->unsignedBigInteger('daftar_Pesanan_foods_id');
             $table->unsignedBigInteger('idcustomized');
@@ -30,7 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('daftar_customized_product', function (Blueprint $table) {
-            $table->dropColumn('id');
             $table->dropForeign(['daftar_Pesanan_transactions_id','daftar_Pesanan_foods_id','idcustomized']);
         });
     }
