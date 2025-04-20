@@ -7,14 +7,14 @@
 </head>
 <body>
     <div class="container"> --}}
-@extends('layouts.adminlte4')
+@extends('layouts.main')
 
 @section('title')
 Detail Menu
 @endsection
 
-@section('content')
-<a href="{{ route('listmakanan.index')}}"> < Back </a>
+@section('container')
+<a href="{{ route('menu.index')}}"> < Back </a>
         <h2>{{$current_food->name}}</h2>
         <h3>{{$current_food->description}}</h3>
         <h5>{{$current_food->nutrition_fact}}</h5>

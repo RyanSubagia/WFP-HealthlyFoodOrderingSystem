@@ -13,31 +13,11 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //RAAW
-        // $foods = DB::select("select * from foods");
-        //var_dump($foods);exit;
-        // print_r($foods);exit;
-        // dd($foods);
-
-        //Queery Builder
-        // $allFoods = DB::table("foods")->get();
-        // dd($allFoods);
-
         //Eloquent
         $foods = Food::all();
-        // $foods = $foods->sortBy('price');
-        // dd($foods);
-        //dd cuma ada di laravel
-
-        // coba" di kelas
-        // $data1 = Food::where('id',1)->get();
-        // $data1 = Food::find(1);
-        // dd($data1);
 
         //method 1
         return view('foods.index',compact('foods'));
-        //method 2
-        // return view('foods.index',['foods'=>$foods]);
     }
 
     /**

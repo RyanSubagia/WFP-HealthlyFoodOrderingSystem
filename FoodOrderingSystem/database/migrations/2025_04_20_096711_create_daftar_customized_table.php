@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('daftar_Pesanan_foods_id');
             $table->unsignedBigInteger('idcustomized');
             
-            $table->foreign('daftar_Pesanan_transactions_id')->references('transaksi_id')->on('daftar_Pesanan');
+            $table->foreign('daftar_Pesanan_transactions_id')->references('transactions_id')->on('daftar_Pesanan');
             $table->foreign('daftar_Pesanan_foods_id')->references('foods_id')->on('daftar_Pesanan');
             $table->foreign('idcustomized')->references('id')->on('customized');
             $table->timestamps();

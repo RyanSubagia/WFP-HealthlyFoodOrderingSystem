@@ -23,9 +23,9 @@
         <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
           <h5 class="text-dark mb-4">Quick Links</h5>
           <ul class="list-unstyled">
-            <li class="mb-2"><a href="/" class="text-decoration-none text-muted">Home</a></li>
-            <li class="mb-2"><a href="/menu" class="text-decoration-none text-muted">Menu</a></li>
-            <li class="mb-2"><a href="/about" class="text-decoration-none text-muted">About Us</a></li>
+            <li class="mb-2"><a href="{{ route('home')}}" class="text-decoration-none text-muted">Home</a></li>
+            <li class="mb-2"><a href="{{ route('menu.index')}}" class="text-decoration-none text-muted">Menu</a></li>
+            <li class="mb-2"><a href="{{ route('about')}}" class="text-decoration-none text-muted">About Us</a></li>
             <li class="mb-2"><a href="/contact" class="text-decoration-none text-muted">Contact</a></li>
           </ul>
         </div>

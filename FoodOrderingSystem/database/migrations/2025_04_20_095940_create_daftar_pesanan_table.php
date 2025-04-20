@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('daftar_pesanan', function (Blueprint $table) {
-            $table->unsignedBigInteger('transaksi_id');
+            $table->unsignedBigInteger('transactions_id');
             $table->unsignedBigInteger('foods_id');
 
-            $table->foreign('transaksi_id')->references('id')->on('transaksi')->onDelete('cascade');
+            $table->foreign('transactions_id')->references('id')->on('transactions')->onDelete('cascade');
             $table->foreign('foods_id')->references('id')->on('foods')->onDelete('cascade');
             $table->integer('qty');
             $table->timestamps();
-            $table->primary(['transaksi_id', 'foods_id']);
+            $table->primary(['transactions_id', 'foods_id']);
         });
     }
 
@@ -31,7 +31,7 @@ return new class extends Migration
         Schema::table('daftar_pesanan', function (Blueprint $table) {
             $table->dropColumn(['id']);
 
-            $table->dropForeign(['transaksi_id','foods_id']);
+            $table->dropForeign(['transactions_id','foods_id']);
         });
     }
 };

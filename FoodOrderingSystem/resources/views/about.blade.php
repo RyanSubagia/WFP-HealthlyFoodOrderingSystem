@@ -1,5 +1,9 @@
 @extends('layouts/main')
 
+@section('title')
+About
+@endsection
+
 @section('container')
     <section class="about-hero">
         <div class="container">

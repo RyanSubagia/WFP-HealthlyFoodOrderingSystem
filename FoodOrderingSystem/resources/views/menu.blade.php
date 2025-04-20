@@ -1,6 +1,11 @@
-@extends('layouts/main')
+{{-- @extends('layouts/main') --}}
+@extends('layouts.adminlte4')
 
-@section('container')
+@section('title')
+Menu
+@endsection
+
+@section('content')
 <h1> Halaman Menu </h1>
 @endsection
 

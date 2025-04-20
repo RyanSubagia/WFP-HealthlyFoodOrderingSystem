@@ -1,4 +1,9 @@
-@extends('layouts/main')
+{{-- @extends('layouts.main') --}}
+@extends('layouts.adminlte4')
+
+@section('title')
+Home
+@endsection
 
 @section('container')
   <section class="hero-section pt-5 mt-5">
@@ -97,7 +102,7 @@
                  where every bite tells a story of passion, flavor, and the joy of shared meals.
               </p>
               
-              <a href="/about" class="btn btn-primary mt-3" style="background-color: #F58232;" >Learn more about us</a>
+              <a href="{{ route('about')}}" class="btn btn-primary mt-3" style="background-color: #F58232;" >Learn more about us</a>
             </div>
           </div>
         </div>

@@ -16,13 +16,13 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item mx-3">
-                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/">Home</a>
+                    <a href="{{ route('home')}}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link {{ $title === 'Menu' ? 'active' : '' }}" href="/menu">Menu</a>
+                    <a href="{{ route('menu.index')}}" class="nav-link @yield('makanan')">Menu</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a class="nav-link {{ $title === 'About' ? 'active' : '' }}" href="/about">About Us</a>
+                    <a href="{{ route('about')}}" class="nav-link">About Us</a>
                 </li>
             </ul>
 

@@ -1,4 +1,5 @@
-@extends('layouts.menuTemplate')
+{{-- @extends('layouts.main') --}}
+@extends('layouts.adminlte4')
 
 @section('title')
   Daftar Makanan
@@ -8,7 +9,7 @@
 active
 @endsection
 
-@section('content')
+@section('container')
   <table class="table table-hover">
     <thead>
       <tr>
@@ -24,7 +25,7 @@ active
         @foreach ($foods as $f)
         <tr>
             <td>{{ $f->id }}</td>
-            <td> <a href="{{ route('listmakanan.show', $f->id) }}">{{ $f->name }} </a></td>
+            <td> <a href="{{ route('menu.show', $f->id) }}">{{ $f->name }} </a></td>
             <td>{{ $f->category->name}}</td>
             <td>{{ $f->description }}</td>
             <td>{{ $f->nutrition_fact }}</td>

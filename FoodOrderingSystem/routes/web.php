@@ -6,6 +6,12 @@
 // use App\Http\Controllers\PhotoController;
 // use App\Http\Controllers\TransactionController;
 // use App\Models\Category;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,36 +25,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home",
-    ]);
-});
-
-Route::get('/menu', function () {
-    return view('menu', [
-        "title" => "Menu",
-    ]);
-});
-
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About",
-    ]);
-});
-// Route::get('/', function() {
-//     return view('welcome');
-// })->name('home');
-
-// Route::view('/profile', 'welcome');
-
-// Route::get('user/{uname?}', function($uname){
-//     return 'User ber-id = '.$uname;
+// Route::get('/', function () {
+//     return view('home', [
+//         "title" => "Home",
+//     ]);
 // });
 
-// Route::get('user/{uname?}/{gender}', function($uname,$gender){
-//     return 'Halo, '.$uname."(".$gender.")";
+// Route::get('/menu', function () {
+//     return view('menu', [
+//         "title" => "Menu",
+//     ]);
 // });
+Route::get('/', function() {
+    return view('home');
+})->name('home');
+
+Route::get('/about', function() {
+    return view('about');
+})->name('about');
 
 // // BASE_URL/welcome 🡪 beri text “Selamat Datang”
 // // BASE_URL/before_order 🡪 beri text “Pilih DINE-IN atau Take Away”
@@ -61,37 +55,8 @@ Route::get('/about', function () {
 // // BASE_URL/admin/members/ 🡪 beri text “Portal Manajemen: Daftar Member”
 
 
-// Route::get('/home', function () {
-//     return view('home');
-// });
-
-// Route::get('before_order', function () {
-//     return view('before_order');
-// });
-
-// Route::get('menu/{order}', function ($order) {
-//     if($order == 'dinein'){
-//         return 'Daftar menu Dine-In';
-//     }
-//     else if($order == 'takeaway'){
-//         return 'Daftar menu Take-Away';
-//     }
-// })->name('menu');
-
-// Route::get('/admin/categories', function () {
-//     return 'Portal Manajemen: Daftar Kategori';
-// });
-
-// Route::get('/admin/order', function () {
-//     return 'Portal Manajemen: Daftar Order';
-// });
-
-// Route::get('/admin/members', function () {
-//     return 'Portal Manajemen: Daftar Member';
-// });
-
-// Route::resource('daftarfoto',PhotoController::class);
-// Route::resource('listmakanan',FoodController::class);
-// Route::resource('listkategori',CategoryController::class);
-// Route::resource('listcustomer',CustomerController::class);
-// Route::resource('listtransaksi',TransactionController::class);
+Route::resource('daftarfoto',PhotoController::class);
+Route::resource('menu',FoodController::class);
+Route::resource('listkategori',CategoryController::class);
+Route::resource('listcustomer',UserController::class);
+Route::resource('listtransaksi',TransactionController::class);

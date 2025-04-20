@@ -23,27 +23,38 @@
 active
 @endsection
 
-@section('content')
+@section('container')
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        @extends('layouts.adminlte4')
+
+@section('title')
+  Daftar Pelanggan
+  @endsection
+
+@section('customer')
+active
+@endsection
+
+@section('container')
   <table class="table table-hover">
     <thead>
       <tr>
         <th>ID</th>
         <th>Nama</th>
-        <th>Makanan</th>
-        <th>Harga</th>
       </tr>
     </thead>
     <tbody>
-        {{-- @foreach ($foods as $f)
+        @foreach ($user as $u)
         <tr>
-            <td>{{ $f->id }}</td>
-            <td>{{ $f->name }}</td>
-            <td>{{ $f->category_id }}</td>
-            <td>{{ $f->description }}</td>
-            <td>{{ $f->nutrition_fact }}</td>
-            <td>{{ $f->price }}</td>
+            <td>{{ $u->id }}</td>
+            <td>{{ $u->name }}</td>
         </tr>
-        @endforeach --}}
+        @endforeach
+    </tbody>
+  </table>
+@endsection
     </tbody>
   </table>
 @endsection
