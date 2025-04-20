@@ -15,7 +15,7 @@ class TransactionSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('transaksi')->insert([
+        DB::table('transactions')->insert([
             [
                 'payments_id' => 1, // Bank Mandiri Debit
                 'users_id' => 1, // John Doe
