@@ -15,7 +15,7 @@
       @foreach ($foods as $f)
         <div class="col-md-4 mb-4">
           <div class="card h-100" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">
-            <img src="{{ asset('storage/foods/ChukaWakameSushi.png') }}" class="card-img-top" alt="{{ $f->name }}">
+            <img src="{{ asset($f->image ?? 'img/menu_sushi/default.jpg') }}" class="card-img-top" alt="{{ $f->name }}">
             <div class="card-body">
               <h5 class="card-title">{{ $f->name }}</h5>
               <p class="card-text">
