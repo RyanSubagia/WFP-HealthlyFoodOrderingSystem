@@ -66,4 +66,16 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function showHighestFoods() {
+        $highestFoodCategory = Category::withCount('foods')
+        ->orderByDesc('foods_count')
+        ->first(); 
+    
+        return response()->json(array(
+                'status' => 'oke',
+                'msg' => "<div class='alert alert-danger'>
+                The highest amount of food is  <b>".$highestFoodCategory->name."</b></div>"
+            ), 200);
+    }
 }

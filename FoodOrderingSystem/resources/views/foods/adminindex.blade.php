@@ -10,30 +10,23 @@ active
 @endsection
 
 @section('container')
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Makanan</th>
-        <th>Nama Kategori</th>
-        <th>Deskripsi</th>
-        <th>Nutrisi</th>
-        <th>Harga</th>
-      </tr>
-    </thead>
-    <tbody>
-        @foreach ($foods as $f)
-        <tr>
-            <td>{{ $f->id }}</td>
-            <td> <a href="{{ route('menu.show', $f->id) }}">{{ $f->name }} </a></td>
-            <td>{{ $f->category->name}}</td>
-            <td>{{ $f->description }}</td>
-            <td>{{ $f->nutrition_fact }}</td>
-            <td>{{ $f->price }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
+<p>The <a href="#" onclick="showinfo()">.table-hover</a> class enables a hover state on table rows. The highest amount of food is <a href="#" onclick="showinfo()">click here!</a></p>
+  <div id="showinfo"></div>
+
+  @push("script")
+      <script>
+        function showinfo() {
+          $.ajax({
+            type: 'POST',
+            url: '{{ route("category.showHighestFoods") }}',
+            data: '_token=<?php echo csrf_token(); ?>',
+            success: function(data) {
+              $('#showinfo').html(data.msg);
+            }
+          });
+        }
+      </script>
+    @endpush
 @endsection
 {{-- </div>
 </body>

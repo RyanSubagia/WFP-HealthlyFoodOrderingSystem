@@ -65,3 +65,4 @@ Route::resource('menu',FoodController::class);
 Route::resource('listkategori',CategoryController::class);
 Route::resource('listcustomer',UserController::class);
 Route::resource('listtransaksi',TransactionController::class);
+Route::post("/category/showHighestFoods",[CategoryController::class, 'showHighestFoods'])->name("category.showHighestFoods");
