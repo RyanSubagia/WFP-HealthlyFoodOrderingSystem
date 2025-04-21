@@ -9,9 +9,9 @@
 @endsection
 
 @section('container')
-<div class="container-fluid">
-  <h2 class="mb-4">Pilih Menu Makanan</h2>
-  <div class="row">
+<div class="container py-4" >
+  <h2 class="mb-4 ">Pilih Menu Makanan</h2>
+  <div class="row" >
     @foreach ($foods as $f)
       <div class="col-md-4 mb-4">
         <div class="card h-100 shadow" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">

@@ -71,12 +71,13 @@ Route::post("/category/showHighestFoods",[CategoryController::class, 'showHighes
 Route::get('/admin/dashboard', function() {
     return view('admin.dashboard.index');
 })->name('dashboardAdmin');
-Route::get('/admin/dashboard', function() {
+
+Route::get('/admin/loyalty', function() {
     return view('admin.loyalty.index');
 })->name('loyaltyAdmin');
-Route::get('/admin/dashboard', function() {
+
+Route::get('/admin/order', function() {
     return view('admin.order.index');
 })->name('orderAdmin');
-Route::get('/admin/dashboard', function() {
-    return view('admin.pruducts.index');
-})->name('pruductsAdmin');
+
+Route::get('/admin/products', [FoodController::class,"DetailProduct"])->name('pruductsAdmin');

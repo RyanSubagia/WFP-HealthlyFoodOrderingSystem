@@ -68,4 +68,9 @@ class FoodController extends Controller
     {
         //
     }
+    public function DetailProduct(Food $food)
+    {
+        $prod = Food::all();
+        return view("admin.products.index",["food" => $prod]);
+    }
 }
