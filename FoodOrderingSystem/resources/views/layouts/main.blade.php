@@ -21,8 +21,11 @@
 
 <body>
 
-    @include('partials.navigasi')
-
+    @if (Request::is('admin*'))
+        @include('partials.sidebar')
+    @else
+        @include('partials.navigasi')
+    @endif
 
     <div class="container mt-4">
         {{-- dijadikan container tujuannya cuman tinggal dipanggil" aja di halaman lain --}}
