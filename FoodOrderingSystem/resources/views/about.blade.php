@@ -80,7 +80,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/yansu.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/member/yansu.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
                             <h5 class="member-name fw-bold">Ryan S.</h5>
@@ -96,7 +96,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/nadya.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/member/nadya.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
                             <h5 class="member-name fw-bold">Nadya E.</h5>
@@ -112,7 +112,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/dzaki.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/member/dzaki.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
                             <h5 class="member-name fw-bold">M. Dzakiy</h5>
@@ -128,7 +128,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/arvin.png') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/member/arvin.png') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
                             <h5 class="member-name fw-bold">Arvin T.</h5>
@@ -144,7 +144,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/michelle.png') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/member/michelle.png') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
                             <h5 class="member-name fw-bold">Michelle A.</h5>
