@@ -178,27 +178,34 @@
 
 /* Button styling to match Image 2 */
 .dine-in-btn {
-    background-color: #e15b55; /* Red color */
+    background-color: #F58232; /* Orange color matching the image */
     color: white;
     padding: 12px 25px;
-    border-radius: 50px; /* Fully rounded buttons */
-    font-weight: 500;
+    border-radius: 50px; /* Fully rounded corners */
+    font-weight: 600;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 3px 10px rgba(225, 91, 85, 0.3);
+    box-shadow: 0 3px 10px rgba(245, 130, 50, 0.3);
 }
+
 .dine-in-btn:hover {
-    background-color: #d04a44;
+    background-color: #e67321; /* Slightly darker orange on hover */
     color: white;
     transform: translateY(-2px);
 }
 
+/* For the icon inside the button */
+.dine-in-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
 .takeaway-btn {
-    border: 1px solid #e15b55; /* Red outline */
-    color: #e15b55;
+    border: 2px solid #F58232; /* Orange outline matching Image 1 */
+    color: #F58232;
     padding: 12px 25px;
     border-radius: 50px; /* Fully rounded buttons */
     font-weight: 500;
@@ -210,7 +217,7 @@
 }
 
 .takeaway-btn:hover {
-    background-color: rgba(225, 91, 85, 0.1);
+    background-color: rgba(245, 130, 50, 0.1);
     transform: translateY(-2px);
 }
 
