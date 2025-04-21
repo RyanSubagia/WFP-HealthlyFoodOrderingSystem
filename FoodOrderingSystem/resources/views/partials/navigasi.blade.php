@@ -3,7 +3,7 @@
     <div class="container">
         <!-- Logo on left -->
         <a class="navbar-brand" href="/">
-            <img src="img/logo.png" alt="Logo" style="height: 50px;">
+            <img src="img/logoNavigasi.png" alt="Logo" style="height: 35px;">
         </a>
 
         <!-- Hamburger menu for mobile -->
@@ -25,8 +25,11 @@
                     <a href="{{ route('listcustomer.index')}}" class="nav-link @yield('customer')">Customer</a>
                 </li>
                 {{-- <li class="nav-item mx-3">
-                    <a href="{{ route('about')}}" class="nav-link">About Us</a>
+                    <a href="{{ route('listkategori.index')}}" class="nav-link @yield('customer')">Kategori</a>
                 </li> --}}
+                <li class="nav-item mx-3">
+                    <a href="{{ route('about')}}" class="nav-link">About Us</a>
+                </li>
             </ul>
 
             <!-- Login button or user greeting -->
