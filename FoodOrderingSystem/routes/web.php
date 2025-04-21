@@ -41,7 +41,7 @@ Route::get('/', function() {
 })->name('home');
 
 Route::get('/admin', function() {
-    return view('foods.adminindex');
+    return view('admin.index');
 })->name('admin');
 
 

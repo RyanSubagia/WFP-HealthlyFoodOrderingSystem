@@ -20,17 +20,20 @@
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            @if (Request::is('admin*'))
+                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                    @include('partials.sidebar')
+                </div>
+            @endif
 
-    @if (Request::is('admin*'))
-        @include('partials.sidebar')
-    @else
-        @include('partials.navigasi')
-    @endif
-
-    <div class="container mt-4">
-        {{-- dijadikan container tujuannya cuman tinggal dipanggil" aja di halaman lain --}}
-        @yield('container')
-        @stack('modals')
+            <div class="col py-3">
+                {{-- dijadikan container tujuannya cuman tinggal dipanggil" aja di halaman lain --}}
+                @yield('container')
+                @stack('modals')
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
