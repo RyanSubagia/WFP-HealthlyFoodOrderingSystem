@@ -20,13 +20,14 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            @if (Request::is('admin*'))
-                <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                    @include('partials.sidebar')
-                </div>
-            @endif
+        @if (Request::is('admin*'))
+            @include('partials.sidebar')
+        @else
+            @include('partials.navigasi')
+        @endif
 
             <div class="col py-3">
                 {{-- dijadikan container tujuannya cuman tinggal dipanggil" aja di halaman lain --}}
@@ -36,6 +37,7 @@
         </div>
     </div>
 
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

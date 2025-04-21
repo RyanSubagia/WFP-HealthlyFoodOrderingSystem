@@ -66,3 +66,17 @@ Route::resource('listkategori',CategoryController::class);
 Route::resource('listcustomer',UserController::class);
 Route::resource('listtransaksi',TransactionController::class);
 Route::post("/category/showHighestFoods",[CategoryController::class, 'showHighestFoods'])->name("category.showHighestFoods");
+
+
+Route::get('/admin/dashboard', function() {
+    return view('admin.dashboard.index');
+})->name('dashboardAdmin');
+Route::get('/admin/dashboard', function() {
+    return view('admin.loyalty.index');
+})->name('loyaltyAdmin');
+Route::get('/admin/dashboard', function() {
+    return view('admin.order.index');
+})->name('orderAdmin');
+Route::get('/admin/dashboard', function() {
+    return view('admin.pruducts.index');
+})->name('pruductsAdmin');

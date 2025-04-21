@@ -6,27 +6,27 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link text-white sidebar-link active">
+            <a href="{{ route('home')}}" class="nav-link text-white sidebar-link active">
                 <i class="bi bi-house-door me-2"></i> Home
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white sidebar-link">
+            <a href="{{ route('home')}}" class="nav-link text-white sidebar-link">
                 <i class="bi bi-speedometer2 me-2"></i> Dashboard
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white sidebar-link">
+            <a href="{{ route('home')}}" class="nav-link text-white sidebar-link">
                 <i class="bi bi-table me-2"></i> Orders
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white sidebar-link">
+            <a href="{{ route('home')}}" class="nav-link text-white sidebar-link">
                 <i class="bi bi-box-seam me-2"></i> Products
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white sidebar-link">
+            <a href="{{ route('home')}}" class="nav-link text-white sidebar-link">
                 <i class="bi bi-people me-2"></i> Loyalty
             </a>
         </li>
