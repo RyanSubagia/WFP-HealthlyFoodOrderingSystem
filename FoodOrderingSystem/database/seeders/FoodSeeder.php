@@ -163,18 +163,6 @@ Serat: 3g',
                 'category_id' => 3,
                 'image' => 'img/menu_sushi/Energy Balls.png',
             ],
-            [
-                'name' => 'Protein Bar Almond',
-                'nutrition_fact' => 'Kalori: 210 kkal
-Protein: 10g
-Lemak: 9g
-Karbohidrat: 18g
-Serat: 4g',
-                'description' => 'Bar tinggi protein dengan rasa kacang almond panggang.',
-                'price' => 16000,
-                'category_id' => 3,
-                'image' => 'img/menu_sushi/Protein Bar.png',
-            ],
 
             // 4. Dessert
             [
