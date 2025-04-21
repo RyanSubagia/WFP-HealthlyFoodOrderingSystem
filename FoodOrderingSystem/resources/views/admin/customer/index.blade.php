@@ -14,7 +14,8 @@ Admin
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    
+                                    <th>Point</th>
+                                    <th>Telephone Number</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,6 +29,12 @@ Admin
                                         </td>
                                         <td>
                                             {{ $c->email }}
+                                        </td>
+                                        <td>
+                                            {{ $c->poin }}
+                                        </td>
+                                        <td>
+                                            {{ $c->no_telp }}
                                         </td>
 
                                     </tr>

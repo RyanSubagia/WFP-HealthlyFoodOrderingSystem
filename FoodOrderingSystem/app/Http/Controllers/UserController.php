@@ -14,6 +14,7 @@ class UserController extends Controller
     {
         //Eloquent
         $user = User::all();
+        
         //method 1
         return view('customer.index',compact('user'));
     }
@@ -69,7 +70,7 @@ class UserController extends Controller
     }
     public function DetailCustomer(User $user)
     {
-        $user = User::all();
+        $user = User::where('role','customer')->get();
         return view("admin.customer.index",["customer" => $user]);
     }
 }
