@@ -26,7 +26,6 @@
             <li class="mb-2"><a href="{{ route('home')}}" class="text-decoration-none text-muted">Home</a></li>
             <li class="mb-2"><a href="{{ route('menu.index')}}" class="text-decoration-none text-muted">Menu</a></li>
             <li class="mb-2"><a href="{{ route('about')}}" class="text-decoration-none text-muted">About Us</a></li>
-            <li class="mb-2"><a href="/contact" class="text-decoration-none text-muted">Contact</a></li>
           </ul>
         </div>
   
