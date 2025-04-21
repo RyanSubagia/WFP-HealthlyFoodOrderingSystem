@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <div class="bg-dark text-white vh-100 d-flex flex-column p-3" style="width: 250px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-4">Sushe</span>
+        <span class="fs-4">Sùshě</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
