@@ -75,7 +75,7 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                     <div class="team-card bg-white rounded shadow-sm p-3">
                         <div class="team-image mb-3">
-                            <img src="{{ asset('img/yansu.png') }}" alt="Team Member" class="img-fluid rounded-circle">
+                            <img src="{{ asset('img/yansu.jpg') }}" alt="Team Member" class="img-fluid rounded-circle">
                         </div>
                         <div class="team-info text-center">
                             <h5 class="member-name fw-bold">Ryan S.</h5>

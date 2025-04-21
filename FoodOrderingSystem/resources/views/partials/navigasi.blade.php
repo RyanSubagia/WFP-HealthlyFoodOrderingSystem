@@ -22,8 +22,11 @@
                     <a href="{{ route('menu.index')}}" class="nav-link @yield('makanan')">Menu</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('about')}}" class="nav-link">About Us</a>
+                    <a href="{{ route('listcustomer.index')}}" class="nav-link @yield('customer')">Customer</a>
                 </li>
+                {{-- <li class="nav-item mx-3">
+                    <a href="{{ route('about')}}" class="nav-link">About Us</a>
+                </li> --}}
             </ul>
 
             <!-- Login button or user greeting -->
