@@ -29,7 +29,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('daftar_customized_product', function (Blueprint $table) {
-            $table->dropForeign(['daftar_Pesanan_transactions_id','daftar_Pesanan_foods_id','idcustomized']);
+            $table->dropForeign(['daftar_Pesanan_transactions_id', 'daftar_Pesanan_foods_id', 'idcustomized']);
         });
+        
     }
 };

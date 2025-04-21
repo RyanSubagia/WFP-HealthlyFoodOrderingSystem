@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('nutrition_fact');
             $table->text('description');
             $table->float('price', 8, 2);
+            $table->string('image')->nullable();
 
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');

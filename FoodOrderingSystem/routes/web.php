@@ -40,6 +40,11 @@ Route::get('/', function() {
     return view('home');
 })->name('home');
 
+Route::get('/admin', function() {
+    return view('foods.adminindex');
+})->name('admin');
+
+
 Route::get('/about', function() {
     return view('about');
 })->name('about');
