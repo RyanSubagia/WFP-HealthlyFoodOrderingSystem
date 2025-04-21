@@ -6,41 +6,30 @@ Admin
 @endsection
 
 @section('container')
-                @if($transaction)
+                @if($customer)
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>total</th>
-                                    <th>tgl Pemesanan</th>
-                                    <th>No Meja</th>
-                                    <th>Metode Pemesanan</th>
-                                    <th>Status</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($transaction as $item)
+                                @foreach ($customer as $c)
                                    <tr>
                                         <td>
-                                            {{ $item->id }}
+                                            {{ $c->id }}
                                         </td>
                                         <td>
-                                            {{ $item->total }}
+                                            {{ $c->name }}
                                         </td>
                                         <td>
-                                            {{ $item->tgl_Pemesanan }}
+                                            {{ $c->email }}
                                         </td>
-                                        <td>
-                                            {{ $item->no_meja }}
-                                        </td>
-                                        <td>
-                                            {{ $item->metode_Pemesanan }}
-                                        </td>
-                                        <td>
-                                            {{ $item->status }}
-                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>

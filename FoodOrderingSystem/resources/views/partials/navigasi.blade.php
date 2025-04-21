@@ -21,9 +21,9 @@
                 <li class="nav-item mx-3">
                     <a href="{{ route('menu.index')}}" class="nav-link @yield('makanan')">Menu</a>
                 </li>
-                <li class="nav-item mx-3">
+                {{-- <li class="nav-item mx-3">
                     <a href="{{ route('listcustomer.index')}}" class="nav-link @yield('customer')">Customer</a>
-                </li>
+                </li> --}}
                 {{-- <li class="nav-item mx-3">
                     <a href="{{ route('listkategori.index')}}" class="nav-link @yield('customer')">Kategori</a>
                 </li> --}}

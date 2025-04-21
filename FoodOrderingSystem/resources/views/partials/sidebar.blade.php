@@ -11,23 +11,23 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('dashboardAdmin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('dashboardAdmin') ? 'active' : '' }}">
+            <a href="{{ route('dashboard_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('dashboard_admin') ? 'active' : '' }}">
                 <i class="bi bi-speedometer2 me-2"></i> Dashboard
             </a>
         </li>
         <li>
-            <a href="{{ route('orderAdmin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('orderAdmin') ? 'active' : '' }}">
+            <a href="{{ route('order_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('order_admin') ? 'active' : '' }}">
                 <i class="bi bi-table me-2"></i> Orders
             </a>
         </li>
         <li>
-            <a href="{{ route('pruductsAdmin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('pruductsAdmin') ? 'active' : '' }}">
+            <a href="{{ route('product_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('products_admin') ? 'active' : '' }}">
                 <i class="bi bi-box-seam me-2"></i> Products
             </a>
         </li>
         <li>
-            <a href="{{ route('loyaltyAdmin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('loyaltyAdmin') ? 'active' : '' }}">
-                <i class="bi bi-people me-2"></i> Loyalty
+            <a href="{{ route('customer_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
+                <i class="bi bi-people me-2"></i> Customer
             </a>
         </li>
     </ul>

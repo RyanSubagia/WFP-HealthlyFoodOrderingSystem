@@ -67,4 +67,9 @@ class UserController extends Controller
     {
         //
     }
+    public function DetailCustomer(User $user)
+    {
+        $user = User::all();
+        return view("admin.customer.index",["customer" => $user]);
+    }
 }

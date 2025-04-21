@@ -12,6 +12,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 Route::get('/', function() {
-    return view('home');
+    return view('customer.home');
 })->name('home');
 
 Route::get('/admin', function() {
@@ -46,7 +47,7 @@ Route::get('/admin', function() {
 
 
 Route::get('/about', function() {
-    return view('about');
+    return view('customer.about');
 })->name('about');
 
 // // BASE_URL/welcome 🡪 beri text “Selamat Datang”
@@ -70,14 +71,12 @@ Route::post("/category/showHighestFoods",[CategoryController::class, 'showHighes
 
 Route::get('/admin/dashboard', function() {
     return view('admin.dashboard.index');
-})->name('dashboardAdmin');
+})->name('dashboard_admin');
 
-Route::get('/admin/loyalty', function() {
-    return view('admin.loyalty.index');
-})->name('loyaltyAdmin');
+Route::get('/admin/product', [FoodController::class,"DetailProduct"])->name('product_admin');
 
-Route::get('/admin/order', function() {
-    return view('admin.order.index');
-})->name('orderAdmin');
 
-Route::get('/admin/products', [FoodController::class,"DetailProduct"])->name('pruductsAdmin');
+Route::get('/admin/order', [TransactionController::class,"DetailOrder"])->name('order_admin');
+
+
+Route::get('/admin/customer', [UserController::class,"DetailCustomer"])->name('customer_admin');
