@@ -12,7 +12,8 @@
                 <div style="background-color: rgba(0,0,0,0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
                 <div class="position-relative" style="z-index: 2;">
                     <h1 class="display-4 fw-bold text-white mb-2">About</h1>
-                    <h2 class="display-3 fw-bold text-white">Sushe</h2>
+                    <img src="img/sushe.png" style="height: 90px;">
+                    {{-- <h2 style="font-family:prata" class="display-3 fw-regular text-white">Sùshě</h2> --}}
                 </div>
             </div>
         </div>
