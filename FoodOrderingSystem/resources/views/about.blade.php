@@ -1,5 +1,9 @@
 @extends('layouts/main')
 
+@section('title')
+  About Us
+@endsection
+
 @section('container')
     <!-- Hero Section -->
     <section class="about-hero position-relative">
