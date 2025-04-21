@@ -1,5 +1,5 @@
-{{-- @extends('layouts.main') --}}
-@extends('layouts.adminlte4')
+@extends('layouts.main')
+{{-- @extends('layouts.adminlte4') --}}
 
 @section('title')
   Daftar Makanan
