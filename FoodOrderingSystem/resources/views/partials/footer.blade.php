@@ -41,10 +41,10 @@
           <h5 class="text-dark mb-4">Contact Us</h5>
           <ul class="list-unstyled">
             <li class="mb-2 text-muted">
-              <i class="bi bi-geo-alt me-2"></i>123 Sushi Street, Jakarta
+              <i class="bi bi-geo-alt me-2"></i>123 Sushi Street, Surabaya
             </li>
             <li class="mb-2 text-muted">
-              <i class="bi bi-telephone me-2"></i>+62 896-7759-8007
+              <i class="bi bi-telephone me-2"></i>14022
             </li>
             <li class="mb-2 text-muted">
               <i class="bi bi-envelope me-2"></i>WFP@capengoding.com
