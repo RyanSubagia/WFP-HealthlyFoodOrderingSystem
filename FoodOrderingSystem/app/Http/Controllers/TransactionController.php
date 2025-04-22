@@ -13,7 +13,7 @@ class TransactionController extends Controller
     public function index()
     {
         //Eloquent
-        $transaction = Transaction::all();
+        $transaction = Transaction::paginate(10);
 
         return view('transaction.index',compact('transaction'));
     }
@@ -67,7 +67,7 @@ class TransactionController extends Controller
     }
     public function DetailOrder(Transaction $transaction)
     {
-        $order = Transaction::orderby('id','desc')->get();
+        $order = Transaction::orderBy('id', 'asc')->paginate(10);
         return view("admin.order",["transaction" => $order]);
     }
 }

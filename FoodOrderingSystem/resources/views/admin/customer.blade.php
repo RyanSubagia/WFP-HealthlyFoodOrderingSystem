@@ -5,7 +5,9 @@ Admin Customer
 @endsection
 
 @section('container')
-                @if($customer)
+<h1 class="card-title">Customer</h1>
+                @if($customer->count())
+                <div class="container-admin-table">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
@@ -40,7 +42,11 @@ Admin Customer
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $customer->links('pagination::bootstrap-4') }}
+                        </div>
                     </div>
+                </div>
                 @else
                     <div class="alert alert-info">Belum ada data customer</div>
                 @endif

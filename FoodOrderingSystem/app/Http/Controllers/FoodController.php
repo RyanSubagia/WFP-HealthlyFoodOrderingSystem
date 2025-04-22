@@ -68,9 +68,10 @@ class FoodController extends Controller
     {
         //
     }
-    public function DetailProduct(Food $food)
+    public function DetailProduct()
     {
-        $prod = Food::all();
+        $prod = Food::orderBy('id', 'asc')->paginate(7);
         return view("admin.product",  ["food" => $prod]);
     }
+    
 }

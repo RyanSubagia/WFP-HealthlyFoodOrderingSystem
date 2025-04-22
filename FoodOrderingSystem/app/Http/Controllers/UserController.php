@@ -68,9 +68,12 @@ class UserController extends Controller
     {
         //
     }
-    public function DetailCustomer(User $user)
+    public function DetailCustomer()
     {
-        $cust = User::where('role','customer')->get();
-        return view("admin.customer",["customer" => $cust]);
+        // Ambil data customer dan paginate
+        $cust = User::where('role', 'customer')->paginate(10);
+    
+        return view("admin.customer", ["customer" => $cust]);
     }
+    
 }

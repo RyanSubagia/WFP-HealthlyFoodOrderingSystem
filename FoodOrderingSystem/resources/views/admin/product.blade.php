@@ -5,7 +5,9 @@ Admin Product
 @endsection
 
 @section('container')
+<h1 class="card-title">Products</h1>
                 @if($food)
+                <div class="container-admin-table">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
@@ -40,7 +42,11 @@ Admin Product
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $food->links('pagination::bootstrap-4') }}
+                        </div>
                     </div>
+                </div>
                 @else
                     <div class="alert alert-info">Belum ada data customer</div>
                 @endif

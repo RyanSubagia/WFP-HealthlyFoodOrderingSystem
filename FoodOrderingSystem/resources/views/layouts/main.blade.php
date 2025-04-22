@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+    <style>
+        .container-admin-table {
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 10px;
+        }
+    </style>
+        
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
