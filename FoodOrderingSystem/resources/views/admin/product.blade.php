@@ -1,42 +1,41 @@
 @extends('layouts/main')
-{{-- @extends('layouts.adminlte4') --}}
 
 @section('title')
-Admin
+Admin Product
 @endsection
 
 @section('container')
-                @if($customer)
+                @if($food)
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Point</th>
-                                    <th>Telephone Number</th>
+                                    <th>Nama Produk</th>
+                                    <th>Nutrition Fact</th>
+                                    <th>description</th>
+                                    <th>Price</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($customer as $c)
+                                @foreach ($food as $item)
                                    <tr>
                                         <td>
-                                            {{ $c->id }}
+                                            {{ $item->id }}
                                         </td>
                                         <td>
-                                            {{ $c->name }}
+                                            {{ $item->name }}
                                         </td>
                                         <td>
-                                            {{ $c->email }}
+                                            {{ $item->nutrition_fact }}
                                         </td>
                                         <td>
-                                            {{ $c->poin }}
+                                            {{ $item->description }}
                                         </td>
                                         <td>
-                                            {{ $c->no_telp }}
+                                            {{ $item->price }}
                                         </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>

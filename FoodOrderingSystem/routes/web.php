@@ -20,10 +20,6 @@ Route::get('/', function() {
     return view('customer.home');
 })->name('home');
 
-Route::get('/admin', function() {
-    return view('admin.Index');
-})->name('admin');
-
 
 Route::get('/about', function() {
     return view('customer.about');
@@ -37,8 +33,12 @@ Route::post("/category/showHighestFoods",[CategoryController::class, 'showHighes
 
 
 //Admin
+Route::get('/admin', function() {
+    return view('admin.home');
+})->name('admin');
+
 Route::get('/admin/dashboard', function() {
-    return view('admin.dashboard.index');
+    return view('admin.dashboard');
 })->name('dashboard_admin');
 
 Route::get('/admin/product', [FoodController::class,"DetailProduct"])->name('product_admin');

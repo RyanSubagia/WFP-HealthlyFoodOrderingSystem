@@ -68,6 +68,6 @@ class TransactionController extends Controller
     public function DetailOrder(Transaction $transaction)
     {
         $order = Transaction::orderby('id','desc')->get();
-        return view("admin.order.index",["transaction" => $order]);
+        return view("admin.order",["transaction" => $order]);
     }
 }

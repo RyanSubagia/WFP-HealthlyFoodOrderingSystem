@@ -1,11 +1,10 @@
 @extends('layouts/main')
 
 @section('title')
-  About Us
+About Us
 @endsection
 
 @section('container')
-    <!-- Hero Section -->
     <section class="about-hero position-relative">
         <div class="container-fluid p-0">
             <div class="hero-overlay d-flex align-items-center justify-content-center text-center" style="background-image: url('{{ asset('img/illustration/background_about.png') }}'); background-size: cover; background-position: center; height: 400px; position: relative;">

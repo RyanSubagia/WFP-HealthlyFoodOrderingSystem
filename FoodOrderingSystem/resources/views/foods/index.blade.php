@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('title')
-  Daftar Makanan
+Daftar Makanan
 @endsection
 
 @section('makanan')
-  active
+active
 @endsection
 
 @section('container')
