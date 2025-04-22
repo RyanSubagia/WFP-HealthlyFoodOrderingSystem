@@ -21,7 +21,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('product_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('products_admin') ? 'active' : '' }}">
+            <a href="{{ route('product_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('product_admin') ? 'active' : '' }}">
                 <i class="bi bi-box-seam me-2"></i> Products
             </a>
         </li>

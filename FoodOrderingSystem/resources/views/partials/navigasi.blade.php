@@ -15,11 +15,11 @@
         <!-- Navigation items -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
-                <li class="nav-item mx-3">
-                    <a href="{{ route('home')}}" class="nav-link">Home</a>
+                <li class="nav-item mx-3" >
+                    <a href="{{ route('home')}}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('menu.index')}}" class="nav-link @yield('makanan')">Menu</a>
+                    <a href="{{ route('menu.index')}}" class="nav-link {{ request()->routeIs('menu.index') ? 'active' : '' }} @yield('makanan')">Menu</a>
                 </li>
                 {{-- <li class="nav-item mx-3">
                     <a href="{{ route('listcustomer.index')}}" class="nav-link @yield('customer')">Customer</a>
@@ -28,7 +28,7 @@
                     <a href="{{ route('listkategori.index')}}" class="nav-link @yield('customer')">Kategori</a>
                 </li> --}}
                 <li class="nav-item mx-3">
-                    <a href="{{ route('about')}}" class="nav-link">About Us</a>
+                    <a href="{{ route('about')}}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
                 </li>
             </ul>
 
