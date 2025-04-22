@@ -3,7 +3,7 @@
     <div class="container">
         <!-- Logo on left -->
         <a class="navbar-brand" href="/">
-            <img src="img/logoNavigasi.png" alt="Logo" style="height: 35px;">
+            <img src="img/logo/logo_Navigasi.png" alt="Logo" style="height: 35px;">
         </a>
 
         <!-- Hamburger menu for mobile -->

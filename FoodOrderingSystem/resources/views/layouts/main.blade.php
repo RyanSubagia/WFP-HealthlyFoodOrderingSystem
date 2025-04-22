@@ -12,7 +12,7 @@
     <title>@yield('title')</title>
 
     {{-- logo di website --}}
-    <link rel="website icon" type="png" href="img/logo_website.png">
+    <link rel="website icon" type="png" href="img/logo/logo_website.png">
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,21 +24,21 @@
 
     <div class="container-fluid">
         <div class="row flex-nowrap">
-        @if (Request::is('admin*'))
-            @include('partials.sidebar')
-        @else
-            @include('partials.navigasi')
-        @endif
+            @if (Request::is('admin*'))
+                @include('partials.sidebar')
+            @else
+                @include('partials.navigasi')
+               
+            @endif
 
             <div class="col py-3">
-                {{-- dijadikan container tujuannya cuman tinggal dipanggil" aja di halaman lain --}}
                 @yield('container')
                 @stack('modals')
             </div>
         </div>
     </div>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
@@ -46,7 +46,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-{{-- manggil footer --}}
 @include('partials.footer')
-
 </html>

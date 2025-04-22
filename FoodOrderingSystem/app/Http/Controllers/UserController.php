@@ -70,7 +70,7 @@ class UserController extends Controller
     }
     public function DetailCustomer(User $user)
     {
-        $user = User::where('role','customer')->get();
-        return view("admin.customer.index",["customer" => $user]);
+        $cust = User::where('role','customer')->get();
+        return view("admin.customer.index",["customer" => $cust]);
     }
 }

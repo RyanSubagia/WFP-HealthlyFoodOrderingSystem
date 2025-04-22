@@ -4,7 +4,7 @@
         <!-- Logo and About -->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
           <a class="navbar-brand mb-3 d-inline-block" href="#">
-            <img src="img/logo.png" alt="Logo" style="height: 60px;">
+            <img src="img/logo/logo.png" alt="Logo" style="height: 60px;">
           </a>
           <p class="text-muted mt-3">Providing fresh ingredients, expertly prepared dishes, and nutritious options to fuel your day.</p>
           <div class="mt-4">
