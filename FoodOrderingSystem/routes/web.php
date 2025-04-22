@@ -1,11 +1,4 @@
 <?php
-
-// use App\Http\Controllers\CustomerController;
-// use App\Http\Controllers\FoodController;
-// use App\Http\Controllers\CategoryController;
-// use App\Http\Controllers\PhotoController;
-// use App\Http\Controllers\TransactionController;
-// use App\Models\Category;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FoodController;
