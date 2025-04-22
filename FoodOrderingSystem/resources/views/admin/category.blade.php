@@ -4,66 +4,84 @@
 Admin Kategori
 @endsection
 
-@section('kategori')
-active
-@endsection
-
 @section('container')
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Foto Makanan</th>
-        <th>Jenis</th>
-        <th>Jumlah Makanan</th>
-        <th>List Nama Makanan</th>
-      </tr>
-    </thead>
-    <tbody>
-        @foreach ($category as $c)
-        <tr>
-            <td>{{ $c->id }}</td>
-            <td>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
-              data-bs-target="#imageModal-{{ $c->id }}">
-            Show
-              </button>
-              @push ('modals')
-              <!-- Modal {{ $c->id }} -->
-              <div class="modal fade" id="imageModal-{{ $c->id }}" tabindex="-1" aria-labelledby="imageModalLabel" 
-              aria-hidden="true">
-              <div class="modal-dialog">
-              <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="imageModalLabel">Gambar untuk Kategori {{$c->id}} </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
+<h1 class="card-title">Categories</h1>
+                @if($category)
+                <div class="container-admin-table">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Jenis</th>
+                                    <th>Jumlah Makanan</th>
+                                    <th>List Nama Makanan</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($category as $item)
+                                   <tr>
+                                        <td>
+                                            {{ $item->id }}
+                                        </td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ count($item->foods)}}</td>
+                                        <td>
+                                          <button type="button" class="btn btn-info" data-bs-toggle="modal" 
+                                              data-bs-target="#detailModal" onclick="showDetail({{ $item->id }})" >
+                                              Details
+                                          </button>
 
-                <img class="img-responsive" style="max-height:250px;" src="{{ asset('storage/category/'.$c->image) }}" />
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      @endpush
-            </td>
-            <td>{{ $c->name }}</td>
-            <td>{{ count($c->foods)}}</td>
-            <td>
-              <ul>
-                @foreach ($c->foods as $cf)
-                <li>{{$cf->name}}</li>
-                @endforeach
-              </ul>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
+                                          @push ('modals')
+                                          <!-- Modal -->
+                                          <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h1 class="modal-title fs-5" id="detail-title">List of Foods</h1>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body" id="detail-body">
+                                                  
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          @endpush
+                                          @push("script")
+                                          <script>
+                                          function showDetail(id) {
+                                            $.ajax({
+                                              type: 'POST',
+                                              url: '{{ route("category.showListFoods") }}',
+                                              data: { 
+                                                      '_token': '<?php echo csrf_token(); ?>',
+                                                      'idcat': id,
+                                                    },
+                                              success: function(data) {
+                                                $('#detail-title').html(data.title);
+                                                $('#detail-body').html(data.body);
+                                              }
+                                            });
+                                          }
+                                          </script>
+                                          @endpush
+                                        </ul>
+                                      </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $category->links('pagination::bootstrap-4') }}
+                        </div>
+                    </div>
+                </div>
+                @else
+                    <div class="alert alert-info">Belum ada data customer</div>
+                @endif
 @endsection
-{{-- </div> 
-</body>
-</html> --}}

@@ -19,10 +19,10 @@ Route::get('/about', function() {
 })->name('about');
 
 Route::resource('menu',FoodController::class);
-Route::resource('listkategori',CategoryController::class);
 Route::resource('listcustomer',UserController::class);
 Route::resource('listtransaksi',TransactionController::class);
-Route::post("/category/showHighestFoods",[CategoryController::class, 'showHighestFoods'])->name("category.showHighestFoods");
+Route::post("/admin/showHighestFoods",[CategoryController::class, 'showHighestFoods'])->name("category.showHighestFoods");
+Route::post("/admin/showListFoods",[CategoryController::class, 'showListFoods'])->name("category.showListFoods");
 
 
 //Admin
@@ -35,6 +35,9 @@ Route::get('/admin/dashboard', function() {
 })->name('dashboard_admin');
 
 Route::get('/admin/product', [FoodController::class,"DetailProduct"])->name('product_admin');
+
+
+Route::get('/admin/category',[CategoryController::class,"DetailCategory"])->name('category_admin');
 
 
 Route::get('/admin/order', [TransactionController::class,"DetailOrder"])->name('order_admin');

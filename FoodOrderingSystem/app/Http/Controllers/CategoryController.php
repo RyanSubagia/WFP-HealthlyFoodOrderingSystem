@@ -16,7 +16,7 @@ class CategoryController extends Controller
         //Eloquent
         $category = Category::all();
 
-        return view('categories.index',compact('category'));
+        return view('admin.category',compact('category'));
     }
 
     /**
@@ -66,6 +66,26 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function DetailCategory()
+    {
+        $cat = Category::orderBy('id', 'asc')->paginate(7);
+        return view("admin.category",  ["category" => $cat]);
+    }
+
+    public function showListFoods()
+    {
+        $category = Category::find($_POST['idcat']);
+        $name = $category->name;
+        $data = $category->foods;
+        return response()->json(array(
+                'status' => 'oke',
+                'title' => $name.' Food List',
+                'body' => view('admin.showListFoods', compact('name', 'data'))->render()
+              ), 200);
+    }
+
+
 
     public function showHighestFoods() {
         $highestFoodCategory = Category::withCount('foods')
