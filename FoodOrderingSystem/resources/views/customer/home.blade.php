@@ -31,7 +31,7 @@ Home
         </div>
         <div class="col-lg-6">
           <div class="hero-image">
-            <img src="img/sushi_plate.png" alt="Sushi_plate" class="img-fluid">
+            <img src="img/illustration/sushi_plate.png" alt="Sushi_plate" class="img-fluid">
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ Home
         <div class="col-lg-6">
           <div class="story-image">
             <div class="chef-image">
-              <img src="img/home_our_story.png" alt="Our Chef" class="img-fluid rounded">
+              <img src="img/illustration/home_our_story.png" alt="Our Chef" class="img-fluid rounded">
             </div>
           </div>
         </div>

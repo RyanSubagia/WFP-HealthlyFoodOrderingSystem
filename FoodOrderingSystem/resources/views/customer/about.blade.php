@@ -8,11 +8,11 @@
     <!-- Hero Section -->
     <section class="about-hero position-relative">
         <div class="container-fluid p-0">
-            <div class="hero-overlay d-flex align-items-center justify-content-center text-center" style="background-image: url('{{ asset('img/background_about.png') }}'); background-size: cover; background-position: center; height: 400px; position: relative;">
+            <div class="hero-overlay d-flex align-items-center justify-content-center text-center" style="background-image: url('{{ asset('img/illustration/background_about.png') }}'); background-size: cover; background-position: center; height: 400px; position: relative;">
                 <div style="background-color: rgba(0,0,0,0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
                 <div class="position-relative" style="z-index: 2;">
                     <h1 class="display-4 fw-bold text-white mb-2">About</h1>
-                    <img src="img/sushe.png" style="height: 90px;">
+                    <img src="img/illustration/sushe.png" style="height: 90px;">
                     {{-- <h2 style="font-family:prata" class="display-3 fw-regular text-white">Sùshě</h2> --}}
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularized in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{ asset('img/our_story.png') }}" alt="Our Story" class="img-fluid rounded shadow-lg">
+                    <img src="{{ asset('img/illustration/our_story.png') }}" alt="Our Story" class="img-fluid rounded shadow-lg">
                 </div>
             </div>
         </div>
@@ -41,22 +41,22 @@
             <div class="row">
                 <div class="col-md-3 col-6 mb-4">
                     <div class="gallery-item rounded overflow-hidden shadow-sm">
-                        <img src="{{ asset('img/sushi_1.png') }}" alt="Sushi Gallery" class="img-fluid">
+                        <img src="{{ asset('img/illustration/sushi_1.png') }}" alt="Sushi Gallery" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-4">
                     <div class="gallery-item rounded overflow-hidden shadow-sm">
-                        <img src="{{ asset('img/sushi_2.png') }}" alt="Sushi Gallery" class="img-fluid">
+                        <img src="{{ asset('img/illustration/sushi_2.png') }}" alt="Sushi Gallery" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-4">
                     <div class="gallery-item rounded overflow-hidden shadow-sm">
-                        <img src="{{ asset('img/sushi_3.png') }}" alt="Sushi Gallery" class="img-fluid">
+                        <img src="{{ asset('img/illustration/sushi_3.png') }}" alt="Sushi Gallery" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-md-3 col-6 mb-4">
                     <div class="gallery-item rounded overflow-hidden shadow-sm">
-                        <img src="{{ asset('img/sushi_4.png') }}" alt="Sushi Gallery" class="img-fluid">
+                        <img src="{{ asset('img/illustration/sushi_4.png') }}" alt="Sushi Gallery" class="img-fluid">
                     </div>
                 </div>
             </div>
