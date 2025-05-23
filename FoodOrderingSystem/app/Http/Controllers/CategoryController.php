@@ -50,9 +50,9 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(Category $listkategori)
     {
-        //
+        return view('admin.categories.editForm', compact('listkategori'));
     }
 
     /**
