@@ -68,9 +68,16 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $listkategori)
     {
-        //
+        try{
+        $listkategori->delete();
+        return redirect()->route('category_admin')->with('status','Delete success!');
+        } catch(\PDOException $ex)
+        {
+            $msg = "Make sure there is no related data before delete it. Please contact Administrator to know more about it";
+            return redirect()->route('category_admin')->with('status',$msg);
+        }
     }
 
     public function DetailCategory()

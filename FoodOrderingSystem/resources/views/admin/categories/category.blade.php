@@ -73,6 +73,7 @@ Admin Kategori
                                         </ul>
                                       </td>
                                       <td>
+                                        <div>
                                         {{-- Modal Edit --}}
                                         <a href="#modalEdit" class="btn btn-info" data-bs-toggle="modal" onclick="getEditForm({{$item->id}})">Edit</a>
                                         @push('script')
@@ -125,6 +126,14 @@ Admin Kategori
                                           }
                                         </script>
                                         @endpush
+
+                                        <form method="POST" action="{{ route('listkategori.destroy', $item->id) }}">
+                                          @csrf
+                                          @method('DELETE')
+                                          <input type="submit" value="Delete" class="btn btn-danger"
+                                          onclick="return confirm('Are you sure to delete {{ $item->id }} - {{ $item->name }} ?');">
+                                        </form>
+                                        </div>
                                       </td>
                                     </tr>
                                 @endforeach
