@@ -127,12 +127,12 @@ Admin Kategori
                                         </script>
                                         @endpush
 
-                                        <form method="POST" action="{{ route('listkategori.destroy', $item->id) }}">
-                                          @csrf
-                                          @method('DELETE')
-                                          <input type="submit" value="Delete" class="btn btn-danger"
-                                          onclick="return confirm('Are you sure to delete {{ $item->id }} - {{ $item->name }} ?');">
-                                        </form>
+                                       <form method="POST" action="{{ route('listkategori.destroy', $item->id) }}" style="display: inline;">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="Delete" class="btn btn-danger"
+           onclick="return confirm('Are you sure you want to delete {{ $item->name }}? This action cannot be undone.');">
+</form>
                                         </div>
                                       </td>
                                     </tr>

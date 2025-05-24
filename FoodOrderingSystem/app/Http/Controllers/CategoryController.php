@@ -65,19 +65,17 @@ class CategoryController extends Controller
         return redirect()->route("category_admin")->with("status","Update success!");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Category $listkategori)
+    public function destroy(Request $request)
     {
-        try{
-        $listkategori->delete();
-        return redirect()->route('category_admin')->with('status','Delete success!');
-        } catch(\PDOException $ex)
-        {
-            $msg = "Make sure there is no related data before delete it. Please contact Administrator to know more about it";
-            return redirect()->route('category_admin')->with('status',$msg);
-        }
+        
+        $id = $request->id;
+        $category = Category::find($id);
+        $category->delete();
+        
+        return response()->json(array(
+            "status" =>"oke",
+            "msg"=>"Type data is removed"
+        ),200);  
     }
 
     public function DetailCategory()
