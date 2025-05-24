@@ -74,7 +74,7 @@ Admin Kategori
                                       </td>
                                       <td>
                                         <div>
-                                       {{-- Modal Edit --}}
+                                        {{-- Modal Edit --}}
                                         <a href="#modalEdit" class="btn btn-info" data-bs-toggle="modal" onclick="getEditForm({{$item->id}})">Edit</a>
                                         @push('script')
                                         <script>
@@ -127,56 +127,32 @@ Admin Kategori
                                         </script>
                                         @endpush
 
-                                @push('script')
-                                  <script>
-                                    function saveDataUpdate(id) {
-                                      var name = $('#name').val();
-                                      console.log(name); //debug->print to browser console
-                                      $.ajax({
-                                        type: 'POST',
-                                        url: '{{ route("kategori.saveDataUpdate") }}',
-                                        data: {
-                                        '_token': '<?php  echo csrf_token(); ?>',
-                                        'id': id,
-                                          'name': name,
-                                          },
-                                          success: function (data) {
-                                          if (data.status == "oke") {
-                                          $('#td_name_' + id).html(name);
-                                          $('#modalEdit').modal('hide');
-                                          }
-                                          }
-                                          })
-                                          }
-                                        </script>
-                                        @endpush
-
-                                     <a href="#" value="DeleteNoReload" class="btn btn-danger btn-sm rounded-pill" 
+                                       <a href="#" value="DeleteNoReload" class="btn btn-danger" 
                                           onclick="if(confirm('Are you sure to delete {{ $item->id }} - {{ $item->name }} ? ')) deleteDataRemove({{ $item->id }})">
                                             <i class="fas fa-trash-alt me-1"></i> Hapus
                                         </a>
                                         <script>
-function deleteDataRemove(id) {
-  $.ajax({
-    type: 'POST',
-    url: '{{ route("listkategori.destroy") }}',
-    data: {
-      _token: '{{ csrf_token() }}',
-      id: id
-    },
-    success: function(data) {
-      if (data.status === "oke") {
-        $('#tr_' + id).remove();
-        alert(data.msg);
-      }
-    },
-    error: function(xhr) {
-      console.error(xhr.responseText);
-      alert("Gagal menghapus data.");
-    }
-  });
-}
-</script>
+                                          function deleteDataRemove(id) {
+                                            $.ajax({
+                                              type: 'POST',
+                                              url: '{{ route("listkategori.destroy") }}',
+                                              data: {
+                                                _token: '{{ csrf_token() }}',
+                                                id: id
+                                              },
+                                              success: function(data) {
+                                                if (data.status === "oke") {
+                                                  $('#tr_' + id).remove();
+                                                  alert(data.msg);
+                                                }
+                                              },
+                                              error: function(xhr) {
+                                                console.error(xhr.responseText);
+                                                alert("Gagal menghapus data.");
+                                              }
+                                            });
+                                          }
+                                          </script>
                                         </div>
                                       </td>
                                     </tr>
