@@ -39,7 +39,7 @@ Route::get('/admin/categories/category',[CategoryController::class,"DetailCatego
 Route::get('/admin/categories/category/create', [CategoryController::class, 'create'])->name('listkategori.create');
 Route::post('/admin/categories/category/store', [CategoryController::class, 'store'])->name('listkategori.store');
 Route::post('/admin/categories/category/update', [CategoryController::class, 'update'])->name('listkategori.update');
-Route::delete('/admin/categories/category/destroy', action: [CategoryController::class, 'destroy'])->name('listkategori.destroy');
+Route::delete('/admin/categories/category/destroy', [CategoryController::class, 'destroy'])->name('listkategori.destroy');
 Route::post('/ajax/category/getEditForm',[CategoryController::class,'getEditForm'])->name('kategori.getEditForm');
 Route::post('/ajax/category/saveDataUpdate',[CategoryController::class,'saveDataUpdate'])->name('kategori.saveDataUpdate');
 Route::get('/admin/order', [TransactionController::class,"DetailOrder"])->name('order_admin');
