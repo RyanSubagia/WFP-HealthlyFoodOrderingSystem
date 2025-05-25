@@ -202,8 +202,10 @@ Admin Product
                                         <label for="image">Image</label>
                                         <input type="file" class="form-control" id="image" name="image">
                                     </div>
-                                    <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
+                                    </div>
                                 </form>
                               </div>
                             </div>
