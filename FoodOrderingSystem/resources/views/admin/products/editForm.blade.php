@@ -1,5 +1,6 @@
-<form method="POST" action="{{ route('listmakanan.update') }}">
+<form method="POST" action="{{ route('listmakanan.update', $data->id) }}">
     @csrf
+    @method('PUT')
     <input type="hidden" name="id" value="{{ $data->id }}">
     
     <div class="form-group">
@@ -28,5 +29,5 @@
     </div>
 
     <br>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="button" onClick="saveDataUpdate({{ $data->id }})" class="btn btn-primary">Submit</button>
 </form>

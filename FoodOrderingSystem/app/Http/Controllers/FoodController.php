@@ -85,7 +85,7 @@ class FoodController extends Controller
         
         return response()->json(array(
             "status" =>"oke",
-            "msg"=>"Type data is removed"
+            "msg"=>"Delete success!"
         ),200);
     }
     public function DetailProduct()

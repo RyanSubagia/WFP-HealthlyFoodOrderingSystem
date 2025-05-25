@@ -119,11 +119,17 @@ Admin Kategori
                                           success: function (data) {
                                           if (data.status == "oke") {
                                           $('#td_name_' + id).html(name);
-                                          $('#modalEdit').modal('hide');
+                                            $('#modalEdit').modal('hide');
+                                            alert("Berhasil diupdate!");
+                                            location.reload();
                                           }
+                                          },
+                                          error: function(xhr) {
+                                          alert("Gagal update");
+                                          console.log(xhr.responseText);
                                           }
-                                          })
-                                          }
+                                        });
+                                        }
                                         </script>
                                         @endpush
 

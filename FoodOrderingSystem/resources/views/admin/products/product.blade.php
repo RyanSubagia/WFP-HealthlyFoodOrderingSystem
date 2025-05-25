@@ -93,7 +93,7 @@ Admin Product
                                         if (data.status == "oke") {
                                             $('#modalEdit').modal('hide');
                                             alert("Berhasil diupdate!");
-                                            location.reload(); // opsional
+                                            location.reload();
                                         }
                                         },
                                         error: function(xhr) {
