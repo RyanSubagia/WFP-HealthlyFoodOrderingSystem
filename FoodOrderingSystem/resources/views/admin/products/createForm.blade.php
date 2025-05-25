@@ -1,8 +1,6 @@
-@extends('layouts.main')
-@section('content')
-
     <form method="POST" action="{{ route('listmakanan.store') }}">
         @csrf
+        @method('PUT')
         <div class="form-group">
             <h1>ADD NEW MENU</h1><br>
             <label for="name">Name</label>
@@ -28,6 +26,10 @@
                     <option value="{{ $c->id }}">{{ $c->name }}</option>
                 @endforeach
             </select>
+
+            <br>
+            <label for="image">Image</label>
+            <input type="file" class="form-control" id="image" name="image">
         </div>
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>

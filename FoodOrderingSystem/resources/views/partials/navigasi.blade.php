@@ -15,7 +15,7 @@
                     <a href="{{ route('home')}}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('menu.index')}}" class="nav-link {{ request()->routeIs('menu.index') ? 'active' : '' }} @yield('makanan')">Menu</a>
+                    <a href="{{ route('menu.index')}}" class="nav-link {{ request()->routeIs('menu') ? 'active' : '' }} @yield('menu')">Menu</a>
                 </li>
                 {{-- <li class="nav-item mx-3">
                     <a href="{{ route('listcustomer.index')}}" class="nav-link @yield('customer')">Customer</a>

@@ -18,6 +18,10 @@ Route::get('/about', function() {
     return view('customer.about');
 })->name('about');
 
+Route::get('/menu', function() {
+    return view('customer.menu');
+})->name('menu');
+
 Route::resource('menu',FoodController::class);
 Route::resource('listcustomer',UserController::class);
 Route::resource('listtransaksi',TransactionController::class);
@@ -39,6 +43,7 @@ Route::get('/admin/products/product/create', [FoodController::class, 'create'])-
 Route::post('/admin/products/product/store', [FoodController::class, 'store'])->name('listmakanan.store');
 Route::post('/admin/products/product/update', [FoodController::class, 'update'])->name('listmakanan.update');
 Route::post('/admin/products/product/destroy',  [FoodController::class, 'destroy'])->name('listmakanan.destroy');
+Route::post('/ajax/product/getCreateForm',[FoodController::class,'getCreateForm'])->name('produk.getCreateForm');
 Route::post('/ajax/product/getEditForm',[FoodController::class,'getEditForm'])->name('produk.getEditForm');
 Route::post('/ajax/product/saveDataUpdate',[FoodController::class,'saveDataUpdate'])->name('produk.saveDataUpdate');
 

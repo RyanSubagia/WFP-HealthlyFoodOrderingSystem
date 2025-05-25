@@ -12,7 +12,7 @@ Admin Product
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>Image</th>
                                     <th>Nama Produk</th>
                                     <th>Nutrition Fact</th>
                                     <th>Description</th>
@@ -25,7 +25,32 @@ Admin Product
                                 @foreach ($food as $item)
                                    <tr>
                                         <td>
-                                            {{ $item->id }}
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#imageModal-{{ $item->id }}">
+                                            Show
+                                            </button>
+                                            @push ('modals')
+                                            <!-- Modal {{ $item->id }} -->
+                                            <div class="modal fade" id="imageModal-{{ $item->id }}" tabindex="-1" aria-labelledby="imageModalLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="imageModalLabel">Gambar Menu {{$item->name}} </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                            <img class="img-responsive" style="max-height:250px;"
+                                            src="{{ asset('storage/menu_sushi/' . $item->image) }}" alt="{{ $item->name }}"/>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            @endpush
                                         </td>
                                         <td>
                                             {{ $item->name }}
@@ -147,7 +172,7 @@ Admin Product
                                   <h4 class="modal-title">Add New Menu</h4>
                                 </div>
                                 <div class="modal-body">
-                                  <form method="POST" action="{{ route('listmakanan.store') }}">
+                                  <form method="POST" action="{{ route('listmakanan.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Name</label>
@@ -173,6 +198,9 @@ Admin Product
                                                 <option value="{{ $c->id }}">{{ $c->name }}</option>
                                             @endforeach
                                         </select>
+                                        <br>
+                                        <label for="image">Image</label>
+                                        <input type="file" class="form-control" id="image" name="image">
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-primary">Submit</button>

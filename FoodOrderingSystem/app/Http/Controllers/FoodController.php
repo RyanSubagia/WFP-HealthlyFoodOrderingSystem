@@ -42,7 +42,13 @@ class FoodController extends Controller
         $data->description = $request->get('description');
         $data->price = $request->get('price');
         $data->category_id = $request->get('category_id');
+
+        if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('menu_sushi', 'public');
+        $data->image = basename($imagePath); // simpan hanya nama filenya
+    }
         $data->save();
+        
 
         return redirect()->route('product_admin')->with('status','Success updated data!');
     }
@@ -94,6 +100,19 @@ class FoodController extends Controller
         $category = Category::all();
         return view("admin.products.product",  ["food" => $prod, "category" => $category]);
     }
+
+    // public function getCreateForm(Request $request)
+    // {
+    //     $id = $request->id;
+    //     $data = Food::find($id);
+    //     $category = Category::all();
+
+    //     return response()->json([
+    //         'status' => 'oke',
+    //         'msg' => view('admin.products.createForm', compact('data', 'category'))->render()
+    //     ], 200);
+    // }
+
     public function getEditForm(Request $request)
     {
         $id = $request->id;
@@ -114,6 +133,7 @@ class FoodController extends Controller
         $data->nutrition_fact = $request->nutrition_fact;
         $data->description = $request->description;
         $data->price = $request->price;
+        $data->image = $request->image;
         $data->category_id = $request->category_id;
         $data->save();
 
