@@ -12,9 +12,10 @@ Menu
     @foreach ($foods as $f)
       <div class="col-md-4 mb-4">
         <div class="card h-100" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">
-<img class="img-responsive" style="max-height:250px;"
-     src="{{ asset('storage/menu_sushi/' . $f->image) }}"
-     alt="{{ $f->name }}"/>
+<img class="img-fluid mx-auto d-block" style="max-height: 200px; object-fit: contain;" 
+     src="{{ $f->image ? asset('storage/menu_sushi/' . $f->image) : 'https://via.placeholder.com/300x250?text=No+Image' }}"
+     alt="{{ $f->name }}">
+
           <div class="card-body">
             <h5 class="card-title">{{ $f->name }}</h5>
             <p class="card-text">
