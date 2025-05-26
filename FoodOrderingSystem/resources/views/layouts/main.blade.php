@@ -54,5 +54,5 @@
     @stack('modals')
 
 </body>
-@include('partials.footer')
+
 </html>
