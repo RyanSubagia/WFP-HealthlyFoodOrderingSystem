@@ -13,7 +13,7 @@ Menu
       <div class="col-md-4 mb-4">
         <div class="card h-100" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">
 <img class="img-responsive" style="max-height:250px;"
-     src="{{ $f->image ? asset($f->image) : asset('img/default.jpg') }}"
+     src="{{ asset('storage/menu_sushi/' . $f->image) }}"
      alt="{{ $f->name }}"/>
           <div class="card-body">
             <h5 class="card-title">{{ $f->name }}</h5>
@@ -36,7 +36,7 @@ Menu
               </button>
             </div>
             <div class="modal-body">
-              <img src="{{ $f->image_url ?? 'https://via.placeholder.com/600x300?text=Food+Image' }}" class="img-fluid mb-3" alt="{{ $f->name }}">
+              <img src="{{ $f->image ? asset('storage/menu_sushi/' . $f->image) : 'https://via.placeholder.com/600x300?text=No+Image' }}" class="img-fluid mb-3" alt="{{ $f->name }}">
               <p><strong>Deskripsi:</strong> {{ $f->description }}</p>
               <p><strong>Fakta Nutrisi:</strong> {{ $f->nutrition_fact }}</p>
               <p><strong>Harga:</strong> Rp. {{ $f->price }},-</p>
