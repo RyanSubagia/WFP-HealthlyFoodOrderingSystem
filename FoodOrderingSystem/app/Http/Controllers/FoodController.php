@@ -17,9 +17,10 @@ class FoodController extends Controller
         //Eloquent
         $foods = Food::all();
         $category = Category::all();
-
+        
         //method 1
-        return view('admin.products.product',compact('foods','category'));
+        return view('customer.menu',compact('foods','category'));
+        
     }
 
     /**

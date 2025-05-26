@@ -12,7 +12,9 @@ Menu
     @foreach ($foods as $f)
       <div class="col-md-4 mb-4">
         <div class="card h-100" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">
-          <img src="{{ $f->image_url ?? 'https://via.placeholder.com/300x200?text=Food+Image' }}" class="card-img-top" alt="{{ $f->name }}">
+<img class="img-responsive" style="max-height:250px;"
+     src="{{ $f->image ? asset($f->image) : asset('img/default.jpg') }}"
+     alt="{{ $f->name }}"/>
           <div class="card-body">
             <h5 class="card-title">{{ $f->name }}</h5>
             <p class="card-text">
@@ -49,5 +51,5 @@ Menu
   </div>
 </div>
 @endsection
-@endsection
+
 

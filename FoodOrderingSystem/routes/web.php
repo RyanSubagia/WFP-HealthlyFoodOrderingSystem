@@ -18,9 +18,9 @@ Route::get('/about', function() {
     return view('customer.about');
 })->name('about');
 
-Route::get('/menu', function() {
-    return view('customer.menu');
-})->name('menu');
+// Route::get('/menu', function() {
+//     return view('customer.menu');
+// })->name('menu');
 
 Route::resource('menu',FoodController::class);
 Route::resource('listcustomer',UserController::class);
