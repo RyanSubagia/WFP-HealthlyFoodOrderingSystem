@@ -23,7 +23,7 @@ Admin Product
                             </thead>
                             <tbody>
                                 @foreach ($food as $item)
-                                   <tr>
+                                   <tr id="tr_{{ $item->id }}">
                                         <td>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#imageModal-{{ $item->id }}">
