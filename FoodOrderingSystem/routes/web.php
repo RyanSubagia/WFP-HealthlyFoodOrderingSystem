@@ -6,7 +6,10 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Models\Transaction;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 //Customer
 Route::get('/', function() {
@@ -32,7 +35,7 @@ Route::post("/admin/showListFoods",[CategoryController::class, 'showListFoods'])
 //Admin
 Route::get('/admin', function() {
     return view('admin.home');
-})->name('admin');
+})->name('admin')->middleware('auth'); //biar dia harus login baru bisa ke admin
 
 Route::get('/admin/dashboard', function() {
     return view('admin.dashboard');
@@ -58,3 +61,23 @@ Route::post('/ajax/category/saveDataUpdate',[CategoryController::class,'saveData
 
 Route::get('/admin/order', [TransactionController::class,"DetailOrder"])->name('order_admin');
 Route::get('/admin/customer', [UserController::class,"DetailCustomer"])->name('customer_admin');
+
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Auth;
+
+// Route::get('/login', function (Request $request) {
+//     if(Auth::attempt([
+//         "email" => $request->email, 
+//         "password" => $request->password
+//         ])){
+//             $request->session()->regenerate();
+//             return "welcome, " .Auth::user()->name."!";
+//         }
+//         else{
+//             return "Invalid username or passwordd";
+//         }
+// });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

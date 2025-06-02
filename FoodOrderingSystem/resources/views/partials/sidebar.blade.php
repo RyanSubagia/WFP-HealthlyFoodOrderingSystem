@@ -34,6 +34,10 @@
             <a href="{{ route('customer_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
                 <i class="bi bi-people me-2"></i> Customer
             </a>
+        </li> <li>
+            <a href="{{ route('logout') }}" method="post" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
+                <i class="bi bi-people me-2"></i> Logout
+            </a>
         </li>
     </ul>
     <hr>
