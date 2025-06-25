@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('listmakanan.update', $data->id) }}">
+<form method="POST" action="{{ route('admin.product.update', $data->id) }}">
     @csrf
     @method('PUT')
     <input type="hidden" name="id" value="{{ $data->id }}">

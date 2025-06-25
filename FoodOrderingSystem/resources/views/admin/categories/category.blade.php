@@ -81,7 +81,7 @@ Admin Kategori
                                         function getEditForm(id) {
                                           $.ajax({
                                           type: 'POST',
-                                          url: '{{route("kategori.getEditForm")}}',
+                                          url: '{{route("admin.category.getEditForm")}}',
                                           data: {
                                             '_token': '<?php  echo csrf_token() ?>',
                                             'id': id
@@ -110,7 +110,7 @@ Admin Kategori
                                       console.log(name); //debug->print to browser console
                                       $.ajax({
                                         type: 'POST',
-                                        url: '{{ route("kategori.saveDataUpdate") }}',
+                                        url: '{{ route("admin.category.saveDataUpdate") }}',
                                         data: {
                                         '_token': '<?php  echo csrf_token(); ?>',
                                         'id': id,

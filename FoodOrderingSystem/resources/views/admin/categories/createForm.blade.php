@@ -3,7 +3,7 @@
    <!-- fill with your page bar like previous week HERE !-->
    <!-- end page bar !-->
     <!-- END PAGE HEADER-->
-    <form method="POST" action="{{ route('listkategori.store') }}">
+    <form method="POST" action="{{ route('admin.category.store') }}">
        @csrf
         <div class="form-group">
             <label for="name">Name</label>

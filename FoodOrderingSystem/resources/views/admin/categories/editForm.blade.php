@@ -1,5 +1,5 @@
 <h3>Update Category</h3>
- <form method="POST" action="{{ route('listkategori.update',$data->id) }}">
+ <form method="POST" action="{{ route('admin.category.update',$data->id) }}">
        @csrf
        @method('PUT')
         <div class="form-group">
