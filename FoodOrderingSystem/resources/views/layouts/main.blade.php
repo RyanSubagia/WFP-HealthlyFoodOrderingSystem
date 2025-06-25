@@ -34,7 +34,7 @@
         </div>
     @else
         {{-- Customer Layout --}}
-        @include('partials.navbar')
+        @include('partials.navigasi')
         <main>
             @yield('container')
         </main>
