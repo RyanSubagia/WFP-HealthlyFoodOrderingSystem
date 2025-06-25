@@ -15,7 +15,7 @@ class FoodController extends Controller
     public function index()
     {
         //Eloquent
-        $food = Food::paginate(10);
+        $food = Food::all();
         $category = Category::all();
         
         // return view('admin.products.product',compact('food','category'));
