@@ -18,8 +18,7 @@ class FoodController extends Controller
         $food = Food::paginate(10);
         $category = Category::all();
         
-        return view('admin.products.product',compact('food','category'));
-        // return view('customer.menu',compact('food','category'));
+        return view('customer.menu',compact('food','category'));
         
     }
 

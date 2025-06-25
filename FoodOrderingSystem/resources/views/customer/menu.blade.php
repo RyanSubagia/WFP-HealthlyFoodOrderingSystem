@@ -9,7 +9,7 @@ Menu
 <div class="container-fluid">
   <h2 class="mb-4">Pilih Menu Makanan</h2>
   <div class="row">
-    @foreach ($foods as $f)
+    @foreach ($food as $f)
       <div class="col-md-4 mb-4">
         <div class="card h-100" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">
 <img class="img-fluid mx-auto d-block" style="max-height: 200px; object-fit: contain;" 
