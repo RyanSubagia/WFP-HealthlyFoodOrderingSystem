@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'John Doe',
                 'email' => 'john.doe@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 10,
                 'no_telp' => '081234567890',
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Jane Smith',
                 'email' => 'jane.smith@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 20,
                 'no_telp' => '082345678901',
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Michael Johnson',
                 'email' => 'michael.johnson@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 15,
                 'no_telp' => '083456789012',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Emily Davis',
                 'email' => 'emily.davis@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 25,
                 'no_telp' => '084567890123',
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Robert Brown',
                 'email' => 'robert.brown@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 30,
                 'no_telp' => '085678901234',
@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Sophia Wilson',
                 'email' => 'sophia.wilson@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 5,
                 'no_telp' => '086789012345',
@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'James Moore',
                 'email' => 'james.moore@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 40,
                 'no_telp' => '087890123456',
@@ -73,7 +73,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Olivia Taylor',
                 'email' => 'olivia.taylor@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 10,
                 'no_telp' => '088901234567',
@@ -81,7 +81,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'William Anderson',
                 'email' => 'william.anderson@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 50,
                 'no_telp' => '089012345678',
@@ -89,7 +89,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Isabella Thomas',
                 'email' => 'isabella.thomas@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 60,
                 'no_telp' => '081234567890',
@@ -97,7 +97,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Liam Martinez',
                 'email' => 'liam.martinez@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 35,
                 'no_telp' => '082345678901',
@@ -105,7 +105,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Ava Garcia',
                 'email' => 'ava.garcia@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 45,
                 'no_telp' => '083456789012',
@@ -113,7 +113,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Ethan Rodriguez',
                 'email' => 'ethan.rodriguez@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 25,
                 'no_telp' => '084567890123',
@@ -121,7 +121,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Mia Hernandez',
                 'email' => 'mia.hernandez@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 55,
                 'no_telp' => '085678901234',
@@ -129,7 +129,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Lucas Wilson',
                 'email' => 'lucas.wilson@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 30,
                 'no_telp' => '086789012345',
@@ -137,7 +137,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Amelia Lee',
                 'email' => 'amelia.lee@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 15,
                 'no_telp' => '087890123456',
@@ -145,7 +145,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Jack Clark',
                 'email' => 'jack.clark@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 20,
                 'no_telp' => '088901234567',
@@ -153,7 +153,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Charlotte Allen',
                 'email' => 'charlotte.allen@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 40,
                 'no_telp' => '089012345678',
@@ -161,7 +161,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Benjamin Young',
                 'email' => 'benjamin.young@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 10,
                 'no_telp' => '081234567890',
@@ -169,7 +169,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Harper King',
                 'email' => 'harper.king@example.com',
-                'password' => 'password123',
+                'password' => '$2y$10$EXJP5aV2sRf8B/vFAtPRO.sEn3vPbF49f.DiLNNlO5c2q6RHbXCbq',
                 'role' => 'customer',
                 'poin' => 5,
                 'no_telp' => '082345678901',

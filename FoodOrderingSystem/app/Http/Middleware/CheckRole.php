@@ -4,21 +4,18 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckRole
 {
-    public function handle(Request $request, Closure $next, ...$roles)
+    public function handle($request, Closure $next, ...$roles)
     {
-        if (!auth()->check()) {
-            return redirect('/login');
+        if (!Auth::check()) return redirect('/login');
+
+        if (in_array(Auth::user()->role, $roles)) {
+            return $next($request);
         }
 
-        $userRole = auth()->user()->role;
-        
-        if (!in_array($userRole, $roles)) {
-            abort(403, 'Unauthorized access');
-        }
-
-        return $next($request);
+        abort(403, 'Unauthorized');
     }
 }
