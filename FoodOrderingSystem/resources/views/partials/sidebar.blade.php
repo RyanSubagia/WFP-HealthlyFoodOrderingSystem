@@ -6,12 +6,12 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li>
-            <a href="{{ route('admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('admin') ? 'active' : '' }}">
                 <i class="bi bi-speedometer2 me-2"></i> Dashboard
             </a>
         </li>
         <li>
-            <a href="{{ route('order_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('order_admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.order_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('order_admin') ? 'active' : '' }}">
                 <i class="bi bi-cart-check me-2"></i> Orders
             </a>
         </li>
@@ -26,12 +26,12 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('employee_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('employee_admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.employee_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('employee_admin') ? 'active' : '' }}">
                 <i class="bi bi-people me-2"></i> Employee
             </a>
         </li> 
         <li>
-            <a href="{{ route('customer_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.customer_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
                 <i class="bi bi-people me-2"></i> Customer
             </a>
         </li>

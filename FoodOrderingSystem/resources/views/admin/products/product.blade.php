@@ -73,7 +73,7 @@ Admin Product
                                         function getEditForm(id) {
                                           $.ajax({
                                           type: 'POST',
-                                          url: '{{route("produk.getEditForm")}}',
+                                          url: '{{route("admin.product.getEditForm")}}',
                                           data: {
                                             '_token': '<?php  echo csrf_token() ?>',
                                             'id': id
@@ -105,7 +105,7 @@ Admin Product
 
                                     $.ajax({
                                         type: 'POST',
-                                        url: '{{ route("produk.saveDataUpdate") }}',
+                                        url: '{{ route("admin.product.saveDataUpdate") }}',
                                         data: {
                                         '_token': '{{ csrf_token() }}',
                                         'id': id,
