@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $data->name = $request->get('name');
         $data->save();
 
-        return redirect()->route('category_admin')->with('status','Success updated data!');
+        return redirect()->route('admin.category_admin')->with('status','Success updated data!');
     }
 
     /**
@@ -62,7 +62,7 @@ class CategoryController extends Controller
     {
         $listkategori->name = $request->name;
         $listkategori->save();
-        return redirect()->route("category_admin")->with("status","Update success!");
+        return redirect()->route("admin.category_admin")->with("status","Update success!");
     }
 
     public function destroy(Request $request)

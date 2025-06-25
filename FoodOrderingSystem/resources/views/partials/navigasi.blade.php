@@ -18,7 +18,7 @@
                     <a href="{{ route('menu.index')}}" class="nav-link {{ request()->routeIs('menu') ? 'active' : '' }} @yield('menu')">Menu</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('about')}}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
+                    <a href="{{ route('customer.about')}}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
                 </li>
             </ul>
 

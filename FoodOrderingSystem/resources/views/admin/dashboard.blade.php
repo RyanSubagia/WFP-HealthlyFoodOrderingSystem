@@ -16,7 +16,7 @@ Admin Dashboard
                     function showinfo() {
                         $.ajax({
                             type: 'POST',
-                            url: '{{ route("category.showHighestFoods") }}',
+                            url: '{{ route("admin.category.showHighestFoods") }}',
                             data: '_token=<?php echo csrf_token(); ?>',
                             success: function (data) {
                                 $('#showinfo').html(data.msg);
