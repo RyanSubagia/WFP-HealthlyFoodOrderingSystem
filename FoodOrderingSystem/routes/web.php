@@ -45,7 +45,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
 // Admin routes
 Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
-    Route::get('/dashboard', function() {
+    Route::get('/', function() {
         return view('admin.dashboard');
     })->name('dashboard');
 
@@ -92,7 +92,7 @@ Route::get('/dashboard', function() {
         $userRole = auth()->user()->role;
         
         if (in_array($userRole, ['admin', 'employee'])) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('dashboard');
         } elseif ($userRole === 'customer') {
             return redirect()->route('customer.home');
         }
