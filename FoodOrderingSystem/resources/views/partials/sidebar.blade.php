@@ -5,21 +5,12 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-<<<<<<< Updated upstream
         <li>
             <a href="{{ route('admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('admin') ? 'active' : '' }}">
                 <i class="bi bi-speedometer2 me-2"></i> Dashboard
             </a>
         </li>
         <li>
-=======
-        <li class="nav-item">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('admin') ? 'active' : '' }}">
-                <i class="bi bi-house-door me-2"></i> Home
-            </a>
-        </li>
-        <li>
->>>>>>> Stashed changes
             <a href="{{ route('order_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('order_admin') ? 'active' : '' }}">
                 <i class="bi bi-cart-check me-2"></i> Orders
             </a>
