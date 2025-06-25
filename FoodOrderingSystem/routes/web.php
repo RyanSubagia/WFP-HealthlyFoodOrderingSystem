@@ -50,6 +50,10 @@ Route::post('/ajax/category/saveDataUpdate',[CategoryController::class,'saveData
 
 Route::get('/admin/order', [TransactionController::class,"DetailOrder"])->name('order_admin');
 Route::get('/admin/customer', [UserController::class,"DetailCustomer"])->name('customer_admin');
+Route::get('/admin/employee', [UserController::class,"DetailEmployee"])->name('employee_admin');
+Route::post('/admin/employee/employee/store', [UserController::class, 'store'])->name('addEmployee.store');
+
+
 
 // Auth routes
 =======
