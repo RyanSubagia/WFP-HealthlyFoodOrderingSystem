@@ -1,56 +1,85 @@
 @extends('layouts.main')
 
 @section('title')
-Menu
+    Menu
 @endsection
 
 @section('container')
-<h1> Halaman Menu </h1>
-<div class="container-fluid">
-  <h2 class="mb-4">Pilih Menu Makanan</h2>
-  <div class="row">
-    @foreach ($food as $f)
-      <div class="col-md-4 mb-4">
-        <div class="card h-100" data-toggle="modal" data-target="#modalFood{{ $f->id }}" style="cursor:pointer;">
-<img class="img-fluid mx-auto d-block" style="max-height: 200px; object-fit: contain;" 
-     src="{{ $f->image ? asset('storage/menu_sushi/' . $f->image) : 'https://via.placeholder.com/300x250?text=No+Image' }}"
-     alt="{{ $f->name }}">
+    <h1>Halaman Menu</h1>
+    <div class="container-fluid">
+        <h2 class="mb-4">Pilih Menu Makanan</h2>
+        <div class="row">
+            @foreach ($food as $f)
+                <div class="col-md-4 mb-4">
+                    <!-- Card: Click to open modal -->
+                    <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalFood{{ $f->id }}"
+                        style="cursor: pointer;">
+                        <img class="img-fluid mx-auto d-block" style="max-height: 200px; object-fit: contain;"
+                            src="{{ $f->image ? asset('/' . $f->image) : asset('img/default.jpg') }}"
+                            alt="{{ $f->name }}">
 
-          <div class="card-body">
-            <h5 class="card-title">{{ $f->name }}</h5>
-            <p class="card-text">
-              <strong>Kategori:</strong> {{ $f->category->name }}<br>
-              <strong>Harga:</strong> Rp. {{ $f->price }},-
-            </p>
-          </div>
-        </div>
-      </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $f->name }}</h5>
+                            <p class="card-text">
+                                <strong>Kategori:</strong> {{ $f->category->name }}<br>
+                                <strong>Harga:</strong> Rp. {{ number_format($f->price, 0, ',', '.') }},-
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-      <!-- Modal -->
-      <div class="modal fade" id="modalFood{{ $f->id }}" tabindex="-1" role="dialog" aria-labelledby="modalLabel{{ $f->id }}" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modalLabel{{ $f->id }}">{{ $f->name }}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img src="{{ $f->image ? asset('storage/menu_sushi/' . $f->image) : 'https://via.placeholder.com/600x300?text=No+Image' }}" class="img-fluid mb-3" alt="{{ $f->name }}">
-              <p><strong>Deskripsi:</strong> {{ $f->description }}</p>
-              <p><strong>Fakta Nutrisi:</strong> {{ $f->nutrition_fact }}</p>
-              <p><strong>Harga:</strong> Rp. {{ $f->price }},-</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            </div>
-          </div>
+                <!-- Modal -->
+                <div class="modal fade" id="modalFood{{ $f->id }}" tabindex="-1"
+                    aria-labelledby="modalLabel{{ $f->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <form action="{{ route('customer.cart.add') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="food_id" value="{{ $f->id }}">
+
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel{{ $f->id }}">{{ $f->name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <img src="{{ $f->image ? asset('/' . $f->image) : 'https://via.placeholder.com/600x300?text=No+Image' }}"
+                                        class="img-fluid mb-3" alt="{{ $f->name }}">
+
+                                    <p><strong>Deskripsi:</strong> {{ $f->description }}</p>
+                                    <p><strong>Fakta Nutrisi:</strong> {{ $f->nutrition_fact }}</p>
+                                    <p><strong>Harga:</strong> Rp. {{ number_format($f->price, 0, ',', '.') }},-</p>
+
+                                    <!-- Customization: Size -->
+                                    <div class="mb-3">
+                                        <label for="size{{ $f->id }}" class="form-label"><strong>Pilih
+                                                Ukuran:</strong></label>
+                                        <select class="form-select" id="size{{ $f->id }}" name="size" required>
+                                            <option value="S">Small (S)</option>
+                                            <option value="M" selected>Medium (M)</option>
+                                            <option value="L">Large (L)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Customization: Notes -->
+                                    <div class="mb-3">
+                                        <label for="note{{ $f->id }}" class="form-label"><strong>Catatan Tambahan
+                                                (Opsional):</strong></label>
+                                        <textarea class="form-control" id="note{{ $f->id }}" name="note" rows="2"
+                                            placeholder="Contoh: tanpa sambal, kurangin garam, dll."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-primary">Tambah ke Keranjang</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            @endforeach
         </div>
-      </div>
-    @endforeach
-  </div>
-</div>
+    </div>
 @endsection
-
-

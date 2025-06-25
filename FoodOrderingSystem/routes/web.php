@@ -1,8 +1,9 @@
 <?php
+
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FoodController;
-use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -20,24 +21,29 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('menu', FoodController::class);
 
 // Public home page (accessible to everyone)
-Route::get('/', function() {
+Route::get('/', function () {
     return view('customer.home'); // or whatever your public home page is
 })->name('home');
 
-Route::get('/about', function() {
+Route::get('/about', function () {
     return view('customer.about'); // or whatever your public home page is
 })->name('about');
 
 // Customer routes
 Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer.')->group(function () {
-    Route::get('/home', function() {
+    Route::get('/home', function () {
         return view('customer.home');
     })->name('home');
 
-    Route::get('/menu', function() {
+    Route::get('/menu', function () {
         return view('customer.menu');
     })->name('menu');
-    
+
+    Route::post('/cart', [CartController::class, 'add'])->name('cart.add');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+
     // Add other customer-specific routes here
     // Route::get('/profile', [CustomerController::class, 'profile'])->name('profile');
 });
@@ -45,7 +51,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
 // Admin routes
 Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
-    Route::get('/', function() {
+    Route::get('/', function () {
         return view('admin.dashboard');
     })->name('dashboard');
 
@@ -59,7 +65,7 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::post('/products/product/store', [FoodController::class, 'store'])->name('product.store');
     Route::post('/products/product/update', [FoodController::class, 'update'])->name('product.update');
     Route::post('/products/product/destroy', [FoodController::class, 'destroy'])->name('product.destroy');
-    
+
     // AJAX product routes
     Route::post('/ajax/product/getCreateForm', [FoodController::class, 'getCreateForm'])->name('product.getCreateForm');
     Route::post('/ajax/product/getEditForm', [FoodController::class, 'getEditForm'])->name('product.getEditForm');
@@ -71,7 +77,7 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::post('/categories/category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::post('/categories/category/update', [CategoryController::class, 'update'])->name('category.update');
     Route::post('/categories/category/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
-    
+
     // AJAX category routes
     Route::post('/ajax/category/getEditForm', [CategoryController::class, 'getEditForm'])->name('category.getEditForm');
     Route::post('/ajax/category/saveDataUpdate', [CategoryController::class, 'saveDataUpdate'])->name('category.saveDataUpdate');
@@ -87,16 +93,16 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
 });
 
 // Dashboard route - redirect based on user role after login
-Route::get('/dashboard', function() {
+Route::get('/dashboard', function () {
     if (auth()->check()) {
         $userRole = auth()->user()->role;
-        
+
         if (in_array($userRole, ['admin', 'employee'])) {
             return redirect()->route('dashboard');
         } elseif ($userRole === 'customer') {
             return redirect()->route('customer.home');
         }
     }
-    
+
     return redirect()->route('login');
 })->name('dashboard');
