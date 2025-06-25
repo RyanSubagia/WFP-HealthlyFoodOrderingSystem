@@ -17,21 +17,30 @@
                 <li class="nav-item mx-3">
                     <a href="{{ route('menu.index')}}" class="nav-link {{ request()->routeIs('menu') ? 'active' : '' }} @yield('menu')">Menu</a>
                 </li>
-                {{-- <li class="nav-item mx-3">
-                    <a href="{{ route('listcustomer.index')}}" class="nav-link @yield('customer')">Customer</a>
-                </li> --}}
-                {{-- <li class="nav-item mx-3">
-                    <a href="{{ route('listkategori.index')}}" class="nav-link @yield('customer')">Kategori</a>
-                </li> --}}
                 <li class="nav-item mx-3">
                     <a href="{{ route('about')}}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
                 </li>
             </ul>
 
-            <!-- Login button or user greeting -->
+            <!-- Login button or user dropdown -->
             @if (auth()->check())
-                <div class="ms-4 user-greeting">
-                    Hello, {{ auth()->user()->name }}
+                <div class="dropdown ms-4">
+                    <button class="btn dropdown-toggle user-greeting" type="button" id="userDropdown" 
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="background: none; border: none; color: #333; font-weight: 500;">
+                        Hello, {{ auth()->user()->name }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li>
+                            <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+                                @csrf
+                                <button type="submit" class="dropdown-item" 
+                                        style="color: #dc3545; border: none; background: none; width: 100%; text-align: left;">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             @else
                 <a href="/login" class="btn login-btn ms-4 rounded-pill px-4 py-2" style="background-color: #F58232; color: white;">Login</a>
