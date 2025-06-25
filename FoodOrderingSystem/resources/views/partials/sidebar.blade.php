@@ -36,6 +36,11 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('home') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
+                <i class="bi bi-people me-2"></i> Customer Page
+            </a>
+        </li>
+        <li>
             <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                 @csrf
                 <button type="submit" class="nav-link text-white sidebar-link btn btn-link text-start w-100 p-0" style="border: none; background: none; text-decoration: none;">
