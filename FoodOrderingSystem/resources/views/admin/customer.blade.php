@@ -12,7 +12,6 @@ Admin Customer
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Point</th>
@@ -22,9 +21,6 @@ Admin Customer
                             <tbody>
                                 @foreach ($customer as $c)
                                    <tr>
-                                        <td>
-                                            {{ $c->id }}
-                                        </td>
                                         <td>
                                             {{ $c->name }}
                                         </td>
