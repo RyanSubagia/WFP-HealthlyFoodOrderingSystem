@@ -43,7 +43,7 @@ class UserController extends Controller
         $data->role = 'employee';
 
         $data->save();
-        return redirect()->route('employee_admin')->with('status','Success updated data!');
+        return redirect()->route('admin.employee_admin')->with('status','Success updated data!');
 
     }
 

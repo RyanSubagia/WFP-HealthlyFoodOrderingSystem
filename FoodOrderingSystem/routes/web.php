@@ -80,7 +80,7 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::get('/orders', [TransactionController::class, "DetailOrder"])->name('order_admin');
     Route::get('/customers', [UserController::class, "DetailCustomer"])->name('customer_admin');
     Route::get('/employees', [UserController::class, "DetailEmployee"])->name('employee_admin');
-    
+    Route::post('/employee/employee/store', [UserController::class, 'store'])->name('addEmployee.store');
     // Resource routes for admin
     Route::resource('users', UserController::class);
     Route::resource('transactions', TransactionController::class);
