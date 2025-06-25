@@ -101,7 +101,7 @@ Home
                  where every bite tells a story of passion, flavor, and the joy of shared meals.
               </p>
               
-              <a href="{{ route('about')}}" class="btn btn-primary mt-3" style="background-color: #F58232;" >Learn more about us</a>
+              <a href="{{ route('customer.about')}}" class="btn btn-primary mt-3" style="background-color: #F58232;" >Learn more about us</a>
             </div>
           </div>
         </div>

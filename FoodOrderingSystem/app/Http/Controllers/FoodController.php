@@ -50,7 +50,7 @@ class FoodController extends Controller
         $data->save();
         
 
-        return redirect()->route('product_admin')->with('status','Success updated data!');
+        return redirect()->route('admin.product_admin')->with('status','Success updated data!');
     }
 
     /**
@@ -77,7 +77,7 @@ class FoodController extends Controller
     {
         $listmakanan->name = $request->name;
         $listmakanan->save();
-        return redirect()->route("product_admin")->with("status","Update success!");
+        return redirect()->route("admin.product_admin")->with("status","Update success!");
     }
 
     /**
