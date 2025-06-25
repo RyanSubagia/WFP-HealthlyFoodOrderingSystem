@@ -339,11 +339,6 @@
     margin-bottom: 20px;
 }
 
-/* Icon positioning inside buttons */
-.btn i {
-    font-size: 1rem;
-    margin-right: 5px;
-}
 
 @media (max-width: 768px) {
     .hero-title {
@@ -374,22 +369,10 @@
     }
 }
 
-/* .hero-header img {
-    animation: imgRotate 50s linear infinite;
-} */
-
-/* @keyframes imgRotate { 
-    100% { 
-        transform: rotate(360deg); 
-    } 
-} */
-
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, .5);
 }
 
-
-/*** Section Title ***/
 .section-title {
     position: relative;
     display: inline-block;

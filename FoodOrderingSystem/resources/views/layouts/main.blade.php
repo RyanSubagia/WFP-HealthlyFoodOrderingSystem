@@ -21,9 +21,7 @@
     </style>
 </head>
 <body>
-    {{-- Check if current route is admin --}}
     @if(request()->is('admin*'))
-        {{-- Admin Layout --}}
         <div class="d-flex">
             @include('partials.sidebar')
             <div class="flex-grow-1">
@@ -33,7 +31,7 @@
             </div>
         </div>
     @else
-        {{-- Customer Layout --}}
+
         @include('partials.navigasi')
         <main>
             @yield('container')

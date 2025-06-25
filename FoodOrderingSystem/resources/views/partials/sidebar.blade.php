@@ -16,12 +16,12 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('product_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('product_admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.product_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('product_admin') ? 'active' : '' }}">
                 <i class="bi bi-box-seam me-2"></i> Products
             </a>
         </li>
         <li>
-            <a href="{{ route('category_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('category_admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.category_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('category_admin') ? 'active' : '' }}">
                 <i class="bi bi-tags me-2"></i> Categories
             </a>
         </li>
@@ -34,7 +34,6 @@
             <a href="{{ route('customer_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
                 <i class="bi bi-people me-2"></i> Customer
             </a>
-<<<<<<< Updated upstream
         </li>
         <li>
             <form method="POST" action="{{ route('logout') }}" style="display: inline;">
@@ -43,13 +42,6 @@
                     <i class="bi bi-box-arrow-right me-2"></i> Logout
                 </button>
             </form>
-=======
-        </li> 
-        <li>
-            <a href="{{ route('logout') }}" method="post" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
-                <i class="bi bi-people me-2"></i> Logout
-            </a>
->>>>>>> Stashed changes
         </li>
     </ul>
     <hr>

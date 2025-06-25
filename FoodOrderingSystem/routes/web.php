@@ -10,7 +10,6 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-<<<<<<< Updated upstream
 //Customer
 Route::get('/', function() {
     return view('customer.home');
@@ -56,9 +55,6 @@ Route::post('/admin/employee/employee/store', [UserController::class, 'store'])-
 
 
 // Auth routes
-=======
-// Auth routes (should be at the top)
->>>>>>> Stashed changes
 Auth::routes();
 
 // Logout route
@@ -69,8 +65,12 @@ Route::resource('menu', FoodController::class);
 
 // Public home page (accessible to everyone)
 Route::get('/', function() {
-    return view('home'); // or whatever your public home page is
+    return view('customer.home'); // or whatever your public home page is
 })->name('home');
+
+Route::get('/about', function() {
+    return view('customer.about'); // or whatever your public home page is
+})->name('about');
 
 // Customer routes
 Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer.')->group(function () {
@@ -78,9 +78,9 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
         return view('customer.home');
     })->name('home');
 
-    Route::get('/about', function() {
-        return view('customer.about');
-    })->name('about');
+    Route::get('/menu', function() {
+        return view('customer.menu');
+    })->name('menu');
     
     // Add other customer-specific routes here
     // Route::get('/profile', [CustomerController::class, 'profile'])->name('profile');
@@ -98,7 +98,7 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::post("/showListFoods", [CategoryController::class, 'showListFoods'])->name("category.showListFoods");
 
     // Product routes
-    Route::get('/products/product', [FoodController::class, "DetailProduct"])->name('product');
+    Route::get('/products/product', [FoodController::class, "DetailProduct"])->name('product_admin');
     Route::get('/products/product/create', [FoodController::class, 'create'])->name('product.create');
     Route::post('/products/product/store', [FoodController::class, 'store'])->name('product.store');
     Route::post('/products/product/update', [FoodController::class, 'update'])->name('product.update');
@@ -110,7 +110,7 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::post('/ajax/product/saveDataUpdate', [FoodController::class, 'saveDataUpdate'])->name('product.saveDataUpdate');
 
     // Category routes
-    Route::get('/categories/category', [CategoryController::class, "DetailCategory"])->name('category');
+    Route::get('/categories/category', [CategoryController::class, "DetailCategory"])->name('category_admin');
     Route::get('/categories/category/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/categories/category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::post('/categories/category/update', [CategoryController::class, 'update'])->name('category.update');
