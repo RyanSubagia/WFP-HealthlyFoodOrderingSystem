@@ -57,7 +57,7 @@ Admin Kategori
                                           function showDetail(id) {
                                             $.ajax({
                                               type: 'POST',
-                                              url: '{{ route("category.showListFoods") }}',
+                                              url: '{{ route("admin.category.showListFoods") }}',
                                               data: { 
                                                       '_token': '<?php echo csrf_token(); ?>',
                                                       'idcat': id,
@@ -141,7 +141,7 @@ Admin Kategori
                                           function deleteDataRemove(id) {
                                             $.ajax({
                                               type: 'POST',
-                                              url: '{{ route("listkategori.destroy") }}',
+                                              url: '{{ route("admin.category.destroy") }}',
                                               data: {
                                                 _token: '{{ csrf_token() }}',
                                                 id: id
@@ -175,7 +175,7 @@ Admin Kategori
                                   <h4 class="modal-title">Add New Category</h4>
                                 </div>
                                 <div class="modal-body">
-                                  <form method="POST" action="{{ route('listkategori.store') }}">
+                                  <form method="POST" action="{{ route('admin.category.store') }}">
                                     @csrf
                                     <div class="form-group">
                                       <label for="name">Name</label>

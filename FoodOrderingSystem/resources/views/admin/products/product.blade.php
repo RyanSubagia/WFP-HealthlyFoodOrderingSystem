@@ -138,7 +138,7 @@ Admin Product
                                           function deleteDataRemove(id) {
                                             $.ajax({
                                               type: 'POST',
-                                              url: '{{ route("listmakanan.destroy") }}',
+                                              url: '{{ route("admin.product.destroy") }}',
                                               data: {
                                                 _token: '{{ csrf_token() }}',
                                                 id: id
@@ -172,7 +172,7 @@ Admin Product
                                   <h4 class="modal-title">Add New Menu</h4>
                                 </div>
                                 <div class="modal-body">
-                                  <form method="POST" action="{{ route('listmakanan.store') }}" enctype="multipart/form-data">
+                                  <form method="POST" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Name</label>

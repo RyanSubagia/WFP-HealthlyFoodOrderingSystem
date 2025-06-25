@@ -37,7 +37,7 @@ Route::post('/admin/products/product/update', [FoodController::class, 'update'])
 Route::post('/admin/products/product/destroy',  [FoodController::class, 'destroy'])->name('listmakanan.destroy');
 Route::post('/ajax/product/getCreateForm',[FoodController::class,'getCreateForm'])->name('produk.getCreateForm');
 Route::post('/ajax/product/getEditForm',[FoodController::class,'getEditForm'])->name('produk.getEditForm');
-Route::post('/ajax/product/saveDataUpdate',[FoodController::class,'saveDataUpdate'])->name('produk.saveDataUpdate');
+Route::post('/ajax/product/saveDataUpdate',action: [FoodController::class,'saveDataUpdate'])->name('produk.saveDataUpdate');
 
 Route::get('/admin/categories/category',[CategoryController::class,"DetailCategory"])->name('category_admin');
 Route::get('/admin/categories/category/create', [CategoryController::class, 'create'])->name('listkategori.create');
