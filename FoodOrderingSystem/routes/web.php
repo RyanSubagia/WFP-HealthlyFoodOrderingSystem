@@ -27,12 +27,8 @@ Route::post("/admin/showListFoods",[CategoryController::class, 'showListFoods'])
 
 //Admin
 Route::get('/admin', function() {
-    return view('admin.home');
-})->name('admin')->middleware('auth');
-
-Route::get('/admin/dashboard', function() {
     return view('admin.dashboard');
-})->name('dashboard_admin');
+})->name('admin')->middleware('auth');
 
 Route::get('/admin/products/product', [FoodController::class,"DetailProduct"])->name('product_admin');
 Route::get('/admin/products/product/create', [FoodController::class, 'create'])->name('listmakanan.create');

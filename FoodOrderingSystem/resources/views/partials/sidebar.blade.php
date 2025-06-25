@@ -5,19 +5,14 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-            <a href="{{ route('admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('admin') ? 'active' : '' }}">
-                <i class="bi bi-house-door me-2"></i> Home
-            </a>
-        </li>
         <li>
-            <a href="{{ route('dashboard_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('dashboard_admin') ? 'active' : '' }}">
+            <a href="{{ route('admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('admin') ? 'active' : '' }}">
                 <i class="bi bi-speedometer2 me-2"></i> Dashboard
             </a>
         </li>
         <li>
             <a href="{{ route('order_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('order_admin') ? 'active' : '' }}">
-                <i class="bi bi-table me-2"></i> Orders
+                <i class="bi bi-cart-check me-2"></i> Orders
             </a>
         </li>
         <li>
@@ -27,17 +22,21 @@
         </li>
         <li>
             <a href="{{ route('category_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('category_admin') ? 'active' : '' }}">
-                <i class="bi bi-box-seam me-2"></i> Categories
+                <i class="bi bi-tags me-2"></i> Categories
             </a>
         </li>
         <li>
             <a href="{{ route('customer_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
                 <i class="bi bi-people me-2"></i> Customer
             </a>
-        </li> <li>
-            <a href="{{ route('logout') }}" method="post" class="nav-link text-white sidebar-link {{ request()->routeIs('customer_admin') ? 'active' : '' }}">
-                <i class="bi bi-people me-2"></i> Logout
-            </a>
+        </li>
+        <li>
+            <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                @csrf
+                <button type="submit" class="nav-link text-white sidebar-link btn btn-link text-start w-100 p-0" style="border: none; background: none; text-decoration: none;">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </button>
+            </form>
         </li>
     </ul>
     <hr>
