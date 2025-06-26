@@ -15,8 +15,7 @@
                     <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalFood{{ $f->id }}"
                         style="cursor: pointer;">
                         <img class="img-fluid mx-auto d-block" style="max-height: 200px; object-fit: contain;"
-                            src="{{ $f->image ? asset('/' . $f->image) : asset('img/default.jpg') }}"
-                            alt="{{ $f->name }}">
+                            src="{{ asset('storage/menu_sushi/' . $f->image) }}" alt="{{ $f->name }}"/>
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $f->name }}</h5>
@@ -44,8 +43,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <img src="{{ $f->image ? asset('/' . $f->image) : 'https://via.placeholder.com/600x300?text=No+Image' }}"
-                                        class="img-fluid mb-3" alt="{{ $f->name }}">
+                                    <img src="{{ asset('storage/menu_sushi/' . $f->image) }}" alt="{{ $f->name }}"/>
 
                                     <p><strong>Deskripsi:</strong> {{ $f->description }}</p>
                                     <p><strong>Fakta Nutrisi:</strong> {{ $f->nutrition_fact }}</p>

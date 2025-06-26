@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
-@section('title', 'My Cart')
+@section('title')
+My Cart
+@endsection
 
 @section('container')
 
@@ -50,7 +52,7 @@
                                 @endphp
                                 <tr>
                                     <td style="width: 100px;">
-                                        <img src="{{ $item->food->image ? asset('/' . $item->food->image) : asset('img/default.jpg') }}"
+                                        <img src="{{ asset('storage/menu_sushi/' . $item->food->image) }}" alt="{{ $item->food->name }}"
                                              class="img-fluid rounded" style="max-height: 80px;">
                                     </td>
                                     <td>{{ $item->food->name }}</td>

@@ -72,6 +72,6 @@ class CartController extends Controller
 
         Cart::where('user_id', $user->id)->delete();
 
-        return redirect()->route('cart.index')->with('success', 'Pesanan berhasil dibuat!');
+        return redirect()->route('customer.cart.index')->with('success', 'Pesanan berhasil dibuat!');
     }
 }
