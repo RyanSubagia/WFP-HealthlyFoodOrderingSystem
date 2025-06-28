@@ -74,4 +74,16 @@ class CartController extends Controller
 
         return redirect()->route('customer.cart.index')->with('success', 'Pesanan berhasil dibuat!');
     }
+
+    public function destroy(Request $request)
+    {
+        $id = $request->id;
+        $foods = Cart::find($id);
+        $foods->delete();
+        
+        return response()->json(array(
+            "status" =>"oke",
+            "msg"=>"Delete success!"
+        ),200);
+    }
 }

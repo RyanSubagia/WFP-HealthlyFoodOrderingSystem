@@ -41,6 +41,7 @@ My Cart
                                 <th>Harga</th>
                                 <th>Jumlah</th>
                                 <th>Total</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,6 +62,32 @@ My Cart
                                     <td>Rp {{ number_format($item->food->price, 0, ',', '.') }}</td>
                                     <td>{{ $item->quantity }}</td>
                                     <td>Rp {{ number_format($total, 0, ',', '.') }}</td>
+                                    <td>
+                                        <a href="#" value="Delete" class="btn btn-danger" 
+                                          onclick="if(confirm('Yakin ingin menghapus {{ $item->name }} dari keranjang? ')) deleteCartItem({{ $item->id }})">
+                                            <i class="fas fa-trash-alt me-1"></i>✕</a>
+                                        <script>
+                                            function deleteCartItem(id) {
+                                                $.ajax({
+                                                    type: 'POST',
+                                                    url: '{{ route("customer.cart.destroy") }}',
+                                                    data: {
+                                                        _token: '{{ csrf_token() }}',
+                                                        id: id
+                                                    },
+                                                    success: function (data) {
+                                                        if (data.status === 'oke') {
+                                                            location.reload();
+                                                        }
+                                                    },
+                                                    error: function (xhr) {
+                                                        console.error(xhr.responseText);
+                                                        alert('Gagal menghapus item.');
+                                                    }
+                                                });
+                                            }
+                                        </script>   
+                                    </td>
                                 </tr>
                             @endforeach
                             <tr>

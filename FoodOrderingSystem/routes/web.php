@@ -42,6 +42,8 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::post('/cart', [CartController::class, 'add'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::post('/cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
+
 
 
     // Add other customer-specific routes here
