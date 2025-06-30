@@ -72,7 +72,7 @@
                                     </div>
                                 
                                 
-                                <label class="form-label"><strong>Condiments: </strong></label>
+                                <label class="form-label"><strong>Condiments: + 2000 each</strong></label>
                                     <fieldset class="border p-3 mt-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="condiments[]" value="Shoyu" id="condiment-shoyu-{{ $f->id }}">
