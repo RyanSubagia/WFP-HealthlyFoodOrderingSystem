@@ -80,4 +80,24 @@ class TransactionController extends Controller
         return view('admin.order_detail', compact('transaction', 'items'));
     }
 
+    public function updateStatus(Request $request, Transaction $transaction)
+    {
+        $request->validate([
+            'status' => 'required|in:' . implode(',', Transaction::STATUSES),
+        ]);
+
+        $current = $transaction->status;
+        $next    = Transaction::NEXT_STATUS[$current] ?? null;
+
+        // Pastikan status baru adalah satu‑satunya transisi sah
+        if ($next !== $request->status) {
+            return back()->withErrors('Perubahan status tidak sah.');
+        }
+
+        $transaction->update(['status' => $request->status]);
+
+        return $request->ajax()
+            ? response()->json(['success' => true])
+            : back()->with('success', 'Status updated');
+    }
 }
