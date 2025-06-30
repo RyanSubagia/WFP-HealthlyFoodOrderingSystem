@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -68,16 +69,41 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
         //
+         DB::beginTransaction();
+
+        try {
+            $id = $request->id;
+            $employee = User::find($id);
+
+            if (!$employee || $employee->role !== 'employee') {
+                return response()->json([
+                    'status' => 'error',
+                    'msg' => 'Employee not found or unauthorized'
+                ], 404);
+            }
+            $employee->delete();
+
+            DB::commit();
+            return redirect()->route('admin.employee_admin')->with('status','Success created data!');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'status' => 'error',
+                'msg' => 'Failed to delete: ' . $e->getMessage()
+            ], 500);
+        }
     }
+
     public function DetailCustomer()
     {
         // Ambil data customer dan paginate
@@ -90,7 +116,38 @@ class UserController extends Controller
         // Ambil data customer dan paginate
         $employee = User::where('role', 'employee')->paginate(10);
     
-        return view("admin.employee", ["employee" => $employee]);
+        return view("admin.employee.employee", ["employee" => $employee]);
     }
     
+    public function getEditForm(Request $request)
+{
+    $data = User::find($request->id);
+    if (!$data) {
+        return response()->json(['status' => 'error', 'msg' => 'Data not found.']);
+    }
+
+    return response()->json([
+        'status' => 'ok',
+        'msg' => view('admin.employee.editForm', compact('data'))->render()
+    ]);
+}
+
+public function saveDataUpdate(Request $request)
+{
+    $data = User::find($request->id);
+    if (!$data) {
+        return response()->json(['status' => 'error', 'msg' => 'Data not found.']);
+    }
+
+    $data->name = $request->name;
+    $data->email = $request->email;
+    $data->no_telp = $request->no_telp;
+    if ($request->password) {
+        $data->password = bcrypt($request->password);
+    }
+    $data->save();
+
+    return response()->json(['status' => 'oke', 'msg' => 'Berhasil update employee!']);
+}
+
 }

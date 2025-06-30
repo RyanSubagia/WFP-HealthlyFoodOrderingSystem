@@ -89,6 +89,10 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::get('/customers', [UserController::class, "DetailCustomer"])->name('customer_admin');
     Route::get('/employees', [UserController::class, "DetailEmployee"])->name('employee_admin');
     Route::post('/employee/employee/store', [UserController::class, 'store'])->name('addEmployee.store');
+    Route::post('/ajax/employee/getEditForm', [UserController::class, 'getEditForm'])->name('employee.getEditForm');
+    Route::post('/ajax/employee/saveDataUpdate', [UserController::class, 'saveDataUpdate'])->name('employee.saveDataUpdate');
+    Route::post('/employee/employee/destroy', [UserController::class, 'destroy'])->name('employee.destroy');
+
     // Resource routes for admin
     Route::resource('users', UserController::class);
     Route::resource('transactions', TransactionController::class);
