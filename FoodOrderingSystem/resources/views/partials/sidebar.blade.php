@@ -1,3 +1,6 @@
+@php
+    $role = auth()->user()->role;
+@endphp
 <!-- Sidebar -->
 <div class="bg-dark text-white vh-100 d-flex flex-column p-3" style="width: 250px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -25,6 +28,7 @@
                 <i class="bi bi-tags me-2"></i> Categories
             </a>
         </li>
+        @if ($role === 'admin')
         <li>
             <a href="{{ route('admin.employee_admin') }}" class="nav-link text-white sidebar-link {{ request()->routeIs('employee_admin') ? 'active' : '' }}">
                 <i class="bi bi-people me-2"></i> Employee
@@ -35,6 +39,8 @@
                 <i class="bi bi-people me-2"></i> Customer
             </a>
         </li>
+        @endif
+        
         <li>
             <form method="POST" action="{{ route('logout') }}" style="display: inline;">
                 @csrf
