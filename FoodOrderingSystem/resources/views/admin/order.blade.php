@@ -13,7 +13,7 @@ Admin Transaction
                         <thead>
                         <tr>
                             <th>id</th>
-                            <th>Total</th>
+                            <th>Total (Rp.)</th>
                             <th>Order Date</th>
                             <th>Table Number</th>
                             <th>Method</th>
