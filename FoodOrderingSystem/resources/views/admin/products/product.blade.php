@@ -74,16 +74,12 @@ Admin Product
                                             <div class="nutrition-facts">
                                                 <p><strong>Nutrition Facts:</strong></p>
                                                 @if($item->nutritionFact)
-                                                    <ul>
-                                                      <li><strong>Calories:</strong> {{ $item->nutritionFact->calories }}</li>
-                                                      <li><strong>Protein:</strong> {{ $item->nutritionFact->protein }} g</li>
-                                                      <li><strong>Fat:</strong> {{ $item->nutritionFact->fat }} g</li>
-                                                      <li><strong>Carbohydrates:</strong> {{ $item->nutritionFact->carbohydrates }} g</li>
-                                                      <li><strong>Fiber:</strong> {{ $item->nutritionFact->fiber }} g</li>
-                                                  </ul>
-                                              @else
-                                                  <p class="text-muted">Nutrition facts not found</p>
-                                              @endif
+                                                    <div class="nutrition-content">
+                                                        {!! nl2br(e($item->nutritionFact->formatted_nutrition)) !!}
+                                                    </div>
+                                                @else
+                                                    <p class="text-muted">Nutrition facts not found</p>
+                                                @endif
                                             </div>
                                             </div>
                                             <div class="modal-footer">

@@ -55,6 +55,7 @@ class NutritionFact extends Model
         if ($this->fiber) {
             $nutrition[] = "Fiber: {$this->fiber}g";
         }
-        return $nutrition;
+
+        return implode("\n", $nutrition);
     }
 }
