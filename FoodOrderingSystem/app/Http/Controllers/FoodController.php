@@ -63,7 +63,6 @@ class FoodController extends Controller
                 $nutritionFact->fat = $request->get('fat');
                 $nutritionFact->carbohydrates = $request->get('carbohydrates');
                 $nutritionFact->fiber = $request->get('fiber');
-                $nutritionFact->additional_info = $request->get('additional_info');
                 $nutritionFact->save();
             }
 
@@ -122,7 +121,6 @@ class FoodController extends Controller
                     'fat' => $request->get('fat'),
                     'carbohydrates' => $request->get('carbohydrates'),
                     'fiber' => $request->get('fiber'),
-                    'additional_info' => $request->get('additional_info'),
                 ];
 
                 // Update atau create nutrition fact
@@ -228,7 +226,6 @@ class FoodController extends Controller
                     'fat' => $request->get('fat'),
                     'carbohydrates' => $request->get('carbohydrates'),
                     'fiber' => $request->get('fiber'),
-                    'additional_info' => $request->get('additional_info'),
                 ];
 
                 NutritionFact::updateOrCreate(
@@ -255,7 +252,6 @@ class FoodController extends Controller
                $request->filled(['protein']) || 
                $request->filled(['fat']) || 
                $request->filled(['carbohydrates']) || 
-               $request->filled(['fiber']) ||
-               $request->filled(['additional_info']);
+               $request->filled(['fiber']);
     }
 }

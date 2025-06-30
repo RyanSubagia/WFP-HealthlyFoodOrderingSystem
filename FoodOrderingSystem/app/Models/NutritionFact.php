@@ -15,8 +15,7 @@ class NutritionFact extends Model
         'protein',
         'fat',
         'carbohydrates',
-        'fiber',
-        'additional_info'
+        'fiber'
     ];
 
     protected $casts = [
@@ -56,7 +55,6 @@ class NutritionFact extends Model
         if ($this->fiber) {
             $nutrition[] = "Fiber: {$this->fiber}g";
         }
-
-        return implode("\n", $nutrition) . ($this->additional_info ? "\n" . $this->additional_info : '');
+        return $nutrition;
     }
 }

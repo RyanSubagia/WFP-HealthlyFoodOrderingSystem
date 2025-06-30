@@ -74,12 +74,16 @@ Admin Product
                                             <div class="nutrition-facts">
                                                 <p><strong>Nutrition Facts:</strong></p>
                                                 @if($item->nutritionFact)
-                                                    <div class="nutrition-content">
-                                                        {!! nl2br(e($item->nutritionFact->formatted_nutrition)) !!}
-                                                    </div>
-                                                @else
-                                                    <p class="text-muted">Nutrition facts not found</p>
-                                                @endif
+                                                    <ul>
+                                                      <li><strong>Calories:</strong> {{ $item->nutritionFact->calories }}</li>
+                                                      <li><strong>Protein:</strong> {{ $item->nutritionFact->protein }} g</li>
+                                                      <li><strong>Fat:</strong> {{ $item->nutritionFact->fat }} g</li>
+                                                      <li><strong>Carbohydrates:</strong> {{ $item->nutritionFact->carbohydrates }} g</li>
+                                                      <li><strong>Fiber:</strong> {{ $item->nutritionFact->fiber }} g</li>
+                                                  </ul>
+                                              @else
+                                                  <p class="text-muted">Nutrition facts not found</p>
+                                              @endif
                                             </div>
                                             </div>
                                             <div class="modal-footer">
@@ -130,35 +134,36 @@ Admin Product
                                 @push('script')
                                   <script>
                                     function saveDataUpdate(id) {
-                                    var nutrition_fact = $('#nutrition_fact').val();
-                                    var description = $('#description').val();
-                                    var price = $('#price').val();
-                                    var category_id = $('#category_id').val();
-
                                     $.ajax({
-                                        type: 'POST',
-                                        url: '{{ route("admin.product.saveDataUpdate") }}',
-                                        data: {
+                                      type: 'POST',
+                                      url: '{{ route("admin.product.saveDataUpdate") }}',
+                                      data: {
                                         '_token': '{{ csrf_token() }}',
                                         'id': id,
-                                        'nutrition_fact': nutrition_fact,
-                                        'description': description,
-                                        'price': price,
-                                        'category_id': category_id
-                                        },
-                                        success: function (data) {
-                                        if (data.status == "oke") {
-                                            $('#modalEdit').modal('hide');
-                                            alert("Berhasil diupdate!");
-                                            location.reload();
+                                        'name': $('#name').val(),
+                                        'description': $('#description').val(),
+                                        'price': $('#price').val(),
+                                        'category_id': $('#category_id').val(),
+
+                                        'calories': $('#calories').val(),
+                                        'protein': $('#protein').val(),
+                                        'fat': $('#fat').val(),
+                                        'carbohydrates': $('#carbohydrates').val(),
+                                        'fiber': $('#fiber').val(),
+                                      },
+                                      success: function (data) {
+                                        if (data.status === "oke") {
+                                          $('#modalEdit').modal('hide');
+                                          alert("Berhasil diupdate!");
+                                          location.reload();
                                         }
-                                        },
-                                        error: function(xhr) {
+                                      },
+                                      error: function(xhr) {
                                         alert("Gagal update");
                                         console.log(xhr.responseText);
-                                        }
+                                      }
                                     });
-                                    }
+                                  }
                                         </script>
                                         @endpush
 

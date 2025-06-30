@@ -8,8 +8,30 @@
         <input type="text" class="form-control" id="name" name="name" value="{{ $data->name }}" readonly>
         <br>
         
-        <label for="nutrition_fact">Nutrition Fact</label>
-        <textarea class="form-control" id="nutrition_fact" name="nutrition_fact">{{ $data->nutrition_fact }}</textarea>
+        @if($data->nutritionFact)
+            @php $nf = $data->nutritionFact; @endphp
+        @else
+            @php $nf = new \App\Models\NutritionFact; @endphp
+        @endif
+
+        <label for="calories">Calories</label>
+        <input type="text" class="form-control" id="calories" name="calories" value="{{ $nf->calories }}">
+        <br>
+
+        <label for="protein">Protein</label>
+        <input type="text" class="form-control" id="protein" name="protein" value="{{ $nf->protein }}">
+        <br>
+
+        <label for="fat">Fat</label>
+        <input type="text" class="form-control" id="fat" name="fat" value="{{ $nf->fat }}">
+        <br>
+
+        <label for="carbohydrates">Carbohydrates</label>
+        <input type="text" class="form-control" id="carbohydrates" name="carbohydrates" value="{{ $nf->carbohydrates }}">
+        <br>
+
+        <label for="fiber">Fiber</label>
+        <input type="text" class="form-control" id="fiber" name="fiber" value="{{ $nf->fiber }}">
         <br>
 
         <label for="description">Description</label>
