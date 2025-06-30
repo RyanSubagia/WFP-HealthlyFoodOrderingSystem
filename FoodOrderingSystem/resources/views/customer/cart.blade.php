@@ -17,13 +17,10 @@
 
 <section class="py-5 bg-light">
     <div class="container">
-
-        {{-- Success Message --}}
         @if (session('success'))
             <div class="alert alert-success text-center">{{ session('success') }}</div>
         @endif
 
-        {{-- Validation Errors --}}
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">
@@ -44,7 +41,7 @@
                             <th>Gambar</th>
                             <th>Nama</th>
                             <th>Ukuran</th>
-                            <th>Catatan</th>
+                            <th>Catatan & Condiments</th>
                             <th>Harga</th>
                             <th>Jumlah</th>
                             <th>Total</th>
@@ -52,22 +49,39 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php $grandTotal = 0; @endphp
+                        @php 
+                            $grandTotal = 0;
+                            $condiments = ['shoyu', 'wasabi', 'gari', 'togarashi', 'ponzu', 'mayones', 'teriyaki', 'chili_Oil'];
+                        @endphp
                         @foreach ($carts as $item)
                             @php
                                 $price = $item->food->price;
-                                if ($item->size === 'L') {
-                                    $price += 5000;
+                                $sizeCharge = $item->size === 'L' ? 5000 : 0;
+
+                                $condimentPrice = 0;
+                                foreach ($condiments as $condiment) {
+                                    if ($item->$condiment) {
+                                        $condimentPrice += 2000;
+                                    }
                                 }
-                                $total = $price * $item->quantity;
+
+                                $finalPrice = $price + $sizeCharge + $condimentPrice;
+                                $total = $finalPrice * $item->quantity;
                                 $grandTotal += $total;
                             @endphp
                             <tr>
                                 <td><img src="{{ asset('storage/menu_sushi/' . $item->food->image) }}" class="img-fluid" style="max-height: 80px;"></td>
                                 <td>{{ $item->food->name }}</td>
                                 <td>{{ $item->size }}</td>
-                                <td>{{ $item->note ?? '-' }}</td>
-                                <td>Rp {{ number_format($price, 0, ',', '.') }}</td>
+                                <td>
+                                    {{ $item->note ?? '-' }}<br>
+                                    @foreach ($condiments as $c)
+                                        @if ($item->$c)
+                                            <span class="badge bg-secondary mt-1">{{ ucfirst(str_replace('_', ' ', $c)) }}</span>
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>Rp {{ number_format($finalPrice, 0, ',', '.') }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>Rp {{ number_format($total, 0, ',', '.') }}</td>
                                 <td>
@@ -83,7 +97,6 @@
                 </table>
             </div>
 
-            {{-- Checkout Form --}}
             <form action="{{ route('customer.cart.checkout') }}" method="POST">
                 @csrf
 
@@ -124,7 +137,6 @@
                 </div>
             </form>
 
-            {{-- JavaScript --}}
             <script>
                 function toggleTableInput(value) {
                     const group = document.getElementById('table-number-group');
@@ -140,7 +152,6 @@
                     }
                 }
 
-                // Jalankan sekali saat halaman dibuka untuk set default ke Dine-In
                 document.addEventListener("DOMContentLoaded", function () {
                     toggleTableInput("Dine-In");
                 });
