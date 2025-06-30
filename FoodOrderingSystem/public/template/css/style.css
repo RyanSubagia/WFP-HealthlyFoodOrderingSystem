@@ -1,3 +1,271 @@
+/* Root CSS Variables for Theme Colors */
+:root {
+  --primary-bg: #f5f3f0;
+  --primary-text: #4a4a4a;
+  --accent-color: #d4af37;
+  --hover-bg: rgba(212, 175, 55, 0.1);
+  --active-bg: #d4af37;
+  --active-text: #ffffff;
+  --border-color: rgba(212, 175, 55, 0.2);
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Blue Theme */
+.theme-blue {
+  --primary-bg: #1e3a5f;
+  --primary-text: #ffffff;
+  --accent-color: #4a90e2;
+  --hover-bg: rgba(74, 144, 226, 0.2);
+  --active-bg: #4a90e2;
+  --active-text: #ffffff;
+  --border-color: rgba(74, 144, 226, 0.3);
+  --shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+}
+
+/* Red Theme */
+.theme-red {
+  --primary-bg: #2d1b1b;
+  --primary-text: #ffffff;
+  --accent-color: #e74c3c;
+  --hover-bg: rgba(231, 76, 60, 0.2);
+  --active-bg: #e74c3c;
+  --active-text: #ffffff;
+  --border-color: rgba(231, 76, 60, 0.3);
+  --shadow: 0 4px 15px rgba(45, 27, 27, 0.3);
+}
+
+/* Sidebar Container */
+.sidebar {
+  background: var(--primary-bg);
+  color: var(--primary-text);
+  width: 280px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid var(--border-color);
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+}
+
+/* Brand Logo */
+.sidebar .brand {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar .brand span {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* Theme Toggle Button Inside Sidebar */
+.theme-toggle-sidebar {
+  background: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-sidebar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-sidebar i {
+  color: white;
+  font-size: 1rem;
+}
+
+/* Navigation Container */
+.sidebar .nav-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+
+/* Navigation Links */
+.sidebar .nav-pills {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.sidebar .nav-pills li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar .nav-link {
+  color: var(--primary-text);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--accent-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background: var(--hover-bg);
+  color: var(--primary-text);
+  transform: translateX(5px);
+  border-color: var(--border-color);
+}
+
+.sidebar .nav-link:hover::before {
+  transform: scaleY(1);
+}
+
+.sidebar .nav-link.active {
+  background: var(--active-bg);
+  color: var(--active-text);
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link.active::before {
+  transform: scaleY(1);
+  background: var(--active-text);
+}
+
+.sidebar .nav-link i {
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Logout Section */
+.sidebar .logout-section {
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+.sidebar .logout-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--primary-text);
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sidebar .logout-btn:hover {
+  background: rgba(231, 76, 60, 0.1);
+  border-color: #e74c3c;
+  color: #e74c3c;
+  transform: translateY(-2px);
+}
+
+.sidebar .logout-btn i {
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Remove old theme toggle button */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    z-index: 999;
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Smooth Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  opacity: 1;
+}
+
+/* Animation for theme transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Japanese Typography Enhancement */
+.sidebar {
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* STOP */
 .auth-wrapper {
     min-height: 100vh;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -499,13 +767,6 @@
 
 .navbar-brand img {
     transition: height 0.3s ease;
-}
-
-.nav-link {
-    color: #333 !important;
-    font-weight: 500;
-    position: relative;
-    padding: 8px 0;
 }
 
 .nav-link:hover, .nav-link.active {

@@ -11,6 +11,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
     <style>
         .sidebar-link:hover {
             background-color: rgba(255, 255, 255, 0.1);
