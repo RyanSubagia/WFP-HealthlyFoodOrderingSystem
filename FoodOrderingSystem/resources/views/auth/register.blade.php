@@ -4,12 +4,6 @@
 <link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
 
 <div class="auth-wrapper register">
-    <div class="floating-elements">
-        <div class="floating-sushi">🍣</div>
-        <div class="floating-sushi">🍱</div>
-        <div class="floating-sushi">🥢</div>
-        <div class="floating-sushi">🍜</div>
-    </div>
     
     <div class="container auth-container">
         <div class="row justify-content-center">
