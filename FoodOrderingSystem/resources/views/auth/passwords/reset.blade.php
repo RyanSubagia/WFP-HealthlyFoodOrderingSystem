@@ -1,62 +1,103 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<link rel="stylesheet" href="{{ asset('template/css/style.css') }}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+<div class="auth-wrapper reset-password">
+    <div class="floating-elements">
+        <div class="floating-sushi">🍣</div>
+        <div class="floating-sushi">🍱</div>
+        <div class="floating-sushi">🥢</div>
+        <div class="floating-sushi">🍜</div>
+    </div>
+    
+    <div class="container auth-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="auth-card">
+                    <div class="auth-header reset-password">
+                        <h1>Reset Password</h1>
+                        <p>Enter your email and new password</p>
+                    </div>
+                    
+                    <div class="auth-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+                        @if (session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                        <form method="POST" action="{{ route('password.update') }}">
+                            @csrf
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
+                            <div class="form-floating mb-3">
+                                <input 
+                                    id="email" 
+                                    type="email" 
+                                    class="form-control @error('email') is-invalid @enderror" 
+                                    name="email" 
+                                    value="{{ old('email') }}" 
+                                    required 
+                                    autocomplete="email" 
+                                    autofocus
+                                    placeholder="name@example.com"
+                                >
+                                <label for="email">{{ __('Email Address') }}</label>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                            <div class="form-floating mb-3">
+                                <input 
+                                    id="password" 
+                                    type="password" 
+                                    class="form-control @error('password') is-invalid @enderror" 
+                                    name="password" 
+                                    required 
+                                    autocomplete="new-password"
+                                    placeholder="New Password"
+                                >
+                                <label for="password">{{ __('New Password') }}</label>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <div class="form-floating mb-3">
+                                <input 
+                                    id="password-confirm" 
+                                    type="password" 
+                                    class="form-control" 
+                                    name="password_confirmation" 
+                                    required 
+                                    autocomplete="new-password"
+                                    placeholder="Confirm Password"
+                                >
+                                <label for="password-confirm">{{ __('Confirm Password') }}</label>
                             </div>
-                        </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-reset">
+                                    {{ __('Update Password') }}
                                 </button>
                             </div>
-                        </div>
-                    </form>
+                            
+                            <div class="login-link">
+                                <p>Remember your password? <a href="{{ route('login') }}">Back to Sign In</a></p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

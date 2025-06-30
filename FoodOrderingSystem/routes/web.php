@@ -94,6 +94,12 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::resource('transactions', TransactionController::class);
 });
 
+Route::get('/password/reset', function () {
+    return view('auth.passwords.reset');
+})->name('passwords.reset');
+
+Route::post('/password/update', 'App\Http\Controllers\Auth\ResetPasswordController@updatePassword')->name('password.update');
+
 // Dashboard route - redirect based on user role after login
 Route::get('/dashboard', function () {
     if (auth()->check()) {
