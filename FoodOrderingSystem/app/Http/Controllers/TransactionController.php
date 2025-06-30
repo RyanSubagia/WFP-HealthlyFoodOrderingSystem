@@ -13,9 +13,11 @@ class TransactionController extends Controller
     public function index()
     {
         //Eloquent
-        $transaction = Transaction::paginate(10);
+    // tampilkan 10 data terbaru lebih dulu
+    $transaction = Transaction::orderByDesc('id')   // atau ->latest()
+                               ->paginate(10);
 
-        return view('transaction.index',compact('transaction'));
+    return view('transaction.index', compact('transaction'));
     }
 
     /**
@@ -67,8 +69,11 @@ class TransactionController extends Controller
     }
     public function DetailOrder(Transaction $transaction)
     {
-        $order = Transaction::orderBy('id', 'asc')->paginate(10);
-        return view("admin.order",["transaction" => $order]);
+    // sama: terbaru → terlama
+    $order = Transaction::orderByDesc('id')          // atau ->latest()
+                        ->paginate(10);
+
+    return view('admin.order', ['transaction' => $order]);
     }
 
         // Tambahkan di bawah method index()
