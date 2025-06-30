@@ -46,9 +46,19 @@ class CartController extends Controller
     {
         $request->validate([
             'type' => 'required|in:Dine-In,Take-Away',
-            'table_number' => 'nullable|string|max:10',
-            'payments_id' => 'required|exists:payments,id'
+            'table_number' => [
+                'required_if:type,Dine-In',
+                'nullable',
+                'regex:/^[A-Z][0-9]{2}$/',
+                'max:10',
+            ],
+            'payments_id' => 'required|exists:payments,id',
+        ], [
+            'table_number.required_if' => 'Nomor meja wajib diisi untuk pemesanan Dine-In.',
+            'table_number.regex' => 'Format nomor meja tidak valid. Gunakan format seperti A12, B14.',
+            'payments_id.required' => 'Silakan pilih metode pembayaran.',
         ]);
+
 
         $user = auth()->user();
         $carts = Cart::with('food')->where('user_id', $user->id)->get();
@@ -58,8 +68,13 @@ class CartController extends Controller
         }
 
         $grandTotal = $carts->sum(function ($item) {
-            return $item->food->price * $item->quantity;
+            $price = $item->food->price;
+            if ($item->size === 'L') {
+                $price += 5000;
+            }
+            return $price * $item->quantity;
         });
+
         $transaction = Transaction::create([
             'users_id' => $user->id,
             'payments_id' => $request->payments_id,
@@ -72,15 +87,21 @@ class CartController extends Controller
 
 
         foreach ($carts as $cart) {
+            $price = $cart->food->price;
+            if ($cart->size === 'L') {
+                $price += 5000;
+            }
+
             TransactionItem::create([
                 'transaction_id' => $transaction->id,
                 'food_id' => $cart->food_id,
                 'size' => $cart->size,
                 'note' => $cart->note,
                 'quantity' => $cart->quantity,
-                'price' => $cart->food->price,
+                'price' => $price,
             ]);
         }
+
 
         Cart::where('user_id', $user->id)->delete();
 

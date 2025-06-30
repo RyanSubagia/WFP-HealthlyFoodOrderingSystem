@@ -67,7 +67,7 @@
                                         <select class="form-select" id="size{{ $f->id }}" name="size" required>
                                             <option value="S">Small (S)</option>
                                             <option value="M" selected>Medium (M)</option>
-                                            <option value="L">Large (L)</option>
+                                            <option value="L">Large (L) +5000</option>
                                         </select>
                                     </div>
 
