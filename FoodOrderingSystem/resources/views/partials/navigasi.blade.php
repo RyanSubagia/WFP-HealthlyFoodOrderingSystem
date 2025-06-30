@@ -16,13 +16,14 @@
                         class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="{{ route('menu.index') }}"
-                        class="nav-link {{ request()->routeIs('menu') ? 'active' : '' }} @yield('menu')">Menu</a>
-                </li>
-                <li class="nav-item mx-3">
                     <a href="{{ route('about') }}"
                         class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>
                 </li>
+                <li class="nav-item mx-3">
+                    <a href="{{ route('menu.index') }}"
+                        class="nav-link {{ request()->routeIs('menu') ? 'active' : '' }} @yield('menu')">Menu</a>
+                </li>
+
                 @auth
                     <li class="nav-item mx-3">
                         <a class="nav-link {{ request()->routeIs('customer.cart.index') ? 'active' : '' }}"
@@ -33,12 +34,7 @@
                         <a class="nav-link {{ request()->routeIs('customer.cart.history') ? 'active' : '' }}"
                             href="{{ route('customer.cart.history') }}">History</a>
                     </li>
-                    <li class="nav-item mx-3 d-flex align-items-center">
-                        <span class="nav-link m-0 p-0">
-                            Point
-                            <span class="badge bg-success ms-1">{{ auth()->user()->poin }}</span>
-                        </span>
-                    </li>
+
                 @endauth
             </ul>
 
@@ -66,6 +62,10 @@
                 <a href="/login" class="btn login-btn ms-4 rounded-pill px-4 py-2"
                     style="background-color: #F58232; color: white;">Login</a>
             @endif
+            <li class="nav-item mx-3 d-flex align-items-center">
+                Point &nbsp; <span class="badge bg-success ms-1">{{ auth()->user()->poin }}</span>
+                </span>
+            </li>
         </div>
     </div>
 </nav>

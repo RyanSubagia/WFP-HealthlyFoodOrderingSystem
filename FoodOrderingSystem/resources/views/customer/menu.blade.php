@@ -72,7 +72,6 @@
                                         </select>
                                     </div>
 
-                                    <!-- Customization: Notes -->
                                     <div class="mb-3">
                                         <label for="note{{ $f->id }}" class="form-label"><strong>Catatan Tambahan
                                                 (Opsional):</strong></label>
