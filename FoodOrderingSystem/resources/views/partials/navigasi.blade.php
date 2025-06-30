@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item mx-3">
-                    <a href="{{ url('/')}}"
+                    <a href="{{ url('/') }}"
                         class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item mx-3">
@@ -28,6 +28,10 @@
                         <a class="nav-link {{ request()->routeIs('customer.cart.index') ? 'active' : '' }}"
                             href="{{ route('customer.cart.index') }}"> myCart
                         </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link {{ request()->routeIs('customer.cart.history') ? 'active' : '' }}"
+                            href="{{ route('customer.cart.history') }}">Status Pesanan</a>
                     </li>
                 @endauth
 

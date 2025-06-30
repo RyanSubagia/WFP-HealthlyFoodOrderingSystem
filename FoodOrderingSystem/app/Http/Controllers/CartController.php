@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 use App\Models\Cart;
 use App\Models\Payments;
 use App\Models\Transaction;
@@ -63,7 +64,7 @@ class CartController extends Controller
             'users_id' => $user->id,
             'payments_id' => $request->payments_id,
             'metode_Pemesanan' => $request->type,
-            'no_meja' => $request->type === 'Dine In' ? $request->table_number : '-',
+            'no_meja' => $request->type === 'Dine-In' ? $request->table_number : '-',
             'total' => $grandTotal,
             'tgl_Pemesanan' => now(),
             'status' => 'pending',
@@ -80,7 +81,7 @@ class CartController extends Controller
                 'price' => $cart->food->price,
             ]);
         }
-        
+
         Cart::where('user_id', $user->id)->delete();
 
         return redirect()->route('customer.cart.index')->with('success', 'Pesanan berhasil dibuat!');
@@ -97,5 +98,33 @@ class CartController extends Controller
             "status" => "oke",
             "msg" => "Delete success!"
         ), 200);
+    }
+    public function history()
+    {
+        return view('customer.transaction');
+    }
+    public function historyJson()
+    {
+        $transactions = Transaction::where('users_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->map(function ($trx) {
+                return [
+                    'tgl_Pemesanan' => Carbon::parse($trx->tgl_Pemesanan)->format('d M Y H:i'),
+                    'total' => number_format($trx->total, 0, ',', '.'),
+                    'metode_Pemesanan' => $trx->metode_Pemesanan,
+                    'no_meja' => $trx->no_meja,
+                    'status' => ucfirst($trx->status),
+                    'badge' => match ($trx->status) {
+                        'pending' => 'warning',
+                        'processing' => 'primary',
+                        'completed' => 'success',
+                        'cancelled' => 'danger',
+                        default => 'secondary',
+                    },
+                ];
+            });
+
+        return response()->json($transactions);
     }
 }

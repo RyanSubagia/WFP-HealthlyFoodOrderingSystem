@@ -45,7 +45,10 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('/cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
-    Route::get('/transactions', [CartController::class, 'history'])->name('customer.cart.history');
+    Route::get('/transactions', [CartController::class, 'history'])->name('cart.history');
+
+Route::get('/transactions/json', [CartController::class, 'historyJson'])->name('cart.history.json');
+
 });
 
 // Admin routes
