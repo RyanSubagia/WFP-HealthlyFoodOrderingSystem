@@ -55,4 +55,15 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+    protected function redirectTo()
+    {
+        $role = auth()->user()->role;
+
+        if (in_array($role, ['admin', 'employee'])) {
+            return route('admin.dashboard');
+        }
+
+        return route('customer.home');
+    }
+
 }
