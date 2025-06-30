@@ -11,6 +11,8 @@ use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\DashboardController;
+
 // Auth routes
 Auth::routes();
 
@@ -115,3 +117,6 @@ Route::get('/dashboard', function () {
 
     return redirect()->route('login');
 })->name('dashboard');
+
+
+Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
