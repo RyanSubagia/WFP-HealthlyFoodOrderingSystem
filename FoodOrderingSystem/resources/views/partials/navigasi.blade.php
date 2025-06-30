@@ -34,7 +34,10 @@
                         <a class="nav-link {{ request()->routeIs('customer.cart.history') ? 'active' : '' }}"
                             href="{{ route('customer.cart.history') }}">History</a>
                     </li>
-
+                    <li class="nav-item mx-3 d-flex align-items-center">
+                        Point &nbsp; <span class="badge bg-success ms-1">{{ auth()->user()->poin }}</span>
+                        </span>
+                    </li>
                 @endauth
             </ul>
 
@@ -62,10 +65,6 @@
                 <a href="/login" class="btn login-btn ms-4 rounded-pill px-4 py-2"
                     style="background-color: #F58232; color: white;">Login</a>
             @endif
-            <li class="nav-item mx-3 d-flex align-items-center">
-                Point &nbsp; <span class="badge bg-success ms-1">{{ auth()->user()->poin }}</span>
-                </span>
-            </li>
         </div>
     </div>
 </nav>
