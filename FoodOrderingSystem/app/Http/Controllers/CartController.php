@@ -21,12 +21,22 @@ class CartController extends Controller
             'note' => 'nullable|string|max:255',
         ]);
 
+         $condiments = $request->input('condiments', []);
+
         Cart::create([
             'food_id' => $request->food_id,
             'size' => $request->size,
             'note' => $request->note,
             'quantity' => 1,
             'user_id' => auth()->id(),
+            'shoyu' => in_array('Shoyu', $condiments) ? 1 : 0,
+            'wasabi' => in_array('Wasabi', $condiments) ? 1 : 0,
+            'gari' => in_array('Gari', $condiments) ? 1 : 0,
+            'togarashi' => in_array('Togarashi', $condiments) ? 1 : 0,
+            'ponzu' => in_array('Ponzu', $condiments) ? 1 : 0,
+            'mayones' => in_array('Mayones', $condiments) ? 1 : 0,
+            'teriyaki' => in_array('Teriyaki', $condiments) ? 1 : 0,
+            'chili_Oil' => in_array('Chili Oil', $condiments) ? 1 : 0,
         ]);
 
         return redirect()->back()->with('success', 'Item berhasil ditambahkan ke keranjang!');
@@ -72,7 +82,31 @@ class CartController extends Controller
             if ($item->size === 'L') {
                 $price += 5000;
             }
-            return $price * $item->quantity;
+            if ($item->shoyu ) {
+                $price += 2000;
+            }
+            if ($item->wasabi) {
+                $price += 2000;
+            }
+            if ($item->gari) {
+                $price += 2000;
+            }
+            if ($item->togarashi ) {
+                $price += 2000;
+            }
+            if ($item->ponzu ) {
+                $price += 2000;
+            }
+            if ($item->mayones ) {
+                $price += 2000;
+            }
+            if ($item->teriyaki ) {
+                $price += 2000;
+            }
+            if ($item->chili_Oil ) {
+                $price += 2000;
+            }
+            return $price * $item-> quantity;
         });
 
         $transaction = Transaction::create([
@@ -91,6 +125,31 @@ class CartController extends Controller
             if ($cart->size === 'L') {
                 $price += 5000;
             }
+            if ($cart->shoyu ) {
+                $price += 2000;
+            }
+            if ($cart->wasabi ) {
+                $price += 2000;
+            }
+            if ($cart->gari ) {
+                $price += 2000;
+            }
+            if ($cart->togarashi ) {
+                $price += 2000;
+            }
+            if ($cart->ponzu ) {
+                $price += 2000;
+            }
+            if ($cart->mayones ) {
+                $price += 2000;
+            }
+            if ($cart->teriyaki ) {
+                $price += 2000;
+            }
+            if ($cart->chili_Oil ) {
+                $price += 2000;
+            }
+            
 
             TransactionItem::create([
                 'transaction_id' => $transaction->id,

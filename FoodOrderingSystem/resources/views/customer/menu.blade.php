@@ -70,6 +70,44 @@
                                             <option value="L">Large (L) +5000</option>
                                         </select>
                                     </div>
+                                
+                                
+                                <label class="form-label"><strong>Condiments: </strong></label>
+                                    <fieldset class="border p-3 mt-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Shoyu" id="condiment-shoyu-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-shoyu-{{ $f->id }}">Shoyu</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Wasabi" id="condiment-wasabi-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-wasabi-{{ $f->id }}">Wasabi</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Gari" id="condiment-gari-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-gari-{{ $f->id }}">Gari</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Togarashi" id="condiment-togarashi-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-togarashi-{{ $f->id }}">Togarashi</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Ponzu" id="condiment-ponzu-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-ponzu-{{ $f->id }}">Ponzu</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Mayones" id="condiment-mayones-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-mayones-{{ $f->id }}">Mayones Jepang</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Teriyaki" id="condiment-teriyaki-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-teriyaki-{{ $f->id }}">Teriyaki</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="condiments[]" value="Chili Oil" id="condiment-chilioil-{{ $f->id }}">
+                                            <label class="form-check-label" for="condiment-chilioil-{{ $f->id }}">Chili Oil</label>
+                                        </div>
+                                    </fieldset>
+
 
                                     <div class="mb-3">
                                         <label for="note{{ $f->id }}" class="form-label"><strong>Notes

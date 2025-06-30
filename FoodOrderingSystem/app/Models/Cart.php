@@ -12,6 +12,14 @@ class Cart extends Model
         'size',
         'note',
         'quantity',
+        'shoyu',
+        'wasabi',
+        'gari',
+        'togarashi',
+        'ponzu',
+        'mayones',
+        'teriyaki',
+        'chili_Oil',
     ];
 
     public function food()
