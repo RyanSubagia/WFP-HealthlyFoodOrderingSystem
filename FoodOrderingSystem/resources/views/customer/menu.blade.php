@@ -44,7 +44,9 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <img src="{{ asset('storage/menu_sushi/' . $f->image) }}" alt="{{ $f->name }}"/>
+                                    <img src="{{ asset('storage/menu_sushi/' . $f->image) }}" alt="{{ $f->name }}"
+                                    onerror="this.onerror=null; this.src='{{ asset('storage/menu_sushi/default.jpg') }}';"
+                                    style="max-height: 200px; object-fit: contain;"/>
 
                                     <p><strong>Deskripsi:</strong> {{ $f->description }}</p>
                                     <p><strong>Fakta Nutrisi:</strong> {{ $f->nutrition_fact }}</p>
