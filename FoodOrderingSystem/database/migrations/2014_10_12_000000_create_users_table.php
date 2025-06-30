@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->enum('role', ['admin', 'employee', 'customer'])->default('customer');
             $table->float('poin')->default(0);
-            $table->string('no_telp')->nullable();
+            $table->string(column: 'no_telp')->nullable();
         });
     }
 

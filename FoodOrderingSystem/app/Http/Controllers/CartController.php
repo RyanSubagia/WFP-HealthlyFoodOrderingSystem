@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use App\Models\Cart;
 use App\Models\Payments;
@@ -21,7 +21,7 @@ class CartController extends Controller
             'note' => 'nullable|string|max:255',
         ]);
 
-         $condiments = $request->input('condiments', []);
+        $condiments = $request->input('condiments', []);
 
         Cart::create([
             'food_id' => $request->food_id,
@@ -69,7 +69,6 @@ class CartController extends Controller
             'payments_id.required' => 'Silakan pilih metode pembayaran.',
         ]);
 
-
         $user = auth()->user();
         $carts = Cart::with('food')->where('user_id', $user->id)->get();
 
@@ -79,35 +78,25 @@ class CartController extends Controller
 
         $grandTotal = $carts->sum(function ($item) {
             $price = $item->food->price;
-            if ($item->size === 'L') {
-                $price += 5000;
+            if ($item->size === 'L') $price += 5000;
+
+            foreach (['shoyu', 'wasabi', 'gari', 'togarashi', 'ponzu', 'mayones', 'teriyaki', 'chili_Oil'] as $condiment) {
+                if ($item->$condiment) $price += 2000;
             }
-            if ($item->shoyu ) {
-                $price += 2000;
-            }
-            if ($item->wasabi) {
-                $price += 2000;
-            }
-            if ($item->gari) {
-                $price += 2000;
-            }
-            if ($item->togarashi ) {
-                $price += 2000;
-            }
-            if ($item->ponzu ) {
-                $price += 2000;
-            }
-            if ($item->mayones ) {
-                $price += 2000;
-            }
-            if ($item->teriyaki ) {
-                $price += 2000;
-            }
-            if ($item->chili_Oil ) {
-                $price += 2000;
-            }
-            return $price * $item-> quantity;
+
+            return $price * $item->quantity;
         });
+
+        $usePoints = $request->has('use_points'); 
+        $poinDipakai = 0;
+
+        if ($usePoints && $user->poin > 0) {
+            $maxPoin = $grandTotal * 0.5;
+            $poinDipakai = min($user->poin, $maxPoin);
+            $grandTotal -= $poinDipakai;
+
+            DB::table('users')->where('id', $user->id)->decrement('poin', $poinDipakai);
+        }
 
         $transaction = Transaction::create([
             'users_id' => $user->id,
@@ -119,37 +108,13 @@ class CartController extends Controller
             'status' => 'pending',
         ]);
 
-
         foreach ($carts as $cart) {
             $price = $cart->food->price;
-            if ($cart->size === 'L') {
-                $price += 5000;
+            if ($cart->size === 'L') $price += 5000;
+
+            foreach (['shoyu', 'wasabi', 'gari', 'togarashi', 'ponzu', 'mayones', 'teriyaki', 'chili_Oil'] as $condiment) {
+                if ($cart->$condiment) $price += 2000;
             }
-            if ($cart->shoyu ) {
-                $price += 2000;
-            }
-            if ($cart->wasabi ) {
-                $price += 2000;
-            }
-            if ($cart->gari ) {
-                $price += 2000;
-            }
-            if ($cart->togarashi ) {
-                $price += 2000;
-            }
-            if ($cart->ponzu ) {
-                $price += 2000;
-            }
-            if ($cart->mayones ) {
-                $price += 2000;
-            }
-            if ($cart->teriyaki ) {
-                $price += 2000;
-            }
-            if ($cart->chili_Oil ) {
-                $price += 2000;
-            }
-            
 
             TransactionItem::create([
                 'transaction_id' => $transaction->id,
@@ -160,7 +125,6 @@ class CartController extends Controller
                 'price' => $price,
             ]);
         }
-
 
         Cart::where('user_id', $user->id)->delete();
 
