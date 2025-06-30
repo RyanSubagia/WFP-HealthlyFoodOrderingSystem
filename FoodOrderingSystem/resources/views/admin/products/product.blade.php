@@ -13,8 +13,8 @@ Admin Product
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Nama Produk</th>
-                                    <th>Nutrition Fact</th>
+                                    <th>Product Name</th>
+                                    <th>Nutrition Facts</th>
                                     <th>Description</th>
                                     <th>Price</th>
                                     <th>Action</th>
@@ -56,7 +56,39 @@ Admin Product
                                             {{ $item->name }}
                                         </td>
                                         <td>
-                                            {{ $item->nutrition_fact }}
+                                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#nutritionModal-{{ $item->id }}">
+                                            View Nutrition
+                                            </button>
+                                            @push ('modals')
+                                            <!-- Nutrition Modal {{ $item->id }} -->
+                                            <div class="modal fade" id="nutritionModal-{{ $item->id }}" tabindex="-1" aria-labelledby="nutritionModalLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="nutritionModalLabel">Nutrition Facts - {{$item->name}} </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <div class="nutrition-facts">
+                                                <p><strong>Nutrition Facts:</strong></p>
+                                                @if($item->nutritionFact)
+                                                    <div class="nutrition-content">
+                                                        {!! nl2br(e($item->nutritionFact->formatted_nutrition)) !!}
+                                                    </div>
+                                                @else
+                                                    <p class="text-muted">Nutrition facts not found</p>
+                                                @endif
+                                            </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            @endpush
                                         </td>
                                         <td>
                                             {{ $item->description }}
