@@ -49,7 +49,16 @@
                                     style="max-height: 200px; object-fit: contain;"/>
 
                                     <p><strong>Deskripsi:</strong> {{ $f->description }}</p>
-                                    <p><strong>Fakta Nutrisi:</strong> {{ $f->nutrition_fact }}</p>
+                                    <div class="nutrition-facts">
+                                    <p><strong>Fakta Nutrisi:</strong>
+                                    @if($f->nutritionFact)
+                                        <div class="nutrition-content">
+                                            {!! nl2br(e($f->nutritionFact->formatted_nutrition)) !!}
+                                        </div>
+                                    @else
+                                        <p class="text-muted">Informasi nutrisi tidak tersedia</p>
+                                    @endif
+                                </div></p>
                                     <p><strong>Harga:</strong> Rp. {{ number_format($f->price, 0, ',', '.') }},-</p>
 
                                     <!-- Customization: Size -->

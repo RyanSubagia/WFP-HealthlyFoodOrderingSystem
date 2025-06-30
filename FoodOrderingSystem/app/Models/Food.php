@@ -4,22 +4,45 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Food extends Model
 {
     use HasFactory;
 
     protected $table = 'foods';
-    protected $primaryKey = 'id';
-    public $timestamps = true;
 
-    public function category(): BelongsTo
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'category_id',
+        'image'
+    ];
+
+    /**
+     * Relasi dengan Category
+     */
+    public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class);
     }
-    public function carts()
+
+    /**
+     * Relasi dengan NutritionFact (one-to-one)
+     */
+    public function nutritionFact()
     {
-        return $this->hasMany(Cart::class);
+        return $this->hasOne(NutritionFact::class, 'food_id', 'id');
+    }
+
+    /**
+     * Accessor untuk mendapatkan nutrition fact sebagai string
+     */
+    public function getFormattedNutritionAttribute()
+    {
+        if ($this->nutritionFact) {
+            return $this->nutritionFact->formatted_nutrition;
+        }
+        return 'Informasi nutrisi tidak tersedia';
     }
 }
