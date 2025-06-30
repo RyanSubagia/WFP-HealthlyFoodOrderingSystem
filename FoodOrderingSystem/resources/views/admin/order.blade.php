@@ -51,7 +51,22 @@ Admin Transaction
                                     </form>
                                 @else
                                     {{-- Sudah completed – tidak bisa diubah --}}
-                                    <span class="badge bg-success">{{ ucfirst($item->status) }}</span>
+                                    @php
+                                        $status = strtolower($item->status);
+                                        $badgeClass = match ($status) {
+                                            'pending'    => 'bg-warning text-dark',
+                                            'processing' => 'bg-primary',
+                                            'ready'      => 'bg-info text-dark',
+                                            'completed'  => 'bg-success',
+                                            'cancelled'  => 'bg-danger', // merah
+                                            default      => 'bg-secondary',
+                                        };
+                                    @endphp
+
+                                    <span class="badge {{ $badgeClass }}">
+                                        {{ ucfirst($status) }}
+                                    </span>
+
                                 @endif
                             </td>
 
