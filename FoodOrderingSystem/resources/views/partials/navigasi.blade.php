@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item mx-3">
-                    <a href="{{ route('home') }}"
+                    <a href="{{ url('/')}}"
                         class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item mx-3">

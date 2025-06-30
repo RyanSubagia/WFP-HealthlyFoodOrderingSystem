@@ -31,7 +31,7 @@ Route::get('/about', function () {
 
 // Customer routes
 Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer.')->group(function () {
-    Route::get('/home', function () {
+    Route::get('/', function () {
         return view('customer.home');
     })->name('home');
 
@@ -43,6 +43,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('/cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/transactions', [CartController::class, 'history'])->name('customer.cart.history');
 
 
 
@@ -103,11 +104,11 @@ Route::post('/password/update', 'App\Http\Controllers\Auth\ResetPasswordControll
 // Dashboard route - redirect based on user role after login
 Route::get('/dashboard', function () {
     if (auth()->check()) {
-        $userRole = auth()->user()->role;
-
-        if (in_array($userRole, ['admin', 'employee'])) {
-            return redirect()->route('dashboard');
-        } elseif ($userRole === 'customer') {
+        $userRoles = auth()->user()->role;
+        
+        if (in_array($userRoles, ['admin', 'employee'])) {
+            return redirect()->route('admin.dashboard');
+        } elseif ($userRoles === 'customer') {
             return redirect()->route('customer.home');
         }
     }
