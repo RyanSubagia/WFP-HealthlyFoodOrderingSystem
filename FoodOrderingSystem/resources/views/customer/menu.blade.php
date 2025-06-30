@@ -15,7 +15,8 @@
                     <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalFood{{ $f->id }}"
                         style="cursor: pointer;">
                         <img class="img-fluid mx-auto d-block" style="max-height: 200px; object-fit: contain;"
-                            src="{{ asset('storage/menu_sushi/' . $f->image) }}" alt="{{ $f->name }}"/>
+                            src="{{ asset('storage/menu_sushi/' . $f->image) }}" alt="{{ $f->name }}"
+                            onerror="this.onerror=null; this.src='{{ asset('storage/menu_sushi/default.jpg') }}';" />
 
                         <div class="card-body">
                             <h5 class="card-title">{{ $f->name }}</h5>
