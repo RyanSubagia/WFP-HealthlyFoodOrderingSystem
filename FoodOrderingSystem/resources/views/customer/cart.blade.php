@@ -64,7 +64,7 @@ My Cart
                                     <td>Rp {{ number_format($total, 0, ',', '.') }}</td>
                                     <td>
                                         <a href="#" value="Delete" class="btn btn-danger" 
-                                          onclick="if(confirm('Yakin ingin menghapus {{ $item->name }} dari keranjang? ')) deleteCartItem({{ $item->id }})">
+                                          onclick="if(confirm('Yakin ingin menghapus {{ $item->food->name }} dari keranjang? ')) deleteCartItem({{ $item->id }})">
                                             <i class="fas fa-trash-alt me-1"></i>✕</a>
                                         <script>
                                             function deleteCartItem(id) {
