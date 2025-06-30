@@ -13,6 +13,18 @@ class Transaction extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
+    protected $fillable = [
+        'users_id',
+        'payments_id',
+        'metode_Pemesanan',
+        'no_meja',
+        'total',
+        'tgl_Pemesanan',
+        'status',
+    ];
+
+
+
     public function payments(): BelongsTo
     {
         return $this->belongsTo(Payments::class, 'payments_id');

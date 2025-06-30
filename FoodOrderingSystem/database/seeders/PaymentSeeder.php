@@ -19,24 +19,9 @@ class PaymentSeeder extends Seeder
             ['nama' => 'Bank Mandiri Debit'],
             ['nama' => 'Bank BCA Debit'],
             ['nama' => 'Bank BRI Debit'],
-            ['nama' => 'Bank BTN Debit'],
-            ['nama' => 'Bank CIMB Niaga Debit'],
-            ['nama' => 'Bank Danamon Debit'],
-            ['nama' => 'Bank Negara Indonesia (BNI) Debit'],
-            ['nama' => 'Bank Permata Debit'],
-            ['nama' => 'Bank Maybank Indonesia Debit'],
-            ['nama' => 'Bank HSBC Indonesia Debit'],
 
-            // E-Wallets
             ['nama' => 'Gopay'],
             ['nama' => 'OVO'],
-            ['nama' => 'DANA'],
-            ['nama' => 'LinkAja'],
-            ['nama' => 'ShopeePay'],
-            ['nama' => 'PayLater by Kredivo'],
-            ['nama' => 'Apple Pay'],
-            ['nama' => 'Google Pay'],
-            ['nama' => 'Alipay'],
-            ['nama' => 'PayPal'],]  );
+            ['nama' => 'DANA'], ]);
     }
 }
