@@ -8,16 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class FoodSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         DB::table('foods')->insert([
             // 1. Appetizer
             [
-                'name' => 'Edamame Rebus',
-                'description' => 'Edamame rebus dengan sedikit garam laut, cocok untuk pembuka sehat.',
+                'name' => 'Boiled Edamame',
+                'description' => 'Boiled edamame with a sprinkle of sea salt, perfect as a healthy appetizer.',
                 'price' => 15000,
                 'category_id' => 1,
                 'image' => 'Edamame.png',
@@ -25,8 +22,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Salad Buah Segar',
-                'description' => 'Campuran buah segar dengan dressing yogurt rendah lemak.',
+                'name' => 'Fresh Fruit Salad',
+                'description' => 'A mix of fresh fruits served with low-fat yogurt dressing.',
                 'price' => 18000,
                 'category_id' => 1,
                 'image' => 'Salad Buah.png',
@@ -37,7 +34,7 @@ class FoodSeeder extends Seeder
             // 2. Main Course
             [
                 'name' => 'Chuka Wakame Sushi',
-                'description' => 'Sushi dengan rumput laut Wakame yang kaya akan mineral dan serat.',
+                'description' => 'Sushi with Wakame seaweed, rich in minerals and fiber.',
                 'price' => 35000,
                 'category_id' => 2,
                 'image' => 'ChukaWakameSushi.png',
@@ -46,7 +43,7 @@ class FoodSeeder extends Seeder
             ],
             [
                 'name' => 'Kani Nigiri Sushi',
-                'description' => 'Nigiri sushi dengan daging kepiting yang rendah kalori dan penuh protein.',
+                'description' => 'Nigiri sushi with crab meat, low in calories and high in protein.',
                 'price' => 38000,
                 'category_id' => 2,
                 'image' => 'Kani Nigiri Sushi.png',
@@ -54,8 +51,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Nigiri Inari',
-                'description' => 'Nigiri dengan tahu goreng manis yang lezat dan menyehatkan.',
+                'name' => 'Inari Nigiri',
+                'description' => 'Nigiri with sweet fried tofu, delicious and healthy.',
                 'price' => 33000,
                 'category_id' => 2,
                 'image' => 'Nigiri Inari.png',
@@ -64,7 +61,7 @@ class FoodSeeder extends Seeder
             ],
             [
                 'name' => 'Salmon Sushi Roll',
-                'description' => 'Sushi roll dengan salmon segar dan isian sayuran, penuh dengan protein sehat.',
+                'description' => 'Sushi roll with fresh salmon and vegetable filling, rich in healthy protein.',
                 'price' => 42000,
                 'category_id' => 2,
                 'image' => 'Salmon Sushi Roll.png',
@@ -72,8 +69,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Sushi Nigiri Salmon',
-                'description' => 'Nigiri dengan irisan salmon segar yang kaya omega-3 dan rendah kalori.',
+                'name' => 'Salmon Nigiri Sushi',
+                'description' => 'Nigiri topped with fresh salmon slices, rich in omega-3 and low in calories.',
                 'price' => 39000,
                 'category_id' => 2,
                 'image' => 'Sushi Nigiri Salmon.png',
@@ -81,8 +78,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Sushi Nigiri Tuna',
-                'description' => 'Nigiri dengan tuna segar yang kaya protein dan lemak sehat.',
+                'name' => 'Tuna Nigiri Sushi',
+                'description' => 'Nigiri topped with fresh tuna, rich in protein and healthy fats.',
                 'price' => 38000,
                 'category_id' => 2,
                 'image' => 'Sushi Nigiri Tuna.png',
@@ -90,8 +87,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Sushi Salmon Wrapped',
-                'description' => 'Sushi dengan salmon segar yang dibalut dengan rumput laut untuk rasa yang lebih kaya.',
+                'name' => 'Salmon Wrapped Sushi',
+                'description' => 'Sushi wrapped with fresh salmon and seaweed for a rich flavor.',
                 'price' => 43000,
                 'category_id' => 2,
                 'image' => 'Sushi Salmon Wraped.png',
@@ -99,8 +96,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Sushi Salmon',
-                'description' => 'Sushi dengan irisan salmon segar yang sangat bergizi dan menyehatkan.',
+                'name' => 'Salmon Sushi',
+                'description' => 'Sushi topped with fresh salmon slices, nutritious and healthy.',
                 'price' => 39000,
                 'category_id' => 2,
                 'image' => 'Sushi Salmon.png',
@@ -109,7 +106,7 @@ class FoodSeeder extends Seeder
             ],
             [
                 'name' => 'Tamago Sushi',
-                'description' => 'Sushi dengan omelet manis dan nasi, pilihan ringan yang menyehatkan.',
+                'description' => 'Sushi with sweet omelet and rice, a light and healthy choice.',
                 'price' => 32000,
                 'category_id' => 2,
                 'image' => 'Tamago Sushi.png',
@@ -119,8 +116,8 @@ class FoodSeeder extends Seeder
 
             // 3. Snack
             [
-                'name' => 'Energy Ball Oat Cokelat',
-                'description' => 'Cemilan sehat berbahan dasar oat, kurma, dan dark chocolate.',
+                'name' => 'Chocolate Oat Energy Ball',
+                'description' => 'A healthy snack made with oats, dates, and dark chocolate.',
                 'price' => 12000,
                 'category_id' => 3,
                 'image' => 'Energy Balls.png',
@@ -130,8 +127,8 @@ class FoodSeeder extends Seeder
 
             // 4. Dessert
             [
-                'name' => 'Chia Pudding Mangga',
-                'description' => 'Puding chia dengan saus mangga alami dan madu.',
+                'name' => 'Mango Chia Pudding',
+                'description' => 'Chia pudding with natural mango sauce and honey.',
                 'price' => 18000,
                 'category_id' => 4,
                 'image' => 'Chia Pudding Mangga.png',
@@ -140,7 +137,7 @@ class FoodSeeder extends Seeder
             ],
             [
                 'name' => 'Greek Yogurt Parfait',
-                'description' => 'Yogurt dengan granola dan topping buah segar.',
+                'description' => 'Greek yogurt with granola and fresh fruit toppings.',
                 'price' => 20000,
                 'category_id' => 4,
                 'image' => 'Greek Yogurt Parfait.png',
@@ -151,7 +148,7 @@ class FoodSeeder extends Seeder
             // 5. Coffee
             [
                 'name' => 'Americano',
-                'description' => 'Kopi hitam tanpa gula, cocok untuk penikmat kopi sejati.',
+                'description' => 'Black coffee without sugar, ideal for true coffee lovers.',
                 'price' => 18000,
                 'category_id' => 5,
                 'image' => 'Americano.png',
@@ -159,8 +156,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Latte Almond Milk',
-                'description' => 'Kopi susu sehat dengan almond milk tanpa gula tambahan.',
+                'name' => 'Almond Milk Latte',
+                'description' => 'Healthy coffee latte with unsweetened almond milk.',
                 'price' => 25000,
                 'category_id' => 5,
                 'image' => 'Almond Milk Latte.png',
@@ -171,7 +168,7 @@ class FoodSeeder extends Seeder
             // 6. Non Coffee
             [
                 'name' => 'Matcha Latte',
-                'description' => 'Minuman matcha hijau yang menyegarkan dan kaya antioksidan.',
+                'description' => 'Refreshing green matcha drink rich in antioxidants.',
                 'price' => 24000,
                 'category_id' => 6,
                 'image' => 'Matcha Latte.png',
@@ -179,8 +176,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Cokelat Panas Dark',
-                'description' => 'Cokelat panas dengan dark chocolate asli dan susu rendah lemak.',
+                'name' => 'Dark Hot Chocolate',
+                'description' => 'Hot chocolate made with real dark chocolate and low-fat milk.',
                 'price' => 23000,
                 'category_id' => 6,
                 'image' => 'Cokelat Panas.png',
@@ -190,8 +187,8 @@ class FoodSeeder extends Seeder
 
             // 7. Healthy Juice
             [
-                'name' => 'Jus Detox Hijau',
-                'description' => 'Campuran bayam, apel hijau, dan lemon untuk pencernaan.',
+                'name' => 'Green Detox Juice',
+                'description' => 'Blend of spinach, green apple, and lemon for better digestion.',
                 'price' => 22000,
                 'category_id' => 7,
                 'image' => 'Jus Detox Hijau.png',
@@ -199,8 +196,8 @@ class FoodSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Jus Wortel Jeruk',
-                'description' => 'Jus segar wortel dan jeruk, kaya vitamin C dan beta-karoten.',
+                'name' => 'Carrot Orange Juice',
+                'description' => 'Fresh carrot and orange juice, rich in vitamin C and beta-carotene.',
                 'price' => 21000,
                 'category_id' => 7,
                 'image' => 'Jus Wortel Jeruk.png',

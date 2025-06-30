@@ -42,19 +42,19 @@ class NutritionFact extends Model
         $nutrition = [];
         
         if ($this->calories) {
-            $nutrition[] = "Kalori: {$this->calories} kkal";
+            $nutrition[] = "Calories: {$this->calories} kkal";
         }
         if ($this->protein) {
             $nutrition[] = "Protein: {$this->protein}g";
         }
         if ($this->fat) {
-            $nutrition[] = "Lemak: {$this->fat}g";
+            $nutrition[] = "Fat: {$this->fat}g";
         }
         if ($this->carbohydrates) {
-            $nutrition[] = "Karbohidrat: {$this->carbohydrates}g";
+            $nutrition[] = "Carbohydrates: {$this->carbohydrates}g";
         }
         if ($this->fiber) {
-            $nutrition[] = "Serat: {$this->fiber}g";
+            $nutrition[] = "Fiber: {$this->fiber}g";
         }
 
         return implode("\n", $nutrition) . ($this->additional_info ? "\n" . $this->additional_info : '');

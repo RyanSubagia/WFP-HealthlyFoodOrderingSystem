@@ -19,7 +19,7 @@ return new class extends Migration
             FOR EACH ROW
             BEGIN
                 DECLARE tambahan_poin DOUBLE;
-                SET tambahan_poin = FLOOR(NEW.total / 10000);
+                SET tambahan_poin = FLOOR(NEW.total * 0.05);
                 
                 UPDATE users
                 SET poin = poin + tambahan_poin

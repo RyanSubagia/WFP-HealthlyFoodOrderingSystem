@@ -54,9 +54,8 @@ Route::get('/transactions/json', [CartController::class, 'historyJson'])->name('
 // Admin routes
 Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // Category routes
     Route::post("/showHighestFoods", [CategoryController::class, 'showHighestFoods'])->name("category.showHighestFoods");
@@ -93,6 +92,15 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     // Resource routes for admin
     Route::resource('users', UserController::class);
     Route::resource('transactions', TransactionController::class);
+    
+    Route::get('/admin/orders/{transaction}/details',
+        [TransactionController::class, 'details']
+    )->name('orders.details');
+
+    Route::patch(
+        '/admin/orders/{transaction}/status',
+        [TransactionController::class, 'updateStatus']
+    )->name('orders.updateStatus');
 });
 
 Route::get('/password/reset', function () {
@@ -116,15 +124,4 @@ Route::get('/dashboard', function () {
     return redirect()->route('login');
 })->name('dashboard');
 
-
-Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-Route::get('/admin/orders/{transaction}/details',
-    [TransactionController::class, 'details']
-)->name('orders.details');
-
-Route::patch(
-    '/admin/orders/{transaction}/status',
-    [TransactionController::class, 'updateStatus']
-)->name('orders.updateStatus');
 
