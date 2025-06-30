@@ -1406,7 +1406,7 @@ img {
    ======================================== */
 
 footer {
-  background: linear-gradient(135deg, #fdefd7 100%);
+  background: linear-gradient(135deg, #fff0e6 80%);
   color: var(--white);
   margin-top: 0 !important;
 }
