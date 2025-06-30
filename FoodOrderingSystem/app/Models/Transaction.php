@@ -13,6 +13,16 @@ class Transaction extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
+    // app/Models/Transaction.php
+    const STATUSES    = ['pending', 'processing', 'ready', 'completed'];
+    const NEXT_STATUS = [
+        'pending'     => 'processing',
+        'processing'  => 'ready',
+        'ready'       => 'completed',
+        'completed'   => null,
+    ];
+
+
     protected $fillable = [
         'users_id',
         'payments_id',

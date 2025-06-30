@@ -122,3 +122,9 @@ Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboa
 Route::get('/admin/orders/{transaction}/details',
     [TransactionController::class, 'details']
 )->name('orders.details');
+
+Route::patch(
+    '/admin/orders/{transaction}/status',
+    [TransactionController::class, 'updateStatus']
+)->name('orders.updateStatus');
+
