@@ -21,7 +21,7 @@ Admin Employee
                             </thead>
                             <tbody>
                                 @foreach ($employee as $e)
-                                   <tr>
+                                   <tr id="tr_{{ $e->id }}">
                                         <td>
                                             {{ $e->id }}
                                         </td>

@@ -18,7 +18,7 @@ class UserController extends Controller
         $user = User::all();
         
         //method 1
-        return view('customer.index',compact('user'));
+        return view('customer.home',compact('user'));
     }
 
     /**
@@ -77,8 +77,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
-        //
-         DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
             $id = $request->id;
@@ -90,19 +89,24 @@ class UserController extends Controller
                     'msg' => 'Employee not found or unauthorized'
                 ], 404);
             }
+
             $employee->delete();
 
             DB::commit();
-            return redirect()->route('admin.employee_admin')->with('status','Success created data!');
+            return response()->json([
+                'status' => 'oke',
+                'msg' => 'Berhasil menghapus data!'
+            ]);
 
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([
                 'status' => 'error',
-                'msg' => 'Failed to delete: ' . $e->getMessage()
+                'msg' => 'Gagal menghapus data: ' . $e->getMessage()
             ], 500);
         }
     }
+
 
     public function DetailCustomer()
     {
