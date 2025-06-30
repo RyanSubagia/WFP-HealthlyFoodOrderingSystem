@@ -33,9 +33,13 @@
                         <a class="nav-link {{ request()->routeIs('customer.cart.history') ? 'active' : '' }}"
                             href="{{ route('customer.cart.history') }}">History</a>
                     </li>
+                    <li class="nav-item mx-3 d-flex align-items-center">
+                        <span class="nav-link m-0 p-0">
+                            Point
+                            <span class="badge bg-success ms-1">{{ auth()->user()->poin }}</span>
+                        </span>
+                    </li>
                 @endauth
-
-
             </ul>
 
             <!-- Login button or user dropdown -->
