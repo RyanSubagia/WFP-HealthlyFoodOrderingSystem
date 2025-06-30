@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-My Cart
+    My Cart
 @endsection
 
 @section('container')
@@ -9,8 +9,10 @@ My Cart
     <section class="about-hero position-relative">
         <div class="container-fluid p-0">
             <div class="hero-overlay d-flex align-items-center justify-content-center text-center"
-                 style="background-image: url('{{ asset('img/illustration/background_about.png') }}'); background-size: cover; background-position: center; height: 400px; position: relative;">
-                <div style="background-color: rgba(0,0,0,0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                style="background-image: url('{{ asset('img/illustration/background_about.png') }}'); background-size: cover; background-position: center; height: 400px; position: relative;">
+                <div
+                    style="background-color: rgba(0,0,0,0.5); position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </div>
                 <div class="position-relative" style="z-index: 2;">
                     <h1 class="display-4 fw-bold text-white mb-2">My Cart</h1>
                 </div>
@@ -21,11 +23,11 @@ My Cart
     <!-- Cart content section -->
     <section class="py-5 bg-light">
         <div class="container">
-            @if(session('success'))
+            @if (session('success'))
                 <div class="alert alert-success text-center">{{ session('success') }}</div>
             @endif
 
-            @if($carts->isEmpty())
+            @if ($carts->isEmpty())
                 <div class="alert alert-info text-center">
                     Keranjang kamu masih kosong.
                 </div>
@@ -53,8 +55,9 @@ My Cart
                                 @endphp
                                 <tr>
                                     <td style="width: 100px;">
-                                        <img src="{{ asset('storage/menu_sushi/' . $item->food->image) }}" alt="{{ $item->food->name }}"
-                                             class="img-fluid rounded" style="max-height: 80px;">
+                                        <img src="{{ asset('storage/menu_sushi/' . $item->food->image) }}"
+                                            alt="{{ $item->food->name }}" class="img-fluid rounded"
+                                            style="max-height: 80px;">
                                     </td>
                                     <td>{{ $item->food->name }}</td>
                                     <td>{{ $item->size }}</td>
@@ -63,30 +66,30 @@ My Cart
                                     <td>{{ $item->quantity }}</td>
                                     <td>Rp {{ number_format($total, 0, ',', '.') }}</td>
                                     <td>
-                                        <a href="#" value="Delete" class="btn btn-danger" 
-                                          onclick="if(confirm('Yakin ingin menghapus {{ $item->food->name }} dari keranjang? ')) deleteCartItem({{ $item->id }})">
+                                        <a href="#" value="Delete" class="btn btn-danger"
+                                            onclick="if(confirm('Yakin ingin menghapus {{ $item->food->name }} dari keranjang? ')) deleteCartItem({{ $item->id }})">
                                             <i class="fas fa-trash-alt me-1"></i>✕</a>
                                         <script>
                                             function deleteCartItem(id) {
                                                 $.ajax({
                                                     type: 'POST',
-                                                    url: '{{ route("customer.cart.destroy") }}',
+                                                    url: '{{ route('customer.cart.destroy') }}',
                                                     data: {
                                                         _token: '{{ csrf_token() }}',
                                                         id: id
                                                     },
-                                                    success: function (data) {
+                                                    success: function(data) {
                                                         if (data.status === 'oke') {
                                                             location.reload();
                                                         }
                                                     },
-                                                    error: function (xhr) {
+                                                    error: function(xhr) {
                                                         console.error(xhr.responseText);
                                                         alert('Gagal menghapus item.');
                                                     }
                                                 });
                                             }
-                                        </script>   
+                                        </script>
                                     </td>
                                 </tr>
                             @endforeach
@@ -104,17 +107,25 @@ My Cart
 
                     <div class="mb-3">
                         <label for="type" class="form-label"><strong>Tipe Pemesanan</strong></label>
-                        <select name="type" id="type" class="form-select" onchange="toggleTableInput(this.value)" required>
-                            <option value="Take-Away">Take Away</option>
-                            <option value="Dine-In">Dine In</option>
+                        <select name="type" id="type" class="form-select" onchange="toggleTableInput(this.value)"
+                            required>
+                            <option value="Take-Away">Take-Away</option>
+                            <option value="Dine-In">Dine-In</option>
                         </select>
                     </div>
 
                     <div class="mb-3" id="table-number-group" style="display: none;">
                         <label for="table_number" class="form-label">Nomor Meja</label>
-                        <input type="text" name="table_number" id="table_number" class="form-control" placeholder="Contoh: A12">
+                        <input type="text" name="table_number" id="table_number" class="form-control"
+                            placeholder="Contoh: A12">
                     </div>
+                    <select name="payments_id" id="payments_id" class="form-select" required>
+                        @foreach ($paymentMethods as $payment)
+                            <option value="{{ $payment->id }}">{{ $payment->nama }}</option>
+                        @endforeach
+                    </select>
 
+                    <br>
                     <div class="text-end">
                         <button type="submit" class="btn btn-success px-4">Checkout</button>
                     </div>

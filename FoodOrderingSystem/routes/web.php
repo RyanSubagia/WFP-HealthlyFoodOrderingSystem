@@ -46,11 +46,6 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::post('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     Route::post('/cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::get('/transactions', [CartController::class, 'history'])->name('customer.cart.history');
-
-
-
-    // Add other customer-specific routes here
-    // Route::get('/profile', [CustomerController::class, 'profile'])->name('profile');
 });
 
 // Admin routes
@@ -107,7 +102,7 @@ Route::post('/password/update', 'App\Http\Controllers\Auth\ResetPasswordControll
 Route::get('/dashboard', function () {
     if (auth()->check()) {
         $userRoles = auth()->user()->role;
-        
+
         if (in_array($userRoles, ['admin', 'employee'])) {
             return redirect()->route('admin.dashboard');
         } elseif ($userRoles === 'customer') {
