@@ -26,12 +26,12 @@
                 @auth
                     <li class="nav-item mx-3">
                         <a class="nav-link {{ request()->routeIs('customer.cart.index') ? 'active' : '' }}"
-                            href="{{ route('customer.cart.index') }}"> myCart
+                            href="{{ route('customer.cart.index') }}"> Cart
                         </a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link {{ request()->routeIs('customer.cart.history') ? 'active' : '' }}"
-                            href="{{ route('customer.cart.history') }}">Status Pesanan</a>
+                            href="{{ route('customer.cart.history') }}">History</a>
                     </li>
                 @endauth
 

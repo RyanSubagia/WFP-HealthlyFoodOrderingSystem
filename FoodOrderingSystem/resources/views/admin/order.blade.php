@@ -37,7 +37,7 @@ Admin Transaction
 
                                 {{-- Jika masih bisa berubah --}}
                                 @if ($next)
-                                    <form action="{{ route('orders.updateStatus', $item->id) }}" method="POST">
+                                    <form action="{{ route('admin.orders.updateStatus', $item->id) }}" method="POST">
                                         @csrf @method('PATCH')
 
                                         <select name="status"
@@ -72,7 +72,7 @@ Admin Transaction
 
 
                             <td>
-                                <a href="{{ route('orders.details', $item->id) }}"
+                                <a href="{{ route('admin.orders.details', $item->id) }}"
                                     class="btn btn-sm btn-primary">
                                     Details
                                 </a>
