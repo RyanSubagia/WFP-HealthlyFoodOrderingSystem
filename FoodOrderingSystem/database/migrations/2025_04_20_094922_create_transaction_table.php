@@ -22,7 +22,8 @@ return new class extends Migration
             $table->enum('metode_Pemesanan', ['Dine-In', 'Take-Away']);
             $table->foreign('payments_id')->references('id')->on('payments');
             $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->float('diskonFromPoint')->default(0);
+            $table->foreign('users_id')->references('id')->on('users'); 
             $table->timestamps();
         });
     }
