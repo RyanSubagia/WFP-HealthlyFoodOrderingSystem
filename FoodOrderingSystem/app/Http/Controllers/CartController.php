@@ -44,7 +44,7 @@ class CartController extends Controller
     public function checkout(Request $request)
     {
         $request->validate([
-            'type' => 'required|in:Dine In,Take Away',
+            'type' => 'required|in:Dine-In,Take-Away',
             'table_number' => 'nullable|string|max:10',
             'payments_id' => 'required|exists:payments,id'
         ]);
@@ -59,14 +59,6 @@ class CartController extends Controller
         $grandTotal = $carts->sum(function ($item) {
             return $item->food->price * $item->quantity;
         });
-    dd([
-        'user_id' => $user->id,
-        'payments_id' => $request->payments_id,
-        'type' => $request->type,
-        'table_number' => $request->table_number,
-        'grandTotal' => $grandTotal,
-        'cart_count' => $carts->count(),
-    ]);
         $transaction = Transaction::create([
             'users_id' => $user->id,
             'payments_id' => $request->payments_id,
@@ -76,7 +68,6 @@ class CartController extends Controller
             'tgl_Pemesanan' => now(),
             'status' => 'pending',
         ]);
-
 
 
         foreach ($carts as $cart) {
@@ -89,7 +80,7 @@ class CartController extends Controller
                 'price' => $cart->food->price,
             ]);
         }
-
+        
         Cart::where('user_id', $user->id)->delete();
 
         return redirect()->route('customer.cart.index')->with('success', 'Pesanan berhasil dibuat!');

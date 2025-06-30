@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TransactionItem extends Model
 {
-    protected $table = 'transaction_items';
+    use HasFactory;
 
+    protected $table = 'transaction_items';
     protected $fillable = [
         'transaction_id',
         'food_id',
@@ -17,15 +19,13 @@ class TransactionItem extends Model
         'price',
     ];
 
-    // Relasi ke transaksi induk
-    public function transaction()
-    {
-        return $this->belongsTo(Transaction::class, 'transaction_id');
-    }
-
-    // Relasi ke data makanan
     public function food()
     {
         return $this->belongsTo(Food::class, 'food_id');
+    }
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class, 'transaction_id');
     }
 }
