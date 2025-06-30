@@ -115,3 +115,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+Route::get('/admin/orders/{transaction}/details',
+    [TransactionController::class, 'details']
+)->name('orders.details');

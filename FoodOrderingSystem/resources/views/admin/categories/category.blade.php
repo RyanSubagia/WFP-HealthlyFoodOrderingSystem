@@ -12,10 +12,10 @@ Admin Kategori
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Jenis</th>
-                                    <th>Jumlah Makanan</th>
-                                    <th>List Nama Makanan</th>
+                                    <th>id</th>
+                                    <th>Food Type</th>
+                                    <th>Quantity</th>
+                                    <th>Food List</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>

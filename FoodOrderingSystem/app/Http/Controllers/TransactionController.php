@@ -70,4 +70,14 @@ class TransactionController extends Controller
         $order = Transaction::orderBy('id', 'asc')->paginate(10);
         return view("admin.order",["transaction" => $order]);
     }
+
+        // Tambahkan di bawah method index()
+    public function details(Transaction $transaction)
+    {
+        // Ambil semua item untuk transaksi ini
+        $items = $transaction->items()->with('food')->get();
+
+        return view('admin.order_detail', compact('transaction', 'items'));
+    }
+
 }

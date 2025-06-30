@@ -18,14 +18,16 @@ Home
             <p class="hero-text">
               To provide fresh ingredients, expertly prepared dishes, and nutritious options to fuel your day.
             </p>
+            
             <div class="hero-buttons mt-4">
-              <a href="#" class="btn me-3 dine-in-btn">
-                <i class="bi bi-cup-hot me-2"></i>Dine-In
-              </a>
-              <a href="#" class="btn takeaway-btn">
-                <i class="bi bi-bag me-2"></i>Takeaway
-              </a>
+                <a href="{{ route('menu.index', ['type' => 'dinein']) }}" class="btn me-3 dine-in-btn">
+                    <i class="bi bi-cup-hot me-2"></i>Dine-In
+                </a>
+                <a href="{{ route('menu.index', ['type' => 'takeaway']) }}" class="btn takeaway-btn">
+                    <i class="bi bi-bag me-2"></i>Takeaway
+                </a>
             </div>
+
           </div>
         </div>
         <div class="col-lg-6">
