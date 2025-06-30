@@ -14,8 +14,8 @@ class TransactionController extends Controller
     {
         //Eloquent
     // tampilkan 10 data terbaru lebih dulu
-    $transaction = Transaction::orderByDesc('id')   // atau ->latest()
-                               ->paginate(10);
+    $transaction = Transaction::orderByDesc('tgl_Pemesanan')->paginate(10);
+
 
     return view('transaction.index', compact('transaction'));
     }
@@ -70,8 +70,8 @@ class TransactionController extends Controller
     public function DetailOrder(Transaction $transaction)
     {
     // sama: terbaru → terlama
-    $order = Transaction::orderByDesc('id')          // atau ->latest()
-                        ->paginate(10);
+    $order = Transaction::orderByDesc('tgl_Pemesanan')->paginate(10);
+
 
     return view('admin.order', ['transaction' => $order]);
     }
