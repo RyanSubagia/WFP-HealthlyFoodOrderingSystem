@@ -5,6 +5,9 @@ Admin Kategori
 @endsection
 
 @section('container')
+@php
+    $role = auth()->user()->role;
+@endphp
 <h1 class="card-title">Categories</h1>
                 @if($category)
                 <div class="container-admin-table">
@@ -16,7 +19,9 @@ Admin Kategori
                                     <th>Food Type</th>
                                     <th>Quantity</th>
                                     <th>Food List</th>
+                                    @if ($role === 'admin')
                                     <th>Action</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,6 +77,7 @@ Admin Kategori
                                           @endpush
                                         </ul>
                                       </td>
+                                      @if ($role === 'admin')
                                       <td>
                                         <div>
                                         {{-- Modal Edit --}}
@@ -161,10 +167,12 @@ Admin Kategori
                                           </script>
                                         </div>
                                       </td>
+                                      @endif
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        @if ($role === 'admin')
                         <div>
                           <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#btnFormModal">+ New Category</button>
                             @push('modals')
@@ -194,6 +202,7 @@ Admin Kategori
                           </div>
                             @endpush
                         </div>
+                        @endif
                         <div class="d-flex justify-content-center mt-4">
                             {{ $category->links('pagination::bootstrap-4') }}
                         </div>

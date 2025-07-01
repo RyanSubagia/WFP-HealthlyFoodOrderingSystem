@@ -5,6 +5,9 @@ Admin Product
 @endsection
 
 @section('container')
+@php
+    $role = auth()->user()->role;
+@endphp
 <h1 class="card-title">Products</h1>
                 @if($food)
                 <div class="container-admin-table">
@@ -17,7 +20,9 @@ Admin Product
                                     <th>Nutrition Facts</th>
                                     <th>Description</th>
                                     <th>Price</th>
+                                    @if ($role === 'admin')
                                     <th>Action</th>
+                                    @endif
                                     
                                 </tr>
                             </thead>
@@ -96,6 +101,7 @@ Admin Product
                                         <td>
                                             {{ $item->price }}
                                         </td>
+                                        @if ($role === 'admin')
                                         <td>
                                         <div>
                                         {{-- Modal Edit --}}
@@ -191,10 +197,12 @@ Admin Product
                                           </script>
                                         </div>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        @if ($role === 'admin')
                         <div>
                           <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#btnFormModal">+ New Menu</button>
                             @push('modals')
@@ -245,6 +253,7 @@ Admin Product
                           </div>
                             @endpush
                         </div>
+                        @endif
                         <div class="d-flex justify-content-center mt-4">
                             {{ $food->links('pagination::bootstrap-4') }}
                         </div>
