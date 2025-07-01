@@ -41,7 +41,7 @@ Home
 
   <section class="features-section py-5">
     <div class="container">
-      <div class="row g-4"> <!-- Added g-4 for proper gutters -->
+      <div class="row g-4"> 
         <div class="col-md-4">
           <div class="feature-card text-center">
             <div class="feature-icon">

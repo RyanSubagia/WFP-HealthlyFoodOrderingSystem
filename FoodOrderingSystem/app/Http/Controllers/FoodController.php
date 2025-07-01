@@ -13,16 +13,22 @@ class FoodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+     public function index(Request $request) // <-- Add Request
     {
-        // Eloquent dengan relasi nutrition facts
-        $food = Food::with(['nutritionFact', 'category'])->get();
-        $category = Category::all();
-        
-        // return view('admin.products.product',compact('food','category'));
-        return view('customer.menu',compact('food','category'));
-    }
+        $query = Food::query();
 
+        // Check for search input
+        if ($request->has('search') && $request->input('search')) {
+            $searchTerm = $request->input('search');
+            $query->where('name', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('description', 'LIKE', "%{$searchTerm}%");
+        }
+
+        $food = $query->with(['nutritionFact', 'category'])->get();
+        $category = Category::all();
+
+        return view('customer.menu', compact('food', 'category'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -176,14 +182,25 @@ class FoodController extends Controller
         }
     }
 
-    public function DetailProduct()
+    public function DetailProduct(Request $request) // <-- Add Request
     {
-        $prod = Food::with(['nutritionFact', 'category'])
-                   ->orderBy('id', 'asc')
-                   ->paginate(7);
+        $query = Food::query();
+
+        // Add the same search logic
+        if ($request->has('search') && $request->input('search')) {
+            $searchTerm = $request->input('search');
+            $query->where('name', 'LIKE', "%{$searchTerm}%");
+        }
+
+        $prod = $query->with(['nutritionFact', 'category'])
+                      ->orderBy('id', 'asc')
+                      ->paginate(7); // Keep using paginate
+
         $category = Category::all();
+        
         return view("admin.products.product", ["food" => $prod, "category" => $category]);
     }
+
 
     public function getEditForm(Request $request)
     {

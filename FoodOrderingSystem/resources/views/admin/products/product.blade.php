@@ -11,6 +11,12 @@ Admin Product
 <h1 class="card-title">Products</h1>
                 @if($food)
                 <div class="container-admin-table">
+                  <form action="{{ route('admin.product_admin') }}" method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="search" placeholder="Search product name..." value="{{ request('search') }}">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </form>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
