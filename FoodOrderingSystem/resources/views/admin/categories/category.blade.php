@@ -39,7 +39,7 @@ Admin Kategori
                                           </button>
 
                                           @push ('modals')
-                                          <!-- Modal -->
+                                         
                                           <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                               <div class="modal-content">
@@ -80,7 +80,6 @@ Admin Kategori
                                       @if ($role === 'admin')
                                       <td>
                                         <div>
-                                        {{-- Modal Edit --}}
                                         <a href="#modalEdit" class="btn btn-info" data-bs-toggle="modal" onclick="getEditForm({{$item->id}})">Edit</a>
                                         @push('script')
                                         <script>
@@ -103,7 +102,6 @@ Admin Kategori
                                   <div class="modal-dialog modal-wide">
                                     <div class="modal-content">
                                     <div class="modal-body" id="modalContent">
-                                    {{-- You can put animated loading image here... --}}
                                     </div>
                                     </div>
                                   </div>
@@ -113,7 +111,7 @@ Admin Kategori
                                   <script>
                                     function saveDataUpdate(id) {
                                       var name = $('#name').val();
-                                      console.log(name); //debug->print to browser console
+                                      console.log(name); 
                                       $.ajax({
                                         type: 'POST',
                                         url: '{{ route("admin.category.saveDataUpdate") }}',
@@ -156,11 +154,22 @@ Admin Kategori
                                                 if (data.status === "oke") {
                                                   $('#tr_' + id).remove();
                                                   alert(data.msg);
+                                                } else if (data.status === "error") {
+                                                  alert("Error: " + data.msg);
                                                 }
                                               },
                                               error: function(xhr) {
-                                                console.error(xhr.responseText);
-                                                alert("Gagal menghapus data.");
+                                                try {
+                                                  var response = JSON.parse(xhr.responseText);
+                                                  if (response.status === "error") {
+                                                    alert("Error: " + response.msg);
+                                                  } else {
+                                                    alert("An error occurred while deleting the category.");
+                                                  }
+                                                } catch (e) {
+                                                  console.error(xhr.responseText);
+                                                  alert("An error occurred while deleting the category.");
+                                                }
                                               }
                                             });
                                           }

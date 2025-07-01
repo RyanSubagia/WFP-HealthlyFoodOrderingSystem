@@ -35,9 +35,7 @@ class Food extends Model
         return $this->hasOne(NutritionFact::class, 'food_id', 'id');
     }
 
-    /**
-     * Accessor untuk mendapatkan nutrition fact sebagai string
-     */
+    
     public function getFormattedNutritionAttribute()
     {
         if ($this->nutritionFact) {

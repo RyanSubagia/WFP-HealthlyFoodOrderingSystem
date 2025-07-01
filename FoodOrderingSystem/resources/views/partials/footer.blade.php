@@ -1,7 +1,6 @@
 <footer class="bg-light pt-5 pb-3 mt-5">
     <div class="container">
       <div class="row">
-        <!-- Logo and About -->
         <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
           <a class="navbar-brand mb-3 d-inline-block" href="#">
             <img src="{{ asset('img/logo/logo.png') }}" alt="Logo" style="height: 60px;">

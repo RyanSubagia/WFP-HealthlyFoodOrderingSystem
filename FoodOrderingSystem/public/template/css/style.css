@@ -601,10 +601,6 @@ body {
     }
 }
 
-/* ========================================
-   MODERN SUSHI RESTAURANT STYLES
-   ======================================== */
-
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -646,9 +642,6 @@ body {
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ========================================
-   GLOBAL STYLES
-   ======================================== */
 
 * {
   margin: 0;
@@ -700,9 +693,7 @@ img {
   height: auto;
 }
 
-/* ========================================
-   NAVIGATION STYLES
-   ======================================== */
+/* navugation */
 
 .navbar {
   background: rgba(255, 255, 255, 0.95) !important;
@@ -787,9 +778,6 @@ img {
   background-color: var(--soft-gray);
 }
 
-/* ========================================
-   HERO SECTION STYLES
-   ======================================== */
 
 .hero-section {
   background: linear-gradient(135deg, #FFF8F3 0%, #FFF2E6 100%);
@@ -885,9 +873,6 @@ img {
   50% { transform: translateY(-20px); }
 }
 
-/* ========================================
-   FEATURES SECTION STYLES
-   ======================================== */
 
 .features-section {
   padding: var(--section-padding);
@@ -942,10 +927,7 @@ img {
   line-height: 1.6;
 }
 
-/* ========================================
-   OUR STORY SECTION STYLES
-   ======================================== */
-
+/* about our story */
 .our-story-section {
   padding: var(--section-padding);
   background: var(--soft-gray);
@@ -1018,10 +1000,7 @@ img {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-
-/* ========================================
-   ABOUT PAGE STYLES
-   ======================================== */
+/* about */
 
 .about-hero {
   position: relative;
@@ -1130,9 +1109,7 @@ img {
   color: var(--primary-orange-dark);
 }
 
-/* ========================================
-   MENU PAGE STYLES
-   ======================================== */
+/* menu */
 
 .card {
   border: 1px solid var(--light-gray);
@@ -1203,9 +1180,6 @@ img {
   color: var(--medium-gray);
 }
 
-/* ========================================
-   AUTHENTICATION STYLES
-   ======================================== */
 
 .auth-wrapper {
   min-height: 100vh;
@@ -1401,9 +1375,7 @@ img {
   font-weight: 500;
 }
 
-/* ========================================
-   FOOTER STYLES
-   ======================================== */
+/* footer */
 
 footer {
   background: linear-gradient(135deg, #fff0e6 80%);
@@ -1474,9 +1446,6 @@ footer .small {
   font-size: 0.9rem;
 }
 
-/* ========================================
-   UTILITY CLASSES
-   ======================================== */
 
 .text-primary-orange {
   color: var(--primary-orange) !important;
@@ -1502,9 +1471,6 @@ footer .small {
   background-color: var(--secondary-green) !important;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
 
 @media (max-width: 768px) {
   .hero-title {
@@ -1560,9 +1526,7 @@ footer .small {
   }
 }
 
-/* ========================================
-   ANIMATIONS
-   ======================================== */
+/* animation */
 
 @keyframes fadeInUp {
   from {
@@ -1618,9 +1582,7 @@ footer .small {
   animation-delay: 0.4s;
 }
 
-/* ========================================
-   PRINT STYLES
-   ======================================== */
+
 
 @media print {
   .navbar,

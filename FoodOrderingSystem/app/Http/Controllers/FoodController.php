@@ -89,7 +89,7 @@ class FoodController extends Controller
      */
     public function edit(Food $listmakanan)
     {
-        $listmakanan->load('nutritionFact'); // Load relasi nutrition fact
+        $listmakanan->load('nutritionFact'); 
         return view('admin.products.editForm', compact('listmakanan'));
     }
 

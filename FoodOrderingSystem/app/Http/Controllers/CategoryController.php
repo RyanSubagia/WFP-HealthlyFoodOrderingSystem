@@ -67,14 +67,38 @@ class CategoryController extends Controller
 
     public function destroy(Request $request)
     {
-        $id = $request->id;
-        $category = Category::find($id);
-        $category->delete();
-        
-        return response()->json(array(
-            "status" =>"oke",
-            "msg"=>"Delete success!"
-        ),200);  
+        try {
+            $id = $request->id;
+            $category = Category::find($id);
+            
+            if (!$category) {
+                return response()->json(array(
+                    "status" => "error",
+                    "msg" => "Category not found!"
+                ), 404);
+            }
+            
+            $foodCount = $category->foods()->count();
+            
+            if ($foodCount > 0) {
+                return response()->json(array(
+                    "status" => "error",
+                    "msg" => "Cannot delete category '{$category->name}' because it has {$foodCount} food item(s). Please delete or move the food items first."
+                ), 400);
+            }
+            $category->delete();
+            
+            return response()->json(array(
+                "status" => "oke",
+                "msg" => "Category deleted successfully!"
+            ), 200);
+            
+        } catch (\Exception $e) {
+            return response()->json(array(
+                "status" => "error",
+                "msg" => "An error occurred while deleting the category: " . $e->getMessage()
+            ), 500);
+        }
     }
 
     public function DetailCategory()
@@ -94,8 +118,6 @@ class CategoryController extends Controller
                 'body' => view('admin.showListFoods', compact('name', 'data'))->render()
               ), 200);
     }
-
-
 
     public function showHighestFoods() {
         $highestFoodCategory = Category::withCount('foods')
@@ -139,4 +161,4 @@ class CategoryController extends Controller
     //             The highest amount of food is  <b>".$highestFoodCategory->name."</b></div>"
     //         ), 200);
     // }
-}
+}   

@@ -127,7 +127,6 @@ Admin Product
                                   <div class="modal-dialog modal-wide">
                                     <div class="modal-content">
                                     <div class="modal-body" id="modalContent">
-                                    {{-- You can put animated loading image here... --}}
                                     </div>
                                     </div>
                                   </div>
