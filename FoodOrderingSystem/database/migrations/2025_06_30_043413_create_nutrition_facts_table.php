@@ -14,13 +14,12 @@ return new class extends Migration
         // 1. Buat tabel nutrition_facts
         Schema::create('nutrition_facts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('food_id')->unique(); // One-to-one relationship
+            $table->unsignedBigInteger('food_id')->unique();
             $table->integer('calories')->nullable();
-            $table->decimal('protein', 5, 2)->nullable(); // dalam gram
-            $table->decimal('fat', 5, 2)->nullable(); // dalam gram
-            $table->decimal('carbohydrates', 5, 2)->nullable(); // dalam gram
-            $table->decimal('fiber', 5, 2)->nullable(); // dalam gram
-            $table->text('additional_info')->nullable(); // untuk info tambahan
+            $table->decimal('protein', 5, 2)->nullable();
+            $table->decimal('fat', 5, 2)->nullable();
+            $table->decimal('carbohydrates', 5, 2)->nullable();
+            $table->decimal('fiber', 5, 2)->nullable();
             $table->timestamps();
 
             // Foreign key constraint
