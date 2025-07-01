@@ -41,6 +41,7 @@
                 @endauth
             </ul>
 
+            <!-- Login button or user dropdown -->
             @if (auth()->check())
                 <div class="dropdown ms-4">
                     <button class="btn dropdown-toggle user-greeting" type="button" id="userDropdown"
