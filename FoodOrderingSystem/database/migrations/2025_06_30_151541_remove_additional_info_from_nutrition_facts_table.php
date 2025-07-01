@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('nutrition_facts', function (Blueprint $table) {
-            $table->dropColumn('additional_info');
-        });
+        if (Schema::hasColumn('nutrition_facts', 'additional_info')) {
+            Schema::table('nutrition_facts', function (Blueprint $table) {
+                $table->dropColumn('additional_info');
+            });
+        }
     }
 
     /**
@@ -21,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('nutrition_facts', function (Blueprint $table) {
-            $table->text('additional_info')->nullable(); // Tambahkan lagi jika di-rollback
-        });
+        if (Schema::hasColumn('nutrition_facts', 'additional_info')) {       
+            Schema::table('nutrition_facts', function (Blueprint $table) {
+                $table->text('additional_info')->nullable(); // Tambahkan lagi jika di-rollback
+            });
+        }
     }
 };
