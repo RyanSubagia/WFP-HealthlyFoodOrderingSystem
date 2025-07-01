@@ -15,58 +15,8 @@ class TransactionController extends Controller
         //Eloquent
     // tampilkan 10 data terbaru lebih dulu
     $transaction = Transaction::orderByDesc('tgl_Pemesanan')->paginate(10);
-
-
-    return view('transaction.index', compact('transaction'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Transaction $transaction)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Transaction $transaction)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Transaction $transaction)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Transaction $transaction)
-    {
-        //
-    }
     public function DetailOrder(Transaction $transaction)
     {
     // sama: terbaru → terlama
@@ -76,7 +26,6 @@ class TransactionController extends Controller
     return view('admin.order', ['transaction' => $order]);
     }
 
-        // Tambahkan di bawah method index()
     public function details(Transaction $transaction)
     {
         // Ambil semua item untuk transaksi ini

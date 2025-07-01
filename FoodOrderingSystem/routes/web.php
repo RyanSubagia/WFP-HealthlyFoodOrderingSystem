@@ -84,8 +84,7 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::post('/ajax/category/getEditForm', [CategoryController::class, 'getEditForm'])->name('category.getEditForm');
     Route::post('/ajax/category/saveDataUpdate', [CategoryController::class, 'saveDataUpdate'])->name('category.saveDataUpdate');
 
-    // Order, Employee and Customer management
-    Route::get('/orders', [TransactionController::class, "DetailOrder"])->name('order_admin');
+    // Employee and Customer management
     Route::get('/customers', [UserController::class, "DetailCustomer"])->name('customer_admin');
     Route::get('/employees', [UserController::class, "DetailEmployee"])->name('employee_admin');
     Route::post('/employee/employee/store', [UserController::class, 'store'])->name('addEmployee.store');
@@ -97,6 +96,8 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     Route::resource('users', UserController::class);
     Route::resource('transactions', TransactionController::class);
     
+    // Order
+    Route::get('/orders', [TransactionController::class, "DetailOrder"])->name('order_admin');
     Route::get('/admin/orders/{transaction}/details',
         [TransactionController::class, 'details']
     )->name('orders.details');

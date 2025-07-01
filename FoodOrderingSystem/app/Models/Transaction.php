@@ -33,8 +33,6 @@ class Transaction extends Model
         'status',
     ];
 
-
-
     public function payments(): BelongsTo
     {
         return $this->belongsTo(Payments::class, 'payments_id');

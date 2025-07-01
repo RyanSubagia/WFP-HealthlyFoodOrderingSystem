@@ -217,22 +217,38 @@ Admin Product
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
-                                            placeholder="Enter Meals Name">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Meals Name">
                                         <br>
-                                        <label for="name">Nutrition Fact</label>
-                                        <textarea class="form-control" id="nutrition_fact" name="nutrition_fact" aria-describedby="name"
-                                            placeholder="Enter Nutrition Facts"></textarea>
+
+                                        <label for="calories">Calories</label>
+                                        <input type="text" class="form-control" id="calories" name="calories">
                                         <br>
-                                        <label for="name">Description</label>
-                                        <textarea class="form-control" id="description" name="description" aria-describedby="name"
-                                            placeholder="Enter Description"></textarea>
+
+                                        <label for="protein">Protein</label>
+                                        <input type="text" class="form-control" id="protein" name="protein">
                                         <br>
-                                        <label for="name">Price</label>
-                                        <input type="number" class="form-control" id="price" name="price" aria-describedby="name"
-                                            placeholder="Enter Price">
+
+                                        <label for="fat">Fat</label>
+                                        <input type="text" class="form-control" id="fat" name="fat">
                                         <br>
-                                        <label for="name">Category</label>
+
+                                        <label for="carbohydrates">Carbohydrates</label>
+                                        <input type="text" class="form-control" id="carbohydrates" name="carbohydrates">
+                                        <br>
+
+                                        <label for="fiber">Fiber</label>
+                                        <input type="text" class="form-control" id="fiber" name="fiber">
+                                        <br>
+
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control" id="description" name="description" placeholder="Enter Description"></textarea>
+                                        <br>
+
+                                        <label for="price">Price</label>
+                                        <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price">
+                                        <br>
+
+                                        <label for="category_id">Category</label>
                                         <select name="category_id" id="category_id" class="form-control">
                                             <option value="">-- Select Category --</option>
                                             @foreach ($category as $c)
@@ -240,9 +256,11 @@ Admin Product
                                             @endforeach
                                         </select>
                                         <br>
+
                                         <label for="image">Image</label>
                                         <input type="file" class="form-control" id="image" name="image">
                                     </div>
+
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>
