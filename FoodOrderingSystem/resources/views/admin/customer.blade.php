@@ -16,6 +16,8 @@ Admin Customer
                                     <th>Email</th>
                                     <th>Point</th>
                                     <th>Telephone Number</th>
+                                    <th>Jumlah Transaksi</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,6 +35,7 @@ Admin Customer
                                         <td>
                                             {{ $c->no_telp }}
                                         </td>
+<td>{{ $c->transactions_count }}</td>
 
                                     </tr>
                                 @endforeach

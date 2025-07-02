@@ -54,4 +54,10 @@ class TransactionController extends Controller
             ? response()->json(['success' => true])
             : back()->with('success', 'Status updated');
     }
+    public function status()
+    {
+    $transaction = Transaction::where('status', '!=','completed')->orderBy('tgl_Pemesanan')->paginate(10);
+
+    return view('admin.status', ['transaction' => $transaction]);
+    }
 }

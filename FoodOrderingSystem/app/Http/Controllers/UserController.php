@@ -16,16 +16,16 @@ class UserController extends Controller
     {
         //Eloquent
         $user = User::all();
-        
+
         //method 1
-        return view('customer.home',compact('user'));
+        return view('customer.home', compact('user'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
 
-     
+
     public function create()
     {
         //
@@ -37,15 +37,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-         $data = new User();
+        $data = new User();
         $data->name = $request->get('name');
         $data->email = $request->get('email');
         $data->password = Hash::make($request->get('password'));
         $data->role = 'employee';
 
         $data->save();
-        return redirect()->route('admin.employee_admin')->with('status','Success updated data!');
-
+        return redirect()->route('admin.employee_admin')->with('status', 'Success updated data!');
     }
 
     /**
@@ -67,10 +66,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
-    {
-        
-    }
+    public function update(Request $request, User $user) {}
 
     /**
      * Remove the specified resource from storage.
@@ -97,7 +93,6 @@ class UserController extends Controller
                 'status' => 'oke',
                 'msg' => 'Berhasil menghapus data!'
             ]);
-
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([
@@ -110,48 +105,49 @@ class UserController extends Controller
 
     public function DetailCustomer()
     {
-        // Ambil data customer dan paginate
-        $cust = User::where('role', 'customer')->paginate(10);
-    
+        $cust = User::where('role', 'customer')
+            ->withCount('transactions') 
+            ->paginate(10);
+
         return view("admin.customer", ["customer" => $cust]);
     }
+
     public function DetailEmployee()
     {
         // Ambil data customer dan paginate
         $employee = User::where('role', 'employee')->paginate(10);
-    
+
         return view("admin.employee.employee", ["employee" => $employee]);
     }
-    
+
     public function getEditForm(Request $request)
-{
-    $data = User::find($request->id);
-    if (!$data) {
-        return response()->json(['status' => 'error', 'msg' => 'Data not found.']);
+    {
+        $data = User::find($request->id);
+        if (!$data) {
+            return response()->json(['status' => 'error', 'msg' => 'Data not found.']);
+        }
+
+        return response()->json([
+            'status' => 'ok',
+            'msg' => view('admin.employee.editForm', compact('data'))->render()
+        ]);
     }
 
-    return response()->json([
-        'status' => 'ok',
-        'msg' => view('admin.employee.editForm', compact('data'))->render()
-    ]);
-}
+    public function saveDataUpdate(Request $request)
+    {
+        $data = User::find($request->id);
+        if (!$data) {
+            return response()->json(['status' => 'error', 'msg' => 'Data not found.']);
+        }
 
-public function saveDataUpdate(Request $request)
-{
-    $data = User::find($request->id);
-    if (!$data) {
-        return response()->json(['status' => 'error', 'msg' => 'Data not found.']);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->no_telp = $request->no_telp;
+        if ($request->password) {
+            $data->password = bcrypt($request->password);
+        }
+        $data->save();
+
+        return response()->json(['status' => 'oke', 'msg' => 'Berhasil update employee!']);
     }
-
-    $data->name = $request->name;
-    $data->email = $request->email;
-    $data->no_telp = $request->no_telp;
-    if ($request->password) {
-        $data->password = bcrypt($request->password);
-    }
-    $data->save();
-
-    return response()->json(['status' => 'oke', 'msg' => 'Berhasil update employee!']);
-}
-
 }

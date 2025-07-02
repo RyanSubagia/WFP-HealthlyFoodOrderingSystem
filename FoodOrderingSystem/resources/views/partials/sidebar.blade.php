@@ -45,6 +45,12 @@
                 <span>Customer</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.status') }}" class="nav-link {{ request()->routeIs('admin.status') ? 'active' : '' }}">
+                <i class="bi bi-person-lines-fill"></i>
+                <span>Order not completed</span>
+            </a>
+        </li>
         @endif
         
         <li class="nav-item logout-item">

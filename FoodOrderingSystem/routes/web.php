@@ -98,6 +98,8 @@ Route::middleware(['auth', 'role:admin,employee'])->prefix('admin')->name('admin
     
     // Order
     Route::get('/orders', [TransactionController::class, "DetailOrder"])->name('order_admin');
+        Route::get('/status', [TransactionController::class, 'status'])->name('status');
+
     Route::get('/admin/orders/{transaction}/details',
         [TransactionController::class, 'details']
     )->name('orders.details');
